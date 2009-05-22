@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^\/atk14demo/public\/
+RewriteRule .* dispatcher.php
