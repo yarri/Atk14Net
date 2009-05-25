@@ -94,116 +94,144 @@ class Atk14Global{
 		return $out;
 	}
 
-	function getPreparedRoutes($namespace = ""){
-		static $ROUTES_STORE;
+	/**
+	* Vrati popis routes v internim rozvinutem formatu.
+	* Je mozne filtrovat routes pouze pro dany lang/controller/action:
+	* $routes = $ATK14_GLOBAL->getPreparedRoutes("",array("path" => "en/product/detail"));
+	*/
+	function getPreparedRoutes($namespace = "",$options = array()){
+		static $ROUTES_STORE, $ROUTES_BY_PATH, $ROUTES_WITH_NO_PATH;
 
-		if(!isset($ROUTES_STORE)){ $ROUTES_STORE = array(); }
+		$options = array_merge(array(
+			"path" => null
+		),$options);
 
-		if(isset($ROUTES_STORE[$namespace])){ return $ROUTES_STORE[$namespace]; }
 
-		$_name = "routes";
-		if(strlen($namespace)>0){ $_name .= "[$namespace]"; }
-		$routes = $this->getValue("$_name");
-		settype($routes,"array");
-
-		// nasleduji 4 pravidla, ktere by mely byt na konci seznamu
-		// tyto pravidla zachyti vsechno
-		if(!isset($routes[""])){
-				$routes[""] = array(
-					"lang" => "cs",
-					"__path__" => "main/index",
-					"__page_title__" => "My Application",
-					"__page_description__" => "my beautiful application"
-				);
+		if(!isset($ROUTES_STORE)){
+			$ROUTES_STORE = array();
+			$ROUTES_BY_PATH = array();
+			$ROUTES_WITH_NO_PATH = array();
 		}
-		if(!isset($routes["<lang>"])){
-				$routes["<lang>"] = array(
-					"__path__" => "main/index",
-				);
-		}			
-		if(!isset($routes["<lang>/<controller>"])){
-				// pokud action chybi, uvazuje se automaticky "index"
-				$routes["<lang>/<controller>"] =  array(
-					"action" => "index",
-				);
-		}	
-		if(!isset($routes["<lang>/<controller>/<action>"])){
-				$routes["<lang>/<controller>/<action>"] = array();
-		}			
 
-		$out = array();
+		if(!isset($ROUTES_STORE[$namespace])){
 
-		reset($routes);
-		$_last_title = "";
-		$_last_description = "";
-		while(list($key,$value) = each($routes)){
-			// $value["__path__"] = "domain/registration"  -> $value["controller"] = "domain", $value["action"] = "registration"
-			if(isset($value["__path__"])){ 
-				preg_match("/^(.+)\\/([a-z0-9_]+)$/",$value["__path__"],$matches);
-				$value["controller"] = $matches[1];
-				$value["action"] = $matches[2];
-				unset($value["__path__"]);
+			$_name = "routes";
+			if(strlen($namespace)>0){ $_name .= "[$namespace]"; }
+			$routes = $this->getValue("$_name");
+			settype($routes,"array");
+
+			// nasleduji 4 pravidla, ktere by mely byt na konci seznamu
+			// tyto pravidla zachyti vsechno
+			if(!isset($routes[""])){
+					$routes[""] = array(
+						"lang" => "cs",
+						"__path__" => "main/index",
+						"__page_title__" => "My Application",
+						"__page_description__" => "my beautiful application"
+					);
 			}
-			if(!isset($value["__page_title__"])){ $value["__page_title__"] = $_last_title; }
-			if(!isset($value["__page_description__"])){ $value["__page_description__"] = $_last_description; }
+			if(!isset($routes["<lang>"])){
+					$routes["<lang>"] = array(
+						"__path__" => "main/index",
+					);
+			}			
+			if(!isset($routes["<lang>/<controller>"])){
+					// pokud action chybi, uvazuje se automaticky "index"
+					$routes["<lang>/<controller>"] =  array(
+						"action" => "index",
+					);
+			}	
+			if(!isset($routes["<lang>/<controller>/<action>"])){
+					$routes["<lang>/<controller>/<action>"] = array();
+			}			
 
-			$_last_title = $value["__page_title__"];
-			$_last_description = $value["__page_description__"];
+			$out = array();
 
-			if(preg_match_all("/([a-z]{2}):([^\\s]+)/",$key,$matches)){
-				for($i=0;$i<sizeof($matches[0]);$i++){
-					$lang = $matches[1][$i];
-					$url = $matches[2][$i];
-					$value["lang"] = $lang;
-					$out[$url] = $value;
+			reset($routes);
+			$_last_title = "";
+			$_last_description = "";
+			while(list($key,$value) = each($routes)){
+				// $value["__path__"] = "domain/registration"  -> $value["controller"] = "domain", $value["action"] = "registration"
+				if(isset($value["__path__"])){ 
+					preg_match("/^(.+)\\/([a-z0-9_]+)$/",$value["__path__"],$matches);
+					$value["controller"] = $matches[1];
+					$value["action"] = $matches[2];
+					unset($value["__path__"]);
 				}
-			}else{
-				$out[$key] = $value; 
-			}
-		}
-		$routes = $out;
+				if(!isset($value["__page_title__"])){ $value["__page_title__"] = $_last_title; }
+				if(!isset($value["__page_description__"])){ $value["__page_description__"] = $_last_description; }
 
-		// doplneni chybejicich vzoru
-		// $routes["domain-registration/<domain_name>"] = array(); -> $routes["domain-registration/<domain_name>"] = array("domain_name" => "/.*/");
-		reset($routes);
-		while(list($key,$value) = each($routes)){
-			if(preg_match_all("/<([^>]+)>/",$key,$matches)){
-				for($i=0;$i<sizeof($matches[0]);$i++){
-					$_name = $matches[1][$i];
-					if(!isset($value[$_name])){
-						if($_name=="controller"){
-							$value["controller"] = "/[a-z][a-z_0-9]*/";
-						}elseif($_name=="action"){
-							$value["action"] = "/[a-z][a-z_0-9]*/";
-						}elseif($_name=="lang"){
-							$value["lang"] = "/[a-z]{2}/";
-						}else{
-							$value[$_name] = "/.*/";
+				$_last_title = $value["__page_title__"];
+				$_last_description = $value["__page_description__"];
+
+				if(preg_match_all("/([a-z]{2}):([^\\s]+)/",$key,$matches)){
+					for($i=0;$i<sizeof($matches[0]);$i++){
+						$lang = $matches[1][$i];
+						$url = $matches[2][$i];
+						$value["lang"] = $lang;
+						$out[$url] = $value;
+					}
+				}else{
+					$out[$key] = $value; 
+				}
+			}
+			$routes = $out;
+
+			// doplneni chybejicich vzoru
+			// $routes["domain-registration/<domain_name>"] = array(); -> $routes["domain-registration/<domain_name>"] = array("domain_name" => "/.*/");
+			reset($routes);
+			while(list($key,$value) = each($routes)){
+				if(preg_match_all("/<([^>]+)>/",$key,$matches)){
+					for($i=0;$i<sizeof($matches[0]);$i++){
+						$_name = $matches[1][$i];
+						if(!isset($value[$_name])){
+							if($_name=="controller"){
+								$value["controller"] = "/[a-z][a-z_0-9]*/";
+							}elseif($_name=="action"){
+								$value["action"] = "/[a-z][a-z_0-9]*/";
+							}elseif($_name=="lang"){
+								$value["lang"] = "/[a-z]{2}/";
+							}else{
+								$value[$_name] = "/.*/";
+							}
 						}
 					}
 				}
+
+				//zde se nastavuje defaultni jazyk
+				if(!isset($value["lang"])){ $value["lang"] = "cs"; }
+
+				$routes[$key] = $value;
 			}
 
-			//zde se nastavuje defaultni jazyk
-			if(!isset($value["lang"])){ $value["lang"] = "cs"; }
-
-			$routes[$key] = $value;
-		}
-
-		foreach($routes as $uri => $params){
-			foreach($params as $name => $val){
-				if(preg_match("/^__/",$name)){ continue; }
-				$params[$name] = array(
-					"regexp" => (bool)preg_match("/^\\/.*\\/$/",$val),
-					"value" => $val,
-				);
-				$routes[$uri] = $params;
+			foreach($routes as $uri => $params){
+				foreach($params as $name => $val){
+					if(preg_match("/^__/",$name)){ continue; }
+					$params[$name] = array(
+						"regexp" => (bool)preg_match("/^\\/.*\\/$/",$val),
+						"value" => $val,
+					);
+					$routes[$uri] = $params;
+				}
 			}
+
+			foreach($routes as $uri => $params){
+				if(!$params["lang"]["regexp"] && !$params["controller"]["regexp"] && !$params["action"]["regexp"]){
+					$ROUTES_BY_PATH[$namespace][$params["lang"]["value"]."/".$params["controller"]["value"]."/".$params["action"]["value"]][$uri] = $params;
+				}else{
+					$ROUTES_WITH_NO_PATH[$namespace][$uri] = $params;
+				}
+			}
+
+			$ROUTES_STORE[$namespace] = $routes;
 		}
 
-		$ROUTES_STORE[$namespace] = $routes;
-
-		return $routes;
+		if(strlen($path = $options["path"])){
+			if(!isset($ROUTES_BY_PATH[$namespace][$path])){ return $ROUTES_WITH_NO_PATH[$namespace]; }
+			return $ROUTES_BY_PATH[$namespace][$path];
+		}
+		
+		return $ROUTES_STORE[$namespace];
 	}
 }
 ?>

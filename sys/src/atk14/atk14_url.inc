@@ -153,7 +153,7 @@ class Atk14Url{
 			$options["with_hostname"] = true;
 		}
 
-		$routes = $ATK14_GLOBAL->getPreparedRoutes($params["namespace"]);
+		$routes = $ATK14_GLOBAL->getPreparedRoutes($params["namespace"],array("path" => "$params[lang]/$params[controller]/$params[action]"));
 		$get_params = array();
 
 		$_params = $params;

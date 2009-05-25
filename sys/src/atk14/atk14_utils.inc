@@ -11,8 +11,9 @@ class Atk14Utils{
 		}
 		$dir = opendir($path);
 		while($file = readdir($dir)){
-			if(preg_match("/.inc$/",$file) && is_file("$path.$file")){
-				require_once($ATK14_GLOBAL->getApplicationPath()."conf/$file");
+			if(preg_match("/.inc$/",$file) && is_file($path.$file)){
+				require_once($path.$file);
+				//require_once($ATK14_GLOBAL->getApplicationPath()."conf/$file");
 			}
 		}
 		closedir($dir);
