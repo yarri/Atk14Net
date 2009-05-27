@@ -39,8 +39,9 @@ class Field
                 'required'       => true, 
                 'widget'         => null, 
                 'label'          => null, 
-                'initial'        => null, 
-                'help_text'      => '', 
+                'initial'        => null,
+                'help_text'      => '', // like "In this field you can write down your favourite numbers"
+                'hint'           => '', // value format hint, like "1,3,7"
                 'error_messages' => null,
                 'disabled'       => false,
             ),
@@ -63,6 +64,7 @@ class Field
         $this->label = $options['label'];
         $this->initial = $options['initial'];
         $this->help_text = $options['help_text'];
+        $this->hint = $options['hint'];
         $this->disabled = $options['disabled'];
         if (is_null($options['widget'])) {
             $widget = $this->widget;

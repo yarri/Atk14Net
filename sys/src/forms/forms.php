@@ -115,12 +115,8 @@ class BoundField
         else {
             $this->label = $this->field->label;
         }
-        if ($field->help_text) {
-            $this->help_text = $field->help_text;
-        }
-        else {
-            $this->help_text = '';
-        }
+        $this->help_text = $field->help_text;
+        $this->hint = $field->hint;
         $this->required = $this->field->required;
         $this->disabled = $this->field->disabled;
     }
