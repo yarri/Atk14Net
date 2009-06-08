@@ -2,7 +2,7 @@
 class UsersController extends ApplicationController{
 	function overview(){
 		$sorting = new Atk14Sorting($this->params);
-		$sorting->add("name",array("title" => _("Sort by Name")));
+		$sorting->add("name",array("title" => _("Sort by Name"), "order_by" => "UPPER(name)"));
 		$sorting->add("login",array("title" => _("Sort by Login")));
 		$sorting->add("created_at",array("title" => _("Sort by date of registration")));
 
@@ -25,6 +25,12 @@ class UsersController extends ApplicationController{
 			$this->flash->notice(_("The user has been updated successfuly."));
 			$this->_redirect_to($this->return_uri);
 		}
+	}
+
+	function delete(){
+		if($this->request->post() && ($user = User::ById($this->params->g("id","integer")))){
+			//$user->destroy();
+		}	
 	}
 
 	function _before_filter(){

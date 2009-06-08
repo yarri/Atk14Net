@@ -3,6 +3,9 @@
 	<title>{$page_title|h} | Store of the year</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta name="description" content="{$page_description}" />
+	<meta name="x-root" content="{$root|h}" />
+	<meta name="x-lang" content="{$lang|h}" />
+	<meta name="x-action" content="{h}{$controller}/{$action}{/h}" />
 
   {stylesheet_link_tag file="blueprint/screen.css" media="screen, projection"}
   {stylesheet_link_tag file="blueprint/print.css" media="print"}
@@ -10,12 +13,20 @@
   {stylesheet_link_tag file="blueprint/ie.css" media="screen, projection"}
   <![endif]-->
 
-	{javascript_script_tag file="jquery/jquery.js"}
-	{javascript_script_tag file="jquery/plugins/livequery/jquery.livequery.js"}
+	{javascript_script_tag file="jquery.php"}
 	{javascript_script_tag file="atk14.js"}
 
-	{placeholder for="js"}
 	{placeholder for="head"}
+
+	<script type="text/javascript">
+	 <!--
+		{placeholder for="js"}
+		$(function() \{
+			{placeholder for="domready"}
+		\});
+	 // -->
+	</script>
+
 </head>
 <body>
 	<div class="container">  

@@ -1,13 +1,18 @@
 <?
 /**
+* 
 */
 function smarty_block_a_remote($params, $content, &$smarty, &$repeat)
 {
 	$attributes = array();
 
 	$params = array_merge(array(
-		"_method" => "get"
+		"_method" => "get",
+		"__be_pretty_ugly__" => false // internal parameter, don't use it outside
 	),$params);
+
+	$be_pretty_ugly = $params["__be_pretty_ugly__"];
+	unset($params["__be_pretty_ugly__"]);
 
 	$method = strtolower($params["_method"]);
 	unset($params["_method"]);
@@ -16,13 +21,18 @@ function smarty_block_a_remote($params, $content, &$smarty, &$repeat)
 
 	$attrs = Atk14Utils::ExtractAttributes($params);
 	$attrs["href"] = $url;
-	if(0 && "be_pretty_ugly"){
-		$attrs["onclick"] = "$('body').css('cursor','wait'); $.ajax({ type: 'GET', url: $(this).attr('href'), dataType: 'script', complete: function(){ $('body').css('cursor','default'); } }); return false;";
-	}elseif(0 && "be_ugly"){
-		$attrs["onclick"]= "return parent.remote_link(this);";
-	}elseif("be_nice"){
+	if($be_pretty_ugly){
+		// TODO: doesn't check existance of the JS function before_remote_link()
+		$_data = "";
+		$_type = "GET";
+		if($method=="post"){
+			$_data = ", data: ''";
+			$_type = "POST";
+		}
+		$attrs["onclick"] = "$('body').css('cursor','wait'); $.ajax({ type: '$_type', url: $(this).attr('href')$_data, dataType: 'script', complete: function(){ $('body').css('cursor','default'); } }); return false;";
+	}else{
 		if(!isset($attrs["class"])){ $attrs["class"] = ""; }
-		$_class = $method=="post" ? "remote_post_link" : "remote_link";
+		$_class = $method=="post" ? "remote_link post" : "remote_link";
 		$attrs["class"] = trim("$attrs[class] $_class");
 	}
 

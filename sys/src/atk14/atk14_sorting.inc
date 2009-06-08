@@ -8,10 +8,18 @@ class Atk14Sorting{
 
 	function add($key,$options = array()){
 		$options = array_merge(array(
-			"ascending_ordering" => "$key ASC",
-			"descending_ordering" => "$key DESC",
+			"order_by" => "$key",
+			"ascending_ordering" => null,
+			"descending_ordering" => null,
 			"title" => _("Sort table by this column"),
 		),$options);
+
+		if(!isset($options["ascending_ordering"])){
+			$options["ascending_ordering"] = "$options[order_by] ASC";
+		}
+		if(!isset($options["descending_ordering"])){
+			$options["descending_ordering"] = "$options[order_by] DESC";
+		}
 
 		$this->_Ordering[$key] = $options;
 		$this->_OrderingStrings["$key-asc"] = $options["ascending_ordering"];

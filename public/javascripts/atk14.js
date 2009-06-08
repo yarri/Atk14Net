@@ -1,100 +1,138 @@
-function noSpamFilter(){
-	$('.atk14_no_spam').each(function(i){
-		var el = $(this);
-		var address = el.html();
-		address = address.replace("[at-sign]","@");
-		address = address.replace("[dot-sign]",".");
-		el.html('<a href="mailto:'+address+'">'+address+'</a>');
-		el.removeClass('atk14_no_spam');		
-	});
-}
-
-function randomizeUrlForAjax(url){
-	if(url.indexOf('?')>0){
-		url = url + '&';
-	}else{
-		url = url + '?';
-	}
-	url = url + '_=' + (Math.random());
-	return url;
-}
-
-function evaluateSourceForRemoteLink(source,$link){
-	eval(source);
-}
-function evaluateSourceForRemoteForm(source,$form){
-	eval(source);
-}
-
-var remote_link = function(){
-	if($(this).hasClass("confirm") && !confirm("Opravdu?")){
-		return false;
-	}
-	// existuje nejaka alternativni callback fce pro remote_link?
-	if (typeof before_remote_link != "undefined") {
-			// ano. spustme ji...
-			var ret = before_remote_link($(this));
-			if (ret !== null) {
-					// before_remote_link vykonala nejakou akci, koncime
-					return ret;
-			}
-			// before_remote_link vratilo null, coz znamena, ze ma 
-			// byt provedena originalni akce (viz nize)
-	}
-	$('body').css('cursor','wait');
-	var method = 'GET';
-	var data = undefined;
-	if($(this).hasClass("remote_post_link")){
-		method = 'POST';
-		data = ''; // Toto vynuti nastaveni hlavicky Content-Length: 0
-	}
-	$.ajax({
-		$link: $(this),
-		cache: false,
-		type: method,
-		data: data,
-		url: $(this).attr('href'),
-		dataType: 'text',
-		complete: function(){
-			$('body').css('cursor','default');
-			noSpamFilter();
-		},
-		success: function(source){
-			evaluateSourceForRemoteLink(source,this.$link);
-			// existuje nejaka alternativni callback fce pro remote_link?
-			if (typeof after_remote_link != "undefined") {
-					// ano. spustme ji...
-					after_remote_link(this.$link);
-			}
-		}
-	});
-	$(this).blur();
-	return false;
-}
-
-var remote_form = function(){
-	$('body').css('cursor','wait');
-	$.ajax({
-		$form: $(this),
-		cache: false,
-		type: 'POST',
-		url: randomizeUrlForAjax($(this).attr('action')),
-		dataType: 'text',
-		data: $(this).serialize(),
-		complete: function(){
-			$('body').css('cursor','default');
-			noSpamFilter();
-		},
-		success: function(source){
-			evaluateSourceForRemoteForm(source,this.$form);
-		}
-	});
-	return false;
-}
-
-$(document).ready(function(){
-	noSpamFilter();
+$(document).ready(function() {
+	ATK14.init();
 });
 
-$('a.remote_link, a.remote_post_link').livequery('click',remote_link);
-$('form.remote_form').livequery('submit',remote_form);
+/*
+ * ATK14 namespace
+ *
+ */
+var ATK14 = {};
+
+/*
+ * First things first
+ *
+ */
+ATK14.init = function() {
+	// convert obfuscated email addresses to normal mailto links
+	$('.atk14_no_spam').unobfuscate();
+	// attach live events on remote elements
+	$('a.remote_link').live('click', ATK14.Remote.handle_link);
+	$('form.remote_form').livequery('submit', ATK14.Remote.handle_form);
+}
+
+/*
+ * First approach to gettext implementation.
+ * Language code is determined from the specified meta tag:
+ *   <meta name="x-lang" content="cs" />
+ */
+ATK14.gettext = function(msg_id) {
+	var lang = $("meta[name='x-lang']").attr("content");
+	if(lang=='cs'){
+		switch(msg_id){
+			case 'Are you sure?':
+				return 'Jste si jistý(á)?';
+		}
+	}
+	return msg_id;
+}
+
+/*
+ * Module for handling remote elements.
+ * We have 2 basic remote elements: remote links and remote forms.
+ * Remote links default to GET method and remote forms default to POST method.
+ * Remote link with class="post" will be handled with POST method though.
+ *
+ */
+ATK14.Remote = (function() {
+
+	// private scope
+	function randomizeUrlForAjax(url) {
+		if (url.indexOf('?') > 0) {
+			url = url + '&';
+		} else{
+			url = url + '?';
+		}
+		url = url + '_=' + (Math.random());
+		return url;
+	}
+
+	// an object with public methods is assigned to ATK14.Remote
+	return {
+		evaluateSourceForRemoteLink: function(source, $link) {
+			eval(source);
+		},
+		evaluateSourceForRemoteForm: function(source, $form) {
+			eval(source);
+		},
+
+
+
+		handle_link: function() {
+			var $a = $(this);
+
+			if ($a.hasClass("confirm") && !confirm(ATK14.gettext("Are you sure?"))) {
+				return false;
+			}
+
+			// is there any additional callback for remote link?
+			if (typeof before_remote_link != "undefined") {
+				var ret = before_remote_link($a);
+				if (!ret) {
+					return ret;
+				}
+			}
+
+			$('body').css('cursor','wait');
+
+			var params = {
+				$link: $a,
+				cache: false,
+				type: $a.hasClass('post') ? 'POST' : 'GET',
+				dataType: 'text',
+				data: $a.hasClass('post') ? '' : null,
+				url: $a.attr('href'),
+				success: function(source) {
+					ATK14.Remote.evaluateSourceForRemoteLink(source,this.$link);
+					if (typeof after_remote_link != "undefined") {
+						after_remote_link(this.$link);
+					}
+				},
+				complete: function() {
+					$('body').css('cursor','default');
+					$('.atk14_no_spam').unobfuscate();
+				}
+			}
+			// when dealing with .post link, we have to modify default params
+			/*
+			if ($a.hasClass('post')) {
+				$.extend({}, params, { type: 'POST', data: 'data=1' });
+			}
+			*/
+
+			$.ajax(params);
+			$a.blur();
+			return false;
+		},
+
+		handle_form: function() {
+			var $f = $(this);
+			$('body').css('cursor','wait');
+			$.ajax({
+				$form: $f,
+				cache: false,
+				type: 'POST',
+				url: randomizeUrlForAjax($f.attr('action')),
+				dataType: 'text',
+				data: $f.serialize(),
+				complete: function(){
+					$('body').css('cursor','default');
+					$('.atk14_no_spam').unobfuscate();
+				},
+				success: function(source) {
+					ATK14.Remote.evaluateSourceForRemoteForm(source,this.$form);
+				}
+			});
+			return false;
+		}
+	};
+})();
