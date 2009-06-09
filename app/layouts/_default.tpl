@@ -12,6 +12,7 @@
   <!--[if IE]>
   {stylesheet_link_tag file="blueprint/ie.css" media="screen, projection"}
   <![endif]-->
+  {stylesheet_link_tag file="styles.css" media="screen, projection"}
 
 	{javascript_script_tag file="jquery.php"}
 	{javascript_script_tag file="atk14.js"}
@@ -36,6 +37,9 @@
 		<div>
 		{placeholder}
 		</div>
+
+		{render partial=shared/documentation}
+
 	</div>
 </body>
 </html>

@@ -1,0 +1,14 @@
+.documentation {
+	background-color: #CCCCCC;
+	margin: 2em 0;
+	padding: 1em;
+	color: #666666;
+}
+
+.documentation a{
+	color: #8787f1;
+}
+
+.documentation h3 {
+	color: #666666;
+}

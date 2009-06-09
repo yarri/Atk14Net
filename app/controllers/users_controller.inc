@@ -47,5 +47,9 @@ class UsersController extends ApplicationController{
 	function _store_login($user){
 		$this->session->s("user_id",$user->getId());
 	}
+
+	function _before_filter(){
+		$this->doc_source_files[] = "models/user.inc";
+	}
 }
 ?>

@@ -1,7 +1,7 @@
-{content for=js}
+{content for=head}
 	{javascript_script_tag file="jquery/plugins/jquery.validate.js"}
-	<script type="text/javascript">
-	<!--
+{/content}	
+{content for=js}
 $(document).ready(function() \{
 	// validate signup form on keyup and submit
 	var validator = $("form").validate(\{
@@ -27,9 +27,6 @@ $(document).ready(function() \{
 		\}
 	\});
 \});
-
-	// -->
-	</script>
 {/content}
 
 {render partial=shared/form_error}
