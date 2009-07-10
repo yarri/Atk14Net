@@ -23,7 +23,7 @@ class Atk14Controller{
 		unset($options["request"]);
 
 		$this->response = new HTTPResponse();
-		$this->params = new Dictionary($this->request->getVars("GP"));
+		$this->params = new Dictionary($this->request->getVars("PG")); // prefering posted vars
 		$this->params->merge($options["params"]);
 		unset($options["params"]); // aby pozdeji nedoslo k automatickemu nastaveni vlastnosti $this->params...
 		$this->dbmole = &$GLOBALS["dbmole"];
