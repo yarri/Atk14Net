@@ -510,9 +510,8 @@ class RadioSelect extends Select
 
 
 /**
-* Vykresli check buttony podle pole $choices jako <ul><li> seznam.
+* Vykresli check buttony podle pole $choices jako <ul class="checkboxes"><li> seznam.
 */
-/*
 class CheckboxSelectMultiple extends SelectMultiple
 {
     function my_check_test($value)
@@ -527,10 +526,8 @@ class CheckboxSelectMultiple extends SelectMultiple
             $value = array();
         }
         $has_id = is_array($options['attrs']) && isset($options['attrs']['id']);
-        $final_attrs = $this->build_attrs($options['attrs'], array(
-            'name' => $name)
-        );
-        $output = array('<ul>');
+        $final_attrs = $this->build_attrs($options['attrs']);
+        $output = array('<ul class="checkboxes">');
         $choices = my_array_merge(array($this->choices, $options['choices']));
         $str_values = array();
         foreach ($value as $v) {
@@ -547,7 +544,7 @@ class CheckboxSelectMultiple extends SelectMultiple
             }
             $cb = new CheckboxInput(array('attrs'=>$final_attrs, 'check_test'=>array($this, 'my_check_test')));
             $option_value = (string)$option_value;
-            $rendered_cb = $cb->render($name, $option_value);
+            $rendered_cb = $cb->render("{$name}[]", $option_value);
             $output[] = '<li><label>'.$rendered_cb.' '.forms_htmlspecialchars($option_label).'</label></li>';
             $i++;
         }
@@ -563,7 +560,6 @@ class CheckboxSelectMultiple extends SelectMultiple
         return $id_;
     }
 }
-*/
 
 
 // vim: set et ts=4 sw=4 enc=utf-8 fenc=utf-8 si: 

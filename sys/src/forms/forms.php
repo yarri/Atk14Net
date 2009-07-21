@@ -275,6 +275,8 @@ class BoundField
         return $id_;
     }
 
+    function id_for_label(){ return $this->field->widget->id_for_label($this->get_id()); }
+
     /**
     * Vrati true, pokud je pouzity widget HiddenInput.
     * NOTE: tohle je Djangu property
