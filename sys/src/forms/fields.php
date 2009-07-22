@@ -108,16 +108,13 @@ class Field
 
     /**
     * Pomocna funkce, zjisti jestli je zadana hodnota "prazdna"
-    * (null nebo prazdny retezec '').
+    * (null, prazdny retezec '', prazdne pole).
     */
-    function check_empty_value($value)
-    {
-        foreach (array(null, '') as $empty_value) {
-            if ($value === $empty_value) {
-                return true;
-            }
-        }
-        return false;
+    function check_empty_value($value) {
+        return 
+            is_null($value) ||
+            (is_string($value) && $value=='') ||
+            (is_array($value) && sizeof($value)==0);
     }
 
     function format_initial_data($data){

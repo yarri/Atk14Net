@@ -120,19 +120,17 @@ class Input extends Widget
 
     function render($name, $value, $options=array())
     {
+        if(is_bool($value)){ $value = (int)$value;}
+        settype($value,"string");
+
         $options = forms_array_merge(array('attrs'=> null), $options);
-        if (is_null($value)) {
-            $value = '';
-        }
+
         $final_attrs = $this->build_attrs(array(
             'type' => $this->input_type, 
             'name' => $name),
             $options['attrs']
         );
-        if (is_bool($value)) {
-            $final_attrs['value'] = (int)$value;
-        }
-        elseif ($value != '') {
+        if (strlen($value)>0) {
             $final_attrs['value'] = $value;
         }
         return '<input'.flatatt($final_attrs).' />';

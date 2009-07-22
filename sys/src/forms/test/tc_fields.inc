@@ -19,6 +19,20 @@ class tc_fields extends tc_base
         $this->assertFalse($this->_compare_html('<p><a href="http://www.domenka.cz/" title="Home" /></p>','<p><a title="Ooops" href="http://www.domenka.cz/" /></p>'));
     }
 
+    function test_check_empty_value(){
+        $f = new Field();
+
+        $this->assertTrue($f->check_empty_value(null));
+        $this->assertTrue($f->check_empty_value(""));
+        $this->assertTrue($f->check_empty_value(array()));
+
+        $this->assertFalse($f->check_empty_value(0));
+        $this->assertFalse($f->check_empty_value(-1));
+        $this->assertFalse($f->check_empty_value("value"));
+        $this->assertFalse($f->check_empty_value(" "));
+        $this->assertFalse($f->check_empty_value(array(0)));
+    }
+
     /**
     * Pomocna funkce, ktera overi realny vystup widgetu s ocekavanym dle
     * dodaneho pole $data.

@@ -18,6 +18,19 @@ function testovaci_funkce($value)
 
 class tc_widgets extends tc_base
 {
+    function test_render(){
+        $w = new Input();
+        $w->input_type = "text";
+
+        $this->assertTrue($this->_compare_html('<input type="text" name="param" value="hello" />',$w->render("param","hello")));
+        $this->assertTrue($this->_compare_html('<input type="text" name="param" />',$w->render("param","")));
+        $this->assertTrue($this->_compare_html('<input type="text" name="param" />',$w->render("param",null)));
+        $this->assertTrue($this->_compare_html('<input type="text" name="param" value="1" />',$w->render("param",true)));
+        $this->assertTrue($this->_compare_html('<input type="text" name="param" value="0" />',$w->render("param",false)));
+        $this->assertTrue($this->_compare_html('<input type="text" name="param" value="0" />',$w->render("param",0)));
+        $this->assertTrue($this->_compare_html('<input type="text" name="param" value="0" />',$w->render("param","0")));
+    }
+
     /**
     * Pomocna funkce, ktera overi realny vystup widgetu s ocekavanym dle
     * dodaneho pole $data.
