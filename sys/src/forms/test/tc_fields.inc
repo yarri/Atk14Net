@@ -33,6 +33,7 @@ class tc_fields extends tc_base
         $this->assertFalse($f->check_empty_value(array(0)));
     }
 
+
     /**
     * Pomocna funkce, ktera overi realny vystup widgetu s ocekavanym dle
     * dodaneho pole $data.
@@ -249,6 +250,31 @@ class tc_fields extends tc_base
                     ),
                     array(
                         'clean'=>'1a', 'error'=>'Enter a whole number.', 'result'=>null
+                    ),
+                    array(
+                        'clean'=>'01', 'error'=>'Enter a whole number.', 'result'=>null
+                    ),
+                    array(
+                        'clean'=>'00', 'error'=>'Enter a whole number.', 'result'=>null
+                    ),
+                    array(
+                        'clean'=>'01', 'error'=>'Enter a whole number.', 'result'=>null
+                    ),
+                    array(
+                        'clean'=>'+0', 'error'=>'Enter a whole number.', 'result'=>null
+                    ),
+                    array(
+                        'clean'=>'-0', 'error'=>'Enter a whole number.', 'result'=>null
+                    ),
+
+                    array(
+                        'clean'=>' +20 ', 'error'=>null, 'result'=> 20
+                    ),
+                    array(
+                        'clean'=>' -20 ', 'error'=>null, 'result'=> -20
+                    ),
+                    array(
+                        'clean'=>' 0 ', 'error'=>null, 'result'=> 0
                     ),
                 )
             ),

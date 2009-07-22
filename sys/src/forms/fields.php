@@ -251,7 +251,7 @@ class IntegerField extends Field
         }
 
         $value = trim((string)$value);
-        if (!ctype_digit($value)) {
+        if (!preg_match("/^(0|[+-]?[1-9][0-9]*)$/",$value)) {
             return array($this->messages['invalid'], null);
         }
         $value = (int)$value;
