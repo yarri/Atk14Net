@@ -19,14 +19,12 @@
 
 	{placeholder for="head"}
 
-	<script type="text/javascript">
-	 <!--
+	{javascript_tag}
 		{placeholder for="js"}
 		$(function() \{
 			{placeholder for="domready"}
 		\});
-	 // -->
-	</script>
+	{/javascript_tag}
 
 </head>
 <body>
