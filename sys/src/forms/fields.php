@@ -349,9 +349,6 @@ class RegexField extends CharField
 {
     function RegexField($regex, $options=array())
     {
-        $options = array_merge(array(
-            'null_empty_output' => true
-        ),$options);
         parent::CharField($options);
         $this->update_messages(array(
             'max_length' => _('Ensure this value has at most %max% characters (it has %length%).'),
@@ -389,6 +386,9 @@ class EmailField extends RegexField
 {
     function EmailField($options=array())
     {
+        $options = array_merge(array(   
+            "null_empty_output" => true,
+        ),$options);
         // NOTE: email_pattern je v Djangu slozen ze tri casti: dot-atom, quoted-string, domain
         $email_pattern = "/(^[-!#$%&'*+\\/=?^_`{}|~0-9A-Z]+(\.[-!#$%&'*+\\/=?^_`{}|~0-9A-Z]+)*".'|^"([\001-\010\013\014\016-\037!#-\[\]-\177]|\\[\001-011\013\014\016-\177])*"'.')@(?:[A-Z0-9-]+\.)+[A-Z]{2,6}$/i';
         parent::RegexField($email_pattern, $options);
@@ -620,6 +620,9 @@ class MultipleChoiceField extends ChoiceField
 class IPAddressField extends RegexField
 {
     function IPAddressField($options = array()){
+        $options = array_merge(array(   
+            "null_empty_output" => true,
+        ),$options);
         $re_ipv4 = '(25[0-5]|2[0-4]\d|[0-1]?\d?\d)(\.(25[0-5]|2[0-4]\d|[0-1]?\d?\d)){3}';
         $re_ipv6 = '[0-9a-fA-F]{0,4}(:[0-9a-fA-F]{0,4}){1,8}'; // TODO: velmi nedokonale!
         parent::RegexField("/^(($re_ipv4)|($re_ipv6))$/",$options);

@@ -584,7 +584,7 @@ class tc_fields extends tc_base
                         'clean'=>'3G3', 'error'=>'Enter a valid value.', 'result'=>null
                     ),
                     array(
-                        'clean'=>'', 'error'=>null, 'result'=>null
+                        'clean'=>'', 'error'=>null, 'result'=>''
                     ),
                 )
             ),
@@ -684,6 +684,14 @@ class tc_fields extends tc_base
                         'clean'=>'alf123456788@foo.com', 'error'=>'Ensure this value has at most 15 characters (it has 20).', 'result'=>null
                     ),
                 )
+            ),
+            array(
+                'field' => new EmailField(array("required" => false)),
+                'params' => array(  
+                    array('clean' => 'a@foo.com', 'error' => null, 'result' => 'a@foo.com'),
+                    array('clean' => ' a@foo.com ', 'error' => null, 'result' => 'a@foo.com'),
+                    array('clean' => '', 'error' => null, 'result' => null),
+                ),
             ),
         );
 
