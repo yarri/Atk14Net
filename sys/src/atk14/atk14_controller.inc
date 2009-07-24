@@ -224,7 +224,11 @@ class Atk14Controller{
 
 			if($this->render_layout){
 				$smarty->atk14_contents = $action_content;
-				$this->response->write($smarty->fetch($ATK14_GLOBAL->getApplicationPath()."layouts/$this->namespace/$layout_template.tpl"));
+				$layout_content = $smarty->fetch($ATK14_GLOBAL->getApplicationPath()."layouts/$this->namespace/$layout_template.tpl");
+				foreach($smarty->atk14_contents as $c_key => $c){
+					$layout_content = str_replace("<%atk14_content[$c_key]%>",$c,$layout_content);
+				}
+				$this->response->write($layout_content);
 			}else{
 				$this->response->write($action_content["main"]);
 			}
