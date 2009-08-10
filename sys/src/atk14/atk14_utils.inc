@@ -51,6 +51,7 @@ class Atk14Utils{
 	*		$params["_connector"]
 	*		$params["_anchor"]
 	* 	$params["_with_hostname"]
+	*		$params["_ssl"]
 	*
 	* Pri sestavovani linku jsou ignorovany vsechny parametry zacinajici podtrzitkem.
 	* Tyto parametry jsou uvazovany jako atributy html tagu.
@@ -59,7 +60,8 @@ class Atk14Utils{
 		$options = array_merge(array(
 			"connector" => "&",
 			"anchor" => null,
-			"with_hostname" => false
+			"with_hostname" => false,
+			"ssl" => false,
 		),$options);
 		reset($options);
 		while(list($_key,$_value) = each($options)){
