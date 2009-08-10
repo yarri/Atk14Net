@@ -406,6 +406,15 @@ class Form
     }
 
     /**
+    * TODO: Chci to volat takto:
+    *   $form->list_fields("address_*");
+    */
+    function list_fields($wildcart = ""){
+        $out = $this->get_field_keys();
+        return $out;
+    }
+
+    /**
     * Vrati initial hodnotu pole daneho jmena.
     */
     function get_initial($name)

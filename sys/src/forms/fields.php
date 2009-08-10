@@ -436,6 +436,7 @@ class ChoiceField extends Field
         parent::Field($options);
         $this->update_messages(array(
             'invalid_choice' => _('Select a valid choice. That choice is not one of the available choices.'),
+            'required' => _('Please, choose the right option.'),
         ));
         if (isset($options['choices'])) {
             $this->set_choices($options['choices']);
