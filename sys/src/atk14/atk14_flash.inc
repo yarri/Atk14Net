@@ -39,6 +39,12 @@ class Atk14Flash{
 		return $this->getMessage("error");
 	}
 
+	function setSuccess($message){ $this->setMessage("success",$message); }
+	function success($message = null){
+		if(isset($message)){ return $this->setSuccess($message); }
+		return $this->getMessage("success");
+	}
+
 	function setMessage($key,$message = null){
 		$session = &Atk14Session::GetInstance();
 		if(!isset($message)){

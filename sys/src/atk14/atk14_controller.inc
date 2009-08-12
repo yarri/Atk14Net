@@ -387,28 +387,35 @@ class Atk14Controller{
 	}
 
 	/**
-	* Vyvola presmerovani.
+	* Realize HTTP redirection.
 	*
-	* URL bude sestaveno za pomoci volani $this->_link_to().
+	*		$this->_redirect_to("http://www.domenka.cz/");
+	*		$this->_redirect_to(array("action" => "overview"));
+	*		$this->_redirect_to(); // redirect to the same URL
+	*
 	* 
-	* $this->_redirect_to("http://www.generalregistry.cz/");
-	* $this->_redirect_to(array("action" => "overview"));
-	*
-	* Lze rovnez presmerovat se status code 301 Moved Permanently:
-	* $this->_redirect_to(array("action" => "overview",array("moved_permanently" => true)));
-	*
-	* @param mixed $params				string nebo array
-	* @param array $options
+	* Moving permanently
+	* 	$this->_redirect_to(array("action" => "overview",array("moved_permanently" => true)));
+	* or
+	* 	$this->_redirect_to(array("action" => "overview",array("status" => 301)));
+	* 
+	* 
+	* Unless status or moved_permanently option is specified,
+	*  - after a GET request the "302 Found" status is automatically used
+	*  - after a POST request the "303 See Other" status is automatically used
 	*/
-	function _redirect_to($params,$options = array()){
+	function _redirect_to($params = array(),$options = array()){
 		if(is_string($params)){
 			$url = $params;
 		}else{
 			$url = $this->_link_to($params,array("connector" => "&"));
 		}
-		$options = array_merge(array(
-			"moved_permanently" => false
-		),$options);
+
+		// after a POST request the status 303 is automatically used
+		// http://en.wikipedia.org/wiki/HTTP_303
+		if(!isset($options["moved_permanently"]) && !isset($options["status"]) && $this->request->post()){
+			$options["status"] = 303;
+		}
 		$this->response->setLocation($url,$options);
 	}
 
