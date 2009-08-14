@@ -61,7 +61,7 @@ class Atk14Utils{
 			"connector" => "&",
 			"anchor" => null,
 			"with_hostname" => false,
-			"ssl" => false,
+			"ssl" => null,
 		),$options);
 		reset($options);
 		while(list($_key,$_value) = each($options)){

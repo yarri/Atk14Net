@@ -421,10 +421,12 @@ class Atk14Controller{
 
 	/**
 	* $this->_redirect_to_action("overview");
+	* $this->_redirect_to_action("overview",array("offset" => 10));
+	* $this->_redirect_to_action("overview",array("offset" => 10),array("moved_permanently" => true));
 	*/
-	function _redirect_to_action($action,$other_params = array()){
+	function _redirect_to_action($action,$other_params = array(),$options = array()){
 		$other_params["action"] = $action;
-		return $this->_redirect_to($other_params);
+		return $this->_redirect_to($other_params,$options);
 	}
 
 
