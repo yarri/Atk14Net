@@ -1,12 +1,13 @@
 <?
 /**
-*
+* {link_to controller=login action=login _ssl=true _with_hostname=true}
 */
 function smarty_function_link_to($params,&$smarty){
 	$options = array(
 		"connector" => "&amp;",
 		"anchor" => null,
-		"with_hostname" => false
+		"with_hostname" => false,
+		"ssl" => null,
 	);
 	reset($options);
 	while(list($_key,$_value) = each($options)){
