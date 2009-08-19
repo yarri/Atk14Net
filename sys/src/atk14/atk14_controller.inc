@@ -563,8 +563,22 @@ class Atk14Controller{
 		$this->returned_by = $state["returned_by"];
 		$this->tpl_data["form_data"] = $state["form_data"];
 		$this->tpl_data["step_id"] = $this->step_id;
-
+		if($out = $this->_before_walking()){
+			return $out;
+		}
 		return $this->$method_name();
+	}
+	
+	/**
+	* Method _before_walking() will be executed just before step method.
+	* Member variables $this->form_data and $this->returned_by are set.
+	* 
+	* If a non-false value is returned, the certain step method will not be executed
+	* and user will be redirected to the next step.
+	* The returned value will be accessible through $this->returned_by["%step_name%"].
+	*/
+	function _before_walking(){
+		
 	}
 
 }
