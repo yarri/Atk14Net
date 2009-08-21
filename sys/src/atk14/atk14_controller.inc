@@ -125,7 +125,10 @@ class Atk14Controller{
 		}
 
 		$this->template_name = $action;
-		$this->form = Atk14Form::GetInstanceByControler($this);
+
+		// pokud nenajdeme formular urceny presne pro tuto akci, pokusime se najit ApplicationForm a nakonec Atk14Form
+		($this->form = Atk14Form::GetInstanceByControler($this)) || ($this->form = Atk14Form::GetDefaultForm($this));
+
 		$this->mailer = Atk14Mailer::GetInstanceByControler($this);
 
 		if(!$cache){
@@ -552,10 +555,15 @@ class Atk14Controller{
 
 		$this->step_id = "$step_unique-$step_index";
 
-		if(($this->form = Atk14Form::GetInstanceByFilename("$this->controller/{$this->action}/{$step}_form.inc",$this))){
+		// pokud najdeme formular pro tento step, pouzijeme ho;
+		// jinak pouzijeme defaultni formik
+		($this->form = Atk14Form::GetInstanceByFilename("$this->controller/{$this->action}/{$step}_form.inc",$this)) || ($this->form = Atk14Form::GetDefaultForm($this));
+
+		if(isset($this->form)){
 			$this->form->set_hidden_field("step_id",$this->step_id);
 			$this->form->set_action($this->_link_to(array()));
 		}
+
 		$method_name = "{$this->action}__$step";
 		$this->template_name = "{$this->action}/$step";
 

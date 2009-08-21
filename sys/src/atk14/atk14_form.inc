@@ -140,8 +140,7 @@ class Atk14Form extends Form
     * V kontroleru:
     * $form = Atk14Form::GetForm("MoveForm",$this);
     */
-    function GetForm($class_name,$controller = null)
-    {
+    function GetForm($class_name,$controller = null){
         global $ATK14_GLOBAL;
         // preved z camelcase na underscore
         $filename = $class_name;
@@ -156,6 +155,16 @@ class Atk14Form extends Form
             $form = Atk14Form::GetInstanceByFilename("$filename.inc",$controller);
         }
         return $form;
+    }
+
+    /**
+    * Returns an instance of ApplicationForm class if exists or Atk14Form.
+    *
+    * $form = Atk14Form::GetDefaultForm($controller);
+    */
+    function GetDefaultForm($controller = null){
+      ($form = Atk14Form::GetForm("ApplicationForm",$controller)) || ($form = new Atk14Form(array(),$controller));
+      return $form;
     }
 
     function validate($data)
