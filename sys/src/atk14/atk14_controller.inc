@@ -127,7 +127,9 @@ class Atk14Controller{
 		$this->template_name = $action;
 
 		// pokud nenajdeme formular urceny presne pro tuto akci, pokusime se najit ApplicationForm a nakonec Atk14Form
-		($this->form = Atk14Form::GetInstanceByControler($this)) || ($this->form = Atk14Form::GetDefaultForm($this));
+		if(!isset($this->form)){ // pokud uz mame form z _before_filter, tak ho prece nezahodime - TODO: jsem zarazeny z toho, ze se _before_filter() pouzsti drive
+			($this->form = Atk14Form::GetInstanceByControler($this)) || ($this->form = Atk14Form::GetDefaultForm($this));
+		}
 
 		$this->mailer = Atk14Mailer::GetInstanceByControler($this);
 
