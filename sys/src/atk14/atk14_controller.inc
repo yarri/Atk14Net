@@ -458,13 +458,30 @@ class Atk14Controller{
 	*		"register",
 	*		"done"
 	*	));
-	* 
+	*
+	* V $options["extra_params"] mohou byt uvedeny dalsi parametry, ktere sa budou automaticky prevadet pri kazdem presemerovani a
+	* vlozi se automaticky do action atributu formularu.
+	*
+	*		$this->_walk(array(
+	*			"get_password",
+	*			"rules_agreement",
+	*			"confirm",
+	*			"done",
+	*		),
+	*			array("extra_params" => array( "hashed_id" => $this->password_sender->getHashedId()))
+	*		);
 	*/
-	function _walk($steps){
+	function _walk($steps,$options = array()){
+		$options = array_merge(array(
+			"extra_params" => array(),
+		),$options);
+
 		$this->steps = $steps;
 		$this->step_id = "";
 		$this->form_data = array();
 		$this->returned_by = array();
+
+		$this->_walking_extra_params = $options["extra_params"]; // pro nastaveni action atributu ve formularich
 
 		$logging = 0;
 		$logger = &$this->logger;
@@ -499,7 +516,7 @@ class Atk14Controller{
 			// ale ted se pohybuje zase dopredu ->
 			// presmerujeme ho zpatky tam, kde ma byt :)
 			$logging && $logger->debug("redirecting to: $session_index");
-			return $this->_redirect_to(array("step_id" => "$step_unique-$session_index","step" => $steps[$session_index]));
+			return $this->_redirect_to(array_merge($options["extra_params"],array("step_id" => "$step_unique-$session_index","step" => $steps[$session_index])));
 		}
 		if($session_index>$request_index){
 			// uzivatel se vraci zpet v prohlizeci ->
@@ -516,7 +533,7 @@ class Atk14Controller{
 
 		if($ret = $this->_execute_current_step()){
 			$this->_save_walking_state($ret);
-			return $this->_redirect_to(array("step_id" => "$step_unique-$state[current_step_index]","step" => $steps[$state["current_step_index"]]));	
+			return $this->_redirect_to(array_merge($options["extra_params"],array("step_id" => "$step_unique-$state[current_step_index]","step" => $steps[$state["current_step_index"]])));	
 		}
 	}
 
@@ -563,7 +580,7 @@ class Atk14Controller{
 
 		if(isset($this->form)){
 			$this->form->set_hidden_field("step_id",$this->step_id);
-			$this->form->set_action($this->_link_to(array()));
+			$this->form->set_action($this->_link_to($this->_walking_extra_params));
 		}
 
 		$method_name = "{$this->action}__$step";
