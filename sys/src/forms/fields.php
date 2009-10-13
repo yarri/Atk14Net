@@ -623,10 +623,15 @@ class IPAddressField extends RegexField
     function IPAddressField($options = array()){
         $options = array_merge(array(   
             "null_empty_output" => true,
+            "ipv4_only" => false, 
+            "ipv6_only" => false,
         ),$options);
         $re_ipv4 = '(25[0-5]|2[0-4]\d|[0-1]?\d?\d)(\.(25[0-5]|2[0-4]\d|[0-1]?\d?\d)){3}';
         $re_ipv6 = '[0-9a-fA-F]{0,4}(:[0-9a-fA-F]{0,4}){1,8}'; // TODO: velmi nedokonale!
-        parent::RegexField("/^(($re_ipv4)|($re_ipv6))$/",$options);
+        $re_exp = "/^(($re_ipv4)|($re_ipv6))$/";
+        $options["ipv4_only"] && ($re_exp = "/^$re_ipv4$/");
+        $options["ipv6_only"] && ($re_exp = "/^$re_ipv6$/");
+        parent::RegexField($re_exp,$options);
         $this->update_messages(array(
             "invalid" => _("Enter a valid IP address."),
         ));
