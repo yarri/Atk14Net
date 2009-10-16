@@ -43,15 +43,23 @@ class Atk14Controller{
 			$this->$_key = $_value;
 		}
 
-		$this->template_name = $this->action;
+		$this->template_name = null; // !! $this->template_name bude podle potreb nastaveno az v _execute_action()
 		$this->render_template = true;	
+
+		//prenastaveni controlleru v pripade, ze toto je XHR request
+		if($this->request->xhr()){
+			$this->response->setContentType("text/javascript");
+			//pozor!! nasteveni charsetu zakomentovavam... neni mozne uvazovat, ze vsechny aplikace pojdenou v UTF-8
+			//$this->response->setContentCharset("UTF-8");
+			$this->render_layout = false;
+		}
 
 		$this->tpl_data = array();
 
 		$this->_initialize();
 	}
 
-	function atk14__ExecuteAction($action){ return $this->_execute_action($action); }
+	function atk14__ExecuteAction($action){ return $this->_execute_action($action,array("force_to_set_template_name" => false)); }
 
 	function atk14__runBeforeFilters(){
 		Atk14Timer::Start("running before filters");
@@ -108,23 +116,20 @@ class Atk14Controller{
 		$this->render_template = false;
 	}
 
-	function _execute_action($action){
+	function _execute_action($action,$options = array()){
 		global $ATK14_GLOBAL;
 
+		$options = array_merge(array(
+			"force_to_set_template_name" => true,
+		),$options);
+
 		$this->action = $action;
+
+		if($options["force_to_set_template_name"]){ $this->template_name = $this->action; }
+		if(!isset($this->template_name)){ $this->template_name = $this->action; }
 	
 		$cache = null;
 		$this->_atk14_read_action_cache($cache);
-
-		//prenastaveni controlleru v pripade, ze toto je XHR request
-		if($this->request->xhr()){
-			$this->response->setContentType("text/javascript");
-			//pozor!! nasteveni charsetu zakomentovavam... neni mozne uvazovat, ze vsechny aplikace pojdenou v UTF-8
-			//$this->response->setContentCharset("UTF-8");
-			$this->render_layout = false;
-		}
-
-		$this->template_name = $action;
 
 		// pokud nenajdeme formular urceny presne pro tuto akci, pokusime se najit ApplicationForm a nakonec Atk14Form
 		if(!isset($this->form)){ // pokud uz mame form z _before_filter, tak ho prece nezahodime - TODO: jsem zarazeny z toho, ze se _before_filter() pouzsti drive
