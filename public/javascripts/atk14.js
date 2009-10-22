@@ -6,13 +6,18 @@ $(document).ready(function() {
  * ATK14 namespace
  *
  */
-var ATK14 = {};
+var ATK14 = {
+	VERSION: '',
+	LANG: ''
+};
 
 /*
  * First things first
  *
  */
 ATK14.init = function() {
+	// set a language for gettext
+	ATK14.LANG = $("meta[name='x-lang']").attr("content");
 	// convert obfuscated email addresses to normal mailto links
 	$('.atk14_no_spam').unobfuscate();
 	// attach live events on remote elements
@@ -25,15 +30,15 @@ ATK14.init = function() {
  * Language code is determined from the specified meta tag:
  *   <meta name="x-lang" content="cs" />
  */
-ATK14.gettext = function(msg_id) {
-	var lang = $("meta[name='x-lang']").attr("content");
-	if(lang=='cs'){
-		switch(msg_id){
+ATK14.gettext = function(msg) {
+	if (ATK14.LANG == 'cs') {
+		switch(msg) {
 			case 'Are you sure?':
 				return 'Jste si jistý(á)?';
+				break;
 		}
 	}
-	return msg_id;
+	return msg;
 }
 
 /*
@@ -65,8 +70,6 @@ ATK14.Remote = (function() {
 			eval(source);
 		},
 
-
-
 		handle_link: function() {
 			var $a = $(this);
 
@@ -82,14 +85,14 @@ ATK14.Remote = (function() {
 				}
 			}
 
-			$('body').css('cursor','wait');
+			$('body').addClass('loading');
 
 			var params = {
 				$link: $a,
 				cache: false,
-				type: $a.hasClass('post') ? 'POST' : 'GET',
+				type: 'GET',
 				dataType: 'text',
-				data: $a.hasClass('post') ? '' : null,
+				data: null,
 				url: $a.attr('href'),
 				success: function(source) {
 					ATK14.Remote.evaluateSourceForRemoteLink(source,this.$link);
@@ -98,25 +101,27 @@ ATK14.Remote = (function() {
 					}
 				},
 				complete: function() {
-					$('body').css('cursor','default');
+					$('body').removeClass('loading');
 					$('.atk14_no_spam').unobfuscate();
 				}
 			}
 			// when dealing with .post link, we have to modify default params
-			/*
 			if ($a.hasClass('post')) {
-				$.extend({}, params, { type: 'POST', data: 'data=1' });
+				params = $.extend({}, params, { type: 'POST', data: '' });
 			}
-			*/
+			/*
+			if ($a.hasClass('http_method_delete')) {
+				params = $.extend({}, params, { type: 'POST', data: '_method=delete' });
+			}*/
 
 			$.ajax(params);
-			$a.blur();
+
 			return false;
 		},
 
 		handle_form: function() {
 			var $f = $(this);
-			$('body').css('cursor','wait');
+			$('body').addClass('loading');
 			$.ajax({
 				$form: $f,
 				cache: false,
@@ -125,7 +130,7 @@ ATK14.Remote = (function() {
 				dataType: 'text',
 				data: $f.serialize(),
 				complete: function(){
-					$('body').css('cursor','default');
+					$('body').removeClass('loading');
 					$('.atk14_no_spam').unobfuscate();
 				},
 				success: function(source) {
