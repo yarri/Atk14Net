@@ -23,6 +23,14 @@ ATK14.init = function() {
 	// attach live events on remote elements
 	$('a.remote_link').live('click', ATK14.Remote.handle_link);
 	$('form.remote_form').livequery('submit', ATK14.Remote.handle_form);
+	// global ajaxStart/ajaxStop events
+	$('body')
+		.ajaxStart(function() {
+			$(this).addClass('loading');
+		})
+		.ajaxStop(function() {
+			$(this).removeClass('loading');
+		});
 }
 
 /*
@@ -85,8 +93,6 @@ ATK14.Remote = (function() {
 				}
 			}
 
-			$('body').addClass('loading');
-
 			var params = {
 				$link: $a,
 				cache: false,
@@ -101,7 +107,6 @@ ATK14.Remote = (function() {
 					}
 				},
 				complete: function() {
-					$('body').removeClass('loading');
 					$('.atk14_no_spam').unobfuscate();
 				}
 			}
@@ -121,7 +126,6 @@ ATK14.Remote = (function() {
 
 		handle_form: function() {
 			var $f = $(this);
-			$('body').addClass('loading');
 			$.ajax({
 				$form: $f,
 				cache: false,
@@ -130,7 +134,6 @@ ATK14.Remote = (function() {
 				dataType: 'text',
 				data: $f.serialize(),
 				complete: function(){
-					$('body').removeClass('loading');
 					$('.atk14_no_spam').unobfuscate();
 				},
 				success: function(source) {
