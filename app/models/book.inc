@@ -1,15 +1,15 @@
 <?
-class Book extends Model{
+class Book extends inobj_TableRecord{
 	function Book(){
-		parent::Model("books");
+		parent::inobj_TableRecord("books");
 	}
 	
 	function CreateNewRecord($values){
-		return Model::_CreateNewRecord("Book",$values);
+		return inobj_TableRecord::_CreateNewRecord("Book",$values);
 	}
 
-	function ById($id){
-		return Model::_GetInstanceById("Book",$id);
+	function GetInstanceById($id){
+		return inobj_TableRecord::_GetInstanceById("Book",$id);
 	}
 
 	function getTitle(){ return $this->g("title"); }
