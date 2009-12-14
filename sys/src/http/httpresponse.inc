@@ -5,8 +5,11 @@
 */
 class HTTPResponse{
 	var $_StatusCode = 200;
+
 	var $_Location = null;
 	var $_LocationMovedPermanently = false;
+	var $_LocationMovedWithStatus = null;
+
 	var $_ContentType = "text/html";
 	var $_ContentCharset = null;
 	var $_Headers = array();
@@ -104,20 +107,27 @@ class HTTPResponse{
 	*/
 	function setLocation($url,$options = array()){
 		$options = array_merge(array(
-			"moved_permanently" => false
+			"moved_permanently" => false,
+			"status" => null,
 		),$options);
 		settype($options["moved_permanently"],"boolean");
+		isset($options["status"]) && settype($options["status"],"integer");
 
 		$this->_Location_Redefined = true;
 		if(!isset($url)){
 			$this->setStatusCode(200);
+			// falling back to defaults
+			$this->_LocationMovedWithStatus = null;
+			$this->_LocationMovedPermanently = false;
 			$this->_Location = null;
 			return;
 		}
+
 		settype($url,"string");
 		$this->_Location = $url;
 		$this->_LocationMovedPermanently = $options["moved_permanently"];
-		$this->setStatusCode(($options["moved_permanently"] ? 301 : 302));
+		$this->_LocationMovedWithStatus = $options["status"];
+		$this->setStatusCode(isset($options["status"]) ? $options["status"] : ($options["moved_permanently"] ? 301 : 302));
 		return;
 	}
 	/**
@@ -263,7 +273,7 @@ class HTTPResponse{
 	*/
 	function flush(){
 		if(!$this->_OutputBuffer_Flush_Started){
-			$this->_FlushHeaders();
+			$this->_flushHeaders();
 		}
 
 		if($this->getContentLength()>0){
@@ -283,7 +293,7 @@ class HTTPResponse{
 	*/
 	function flushAll(){
 		if(!$this->_OutputBuffer_Flush_Started){
-			$this->_FlushHeaders();
+			$this->_flushHeaders();
 			Header("Content-Length: ".$this->getContentLength());
 		}
 
@@ -301,7 +311,7 @@ class HTTPResponse{
 	* @access public
 	*/
 	function printHeaders(){
-		$this->_FlushHeaders();
+		$this->_flushHeaders();
 	}
 
 	/**
@@ -309,7 +319,7 @@ class HTTPResponse{
 	*
 	* @access private
 	*/
-	function _FlushHeaders(){
+	function _flushHeaders(){
 		$_status_message = $this->getStatusMessage();
 		header("HTTP/1.0 $this->_StatusCode $_status_message");
 		
@@ -349,7 +359,7 @@ class HTTPResponse{
 		//kopirovani presmerovani
 		$_location = $http_response->getLocation();
 		if(isset($_location) && strlen($_location)>0){
-			$this->setLocation($_location,array("moved_permanently" => $http_response->_LocationMovedPermanently));
+			$this->setLocation($_location,array("moved_permanently" => $http_response->_LocationMovedPermanently, "status" => $this->_LocationMovedWithStatus));
 		}
 
 		//HTTP status code

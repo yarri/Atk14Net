@@ -25,7 +25,7 @@ if(!defined("SENDMAIL_TESTING_ADDRESS_TO")){
 
 if(!defined("SENDMAIL_DO_NOT_SEND_MAILS")){
 	if(defined("DEVELOPMENT") && DEVELOPMENT){
-		defined("SENDMAIL_DO_NOT_SEND_MAILS",true);
+		define("SENDMAIL_DO_NOT_SEND_MAILS",true);
 	}else{
 		define("SENDMAIL_DO_NOT_SEND_MAILS",false);
 	}
@@ -33,6 +33,10 @@ if(!defined("SENDMAIL_DO_NOT_SEND_MAILS")){
 
 if(!defined("SENDMAIL_EMPTY_TO_REPLACE")){
 	define("SENDMAIL_EMPTY_TO_REPLACE","");
+}
+
+if(!defined("SENDMAIL_DEFAULT_TRANSFER_ENCODING")){
+	define("SENDMAIL_DEFAULT_TRANSFER_ENCODING","8bit"); // "8bit" or "quoted-printable"
 }
 
 
@@ -84,6 +88,7 @@ function sendmail($params = array()){
 		"bcc" => null,
 		"subject" => "",
 		"body" => "",
+		"transfer_encoding" => SENDMAIL_DEFAULT_TRANSFER_ENCODING, // zpusob kodovani body (nikoli prilohy): "8bit" nebo "quoted-printable"
 		"charset" => SENDMAIL_DEFAULT_BODY_CHARSET,
 		"mime_type" => SENDMAIL_DEFAULT_BODY_MIME_TYPE,
 		"attachments" => array(),
@@ -146,8 +151,15 @@ function sendmail($params = array()){
 		if($CC!=""){
 			$HEADERS .= "cc: $CC\n";
 		}
+
+		$HEADERS .= "MIME-Version: 1.0\n";
 		$HEADERS .= "Content-Type: $BODY_MIME_TYPE; charset=$BODY_CHARSET\n";
-		$HEADERS .= "Content-Transfer-Encoding: 8bit\n";
+		$HEADERS .= "Content-Transfer-Encoding: $params[transfer_encoding]\n";
+
+		if($params["transfer_encoding"]=="quoted-printable"){
+			$BODY = _sendmail_quoted_printable_encode(_sendmail_lf_to_crlf($BODY));
+		}
+
 	}else{
 		$mailfile = new CMailFile($ATTACHMENTS[0]["body"],array(
 			"subject" => $SUBJECT,
@@ -171,6 +183,7 @@ function sendmail($params = array()){
 
 	$out = array(
 		"to" => $TO,
+		"from" => $FROM,
 		"bcc" => $BCC,
 		"cc" => $CC,
 		"subject" => $SUBJECT,
@@ -217,6 +230,40 @@ function _sendmail_escape_subject($subject,$charset){
 	}
 	$out[] = "?=";
 	return join("",$out);
+}
+
+function _sendmail_quoted_printable_encode($string){
+	$valid_non_alphanumeric_chars = "$<>[]{}()._-/,?!#@\"'&*+`;:~^|";
+
+	$back_replaces = array(
+		"%0D%0A" => "\r\n",
+		"%09" => "\t",
+		"%20" => " ",
+	);
+	foreach(preg_split("//",$valid_non_alphanumeric_chars) as $ch){
+		if(strlen($ch)==0){ continue; } // to nechapu...  :( jak se to stane?
+		$back_replaces["%".strtoupper(dechex(ord($ch)))] = $ch;
+	}
+	$string = rawurlencode($string);
+	$string = strtr($string,$back_replaces);
+	$string = str_replace("%","=",$string);
+
+	// zakodovani tabulatory nebo mezery na konci radku
+	$string = str_replace("\t\r\n","=09\r\n",$string);
+	$string = str_replace(" \r\n","=20\r\n",$string);
+
+	// zakodovani tabulatory nebo mezery na konci textu
+	$string = preg_replace("/\\t$/","=09",$string);
+	$string = preg_replace("/ $/","=20",$string);
+	
+	$string = preg_replace('/[^\r\n]{71,73}[^=\r\n]{2}/', "$0=\r\n", $string);
+  return $string;
+}
+
+function _sendmail_lf_to_crlf($string){
+	$string = str_replace("\r","",$string);
+	$string = str_replace("\n","\r\n",$string);
+	return $string;
 }
 
 /* notes from Dan Potter:

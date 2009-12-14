@@ -44,8 +44,12 @@ class Dictionary{
 		}
 		return $this->_Values[$key];
 	}
-
 	function g($key,$type = null){ return $this->getValue($key,$type); }
+
+	// some shortcuts
+	function getInt($key){ return $this->g($key,"integer"); }
+	function getString($key){ return $this->g($key,"string"); }
+	function getArray($key){ return $this->g($key,"array"); }
 
 	function setValue($key,$value){
 		$this->_Values[$key] = $value;
@@ -59,6 +63,8 @@ class Dictionary{
 	function defined($key){
 		return isset($this->_Values[$key]);
 	}
+	
+	function contains($key){ return $this->defined($key); }
 
 	function keyPresents($key){
 		return in_array($key,array_keys($this->_Values));
