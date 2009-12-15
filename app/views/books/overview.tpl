@@ -2,12 +2,16 @@
 
 {form}
 	<fieldset>
-		{render partial=shared/form_field field=search}
+		{render partial=shared/form_field fields=search,code}
 		<div class="button">
 			<button type="submit">Search</button>
 		</div>
 	</fieldset>
 {/form}
+<p>
+	{a action=create_new}Create new entry{/a}
+</p>
+
 
 {if $total_amount}
 
@@ -17,6 +21,7 @@
 				<th>Title</th>
 				<th>Code</th>
 				<th>Shelfmark</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>

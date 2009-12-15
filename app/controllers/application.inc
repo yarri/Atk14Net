@@ -39,6 +39,11 @@ class ApplicationController extends Atk14Controller{
 		$this->dbmole->commit();
 	}
 
+	function _rollback(){
+		$this->dbmole->rollback();
+		$this->dbmole->begin();
+	}
+
 	function _before_render(){
 		$this->tpl_data["user"] = $this->user;
 		$this->tpl_data["cart"] = $this->cart;

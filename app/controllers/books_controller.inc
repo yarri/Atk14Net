@@ -1,5 +1,6 @@
 <?
 class BooksController extends ApplicationController{
+	function index(){ $this->_redirect_to_action("overview"); }
 
 	function overview(){
 		$max_amount = 10;
@@ -10,6 +11,10 @@ class BooksController extends ApplicationController{
 			if($d["search"]){
 				$conditions[] = "UPPER(title) LIKE UPPER(:search)";
 				$bind_ar[":search"] = "%$d[search]%";
+			}
+			if($d["code"]){
+				$conditions[] = "UPPER(code) LIKE UPPER(:code)";
+				$bind_ar[":code"] = "%$d[code]%";
 			}
 		}
 
@@ -25,9 +30,51 @@ class BooksController extends ApplicationController{
 		$this->tpl_data["total_amount"] = $finder->getRecordsCount();
 		$this->tpl_data["books"] = $finder->getRecords();
 		$this->tpl_data["max_amount"] = $max_amount;
+
+	}
+
+	function detail(){ } 
+
+	function create_new(){
+		if($this->request->post() && ($d = $this->form->validate($this->params))){
+			Book::CreateNewRecord($d);
+			$this->flash->notice("A new book entry was saved.");
+			$this->_redirect_to_action("overview");
+		}
+	}
+
+	function edit(){
+		$this->form->set_initial($this->book->getValues());
+		if($this->request->post() && ($d = $this->form->validate($this->params))){
+			$this->book->s($d);
+			$this->flash->notice("The entry was updated.");
+			$this->_redirect_to_action("overview");
+		}
+	}
+
+	function destroy(){
+		if(!$this->request->xhr()){
+			$this->flash->error("The requested operation could not be performed without JavaScript.");
+			return $this->_redirect_to_action("overview");
+		}
+		if($this->request->post()){
+			$this->book->destroy();
+		}
+	}
+
+	function _find_book(){
+		if($this->book = Book::GetInstanceById($this->params->getInt("id"))){
+			$this->tpl_data["book"] = &$this->book;
+			return true;
+		}
+		return false;
 	}
 
 	function _before_filter(){
 		$this->doc_source_files[] = "models/book.inc";
+
+		if(in_array($this->action,array("detail","edit","destroy")) && !$this->_find_book()){
+			return $this->_execute_action("error404");
+		}
 	}
 }
