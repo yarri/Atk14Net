@@ -20,7 +20,3 @@
 		</tr>
 	</tbody>
 </table>
-
-<p>
-{a action=edit id=$book}Edit{/a}
-</p>

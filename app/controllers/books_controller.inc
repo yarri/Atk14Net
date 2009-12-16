@@ -30,7 +30,6 @@ class BooksController extends ApplicationController{
 		$this->tpl_data["total_amount"] = $finder->getRecordsCount();
 		$this->tpl_data["books"] = $finder->getRecords();
 		$this->tpl_data["max_amount"] = $max_amount;
-
 	}
 
 	function detail(){ } 
@@ -44,11 +43,14 @@ class BooksController extends ApplicationController{
 	}
 
 	function edit(){
+		$return_uri = $this->request->get() ? $this->request->getHttpReferer() : $this->params->getString("return_uri");
+		$this->form->set_hidden_field("return_uri",$return_uri);
+
 		$this->form->set_initial($this->book->getValues());
 		if($this->request->post() && ($d = $this->form->validate($this->params))){
 			$this->book->s($d);
 			$this->flash->notice("The entry was updated.");
-			$this->_redirect_to_action("overview");
+			$this->_go_to_return_uri();
 		}
 	}
 
@@ -68,6 +70,13 @@ class BooksController extends ApplicationController{
 			return true;
 		}
 		return false;
+	}
+
+	function _go_to_return_uri(){
+		if($return_uri = $this->params->getString("return_uri")){
+			return $this->_redirect_to($return_uri);
+		}
+		$this->_redirect_to_action("overview");
 	}
 
 	function _before_filter(){
