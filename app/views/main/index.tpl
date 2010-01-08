@@ -16,4 +16,18 @@
 			An example of sortable overview of entries.
 		</p>
 	</li>
+
+	<li>
+		<h4>Sign up forms</h4>
+		<p>
+		A sign up procedure.
+		</p>
+		<ul>
+			<li><h5>{a controller=sign_up action=sign_up}Simple{/a}</h5></li>
+			<li><h5>{a controller=sign_up_multistep action=sign_up}Multisptep{/a}</h5></li>
+			<li><h5>TODO: With Javascript validation</h5></li>
+		</ul>
+	</li>
 </ul>
+
+

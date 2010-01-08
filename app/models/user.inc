@@ -32,5 +32,7 @@ class User extends Model{
 	}
 
 	function isAdmin(){ return $this->g("is_admin")=="Y"; }
+
+	function getLogin(){ return $this->g("login"); }
 }
 ?>
