@@ -21,7 +21,7 @@ class ApplicationController extends Atk14Controller{
 	}
 
 	function _application_before_filter(){
-		$this->user = User::ById($this->session->g("user_id"));
+		$this->user = User::GetInstanceById($this->session->g("user_id"));
 		($this->cart = $this->session->g("cart")) || ($this->cart = new Cart());
 	}
 

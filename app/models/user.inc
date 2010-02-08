@@ -1,20 +1,20 @@
 <?
-class User extends Model{
+class User extends inobj_TableRecord{
 	function User(){
-		parent::Model("users");
+		parent::inobj_TableRecord("users");
 	}
 
 	function CreateNewRecord($values){
 		$values["password"] = User::CryptPassword($values["password"],$values["login"]);
-		return Model::_CreateNewRecord("User",$values);
+		return inobj_TableRecord::_CreateNewRecord("User",$values);
 	}
 
-	function ById($id){
-		return Model::_GetInstanceById("User",$id);
+	function GetInstanceById($id){
+		return inobj_TableRecord::_GetInstanceById("User",$id);
 	}
 
-	function ByLogin($login){
-		return Model::FindFirst(array(
+	function GetInstanceByLogin($login){
+		return inobj_TableRecord::FindFirst(array(
 			"class_name" => "User",
 			"conditions" => "login=:login",
 			"bind_ar" => array(":login" => $login)

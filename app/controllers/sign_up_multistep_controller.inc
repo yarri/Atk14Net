@@ -19,12 +19,12 @@ class SignUpMultistepController extends ApplicationController{
 	}
 
 	function sign_up__create_record(){
-		// in a step method you have access to previous steps form data
+		// in a step method you can access any previous step form data
 		return User::CreateNewRecord($this->form_data["get_data"]);
 	}
 
 	function sign_up__done(){
-		// through $this->returned_by you have access to returned values of all previous steps
+		// through $this->returned_by you can access returned values of any previous step
 		$this->tpl_data["just_registered_user"] = $this->returned_by["create_record"];
 		
 		// this is the very last step, so don't return non-false value

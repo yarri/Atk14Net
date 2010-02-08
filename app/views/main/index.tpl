@@ -18,7 +18,7 @@
 		<ul>
 			<li><h5>{a controller=sign_up action=sign_up}Simple{/a}</h5></li>
 			<li><h5>{a controller=sign_up_multistep action=sign_up}Multisptep{/a}</h5></li>
-			<li><h5>TODO: With Javascript validation</h5></li>
+			<li><h5>{a controller=sign_up_js_validation action=sign_up}With Javascript validation{/a}</h5></li>
 		</ul>
 	</li>
 </ul>
