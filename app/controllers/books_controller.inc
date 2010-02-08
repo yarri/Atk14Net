@@ -1,9 +1,9 @@
 <?
 class BooksController extends ApplicationController{
-	function index(){ $this->_redirect_to_action("overview"); }
+	function index(){
+		$this->sorting->add("title",array("order_by" => "UPPER(title)"));
+		$this->sorting->add("code");
 
-	function overview(){
-		$max_amount = 10;
 		$conditions = array();
 		$bind_ar = array();
 
@@ -22,14 +22,13 @@ class BooksController extends ApplicationController{
 			"class_name" => "Book",
 			"conditions" => $conditions,
 			"bind_ar" => $bind_ar,
-			"order" => "UPPER(title)",
-			"limit" => $max_amount,
+			"order" => $this->sorting->getOrder(),
+			"limit" => 10,
 			"offset" => $this->params->getInt("from"),
 		));
 
-		$this->tpl_data["total_amount"] = $finder->getRecordsCount();
 		$this->tpl_data["books"] = $finder->getRecords();
-		$this->tpl_data["max_amount"] = $max_amount;
+		$this->tpl_data["finder"] = $finder;
 	}
 
 	function detail(){ } 
@@ -38,7 +37,7 @@ class BooksController extends ApplicationController{
 		if($this->request->post() && ($d = $this->form->validate($this->params))){
 			Book::CreateNewRecord($d);
 			$this->flash->notice("A new book entry was saved.");
-			$this->_redirect_to_action("overview");
+			$this->_redirect_to_action("index");
 		}
 	}
 
@@ -57,7 +56,7 @@ class BooksController extends ApplicationController{
 	function destroy(){
 		if(!$this->request->xhr()){
 			$this->flash->error("The requested operation could not be performed without JavaScript.");
-			return $this->_redirect_to_action("overview");
+			return $this->_redirect_to_action("index");
 		}
 		if($this->request->post()){
 			$this->book->destroy();
@@ -76,7 +75,7 @@ class BooksController extends ApplicationController{
 		if($return_uri = $this->params->getString("return_uri")){
 			return $this->_redirect_to($return_uri);
 		}
-		$this->_redirect_to_action("overview");
+		$this->_redirect_to_action("index");
 	}
 
 	function _before_filter(){

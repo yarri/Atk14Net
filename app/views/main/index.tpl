@@ -6,14 +6,7 @@
 	<li>
 		<h4>{a controller=books}Books{/a}</h4>
 		<p>
-			A typical example of displaying / creating / editing / destroying records in a record set.
-		</p>
-	</li>
-
-	<li>
-		<h4>{a controller=sortable_books}Sortable Books{/a}</h4>
-		<p>
-			An example of sortable overview of entries.
+			A typical example of displaying (with sorting) / creating / editing / destroying records in a record set.
 		</p>
 	</li>
 

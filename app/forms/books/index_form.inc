@@ -1,5 +1,5 @@
 <?
-class OverviewForm extends ApplicationForm{
+class IndexForm extends ApplicationForm{
 	function set_up(){
 		$this->set_method("get");
 		$this->add_field("search",new CharField(array(

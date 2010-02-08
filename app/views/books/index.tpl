@@ -1,4 +1,4 @@
-<h2>Sortable Books</h2>
+<h2>Books</h2>
 
 {form}
 	<fieldset>
@@ -8,8 +8,12 @@
 		</div>
 	</fieldset>
 {/form}
+<p>
+	{a action=create_new}Create new entry{/a}
+</p>
 
-{if $total_amount}
+
+{if $finder->getTotalAmount()}
 
 	<table>
 		<thead>
@@ -17,10 +21,11 @@
 				{sortable key=title}<th>Title</th>{/sortable}
 				{sortable key=code}<th>Code</th>{/sortable}
 				<th>Shelfmark</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
-			{render partial=overview_item from=$books item=book}
+			{render partial=book_item from=$books item=book}
 		</tbody>
 	</table>
 
