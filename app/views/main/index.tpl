@@ -11,6 +11,13 @@
 	</li>
 
 	<li>
+		<h4>{a controller=remote_links}Remote links{/a}</h4>
+		<p>
+			A few examples of XHR links.
+		</p>
+	</li>
+
+	<li>
 		<h4>Sign up forms</h4>
 		<p>
 		A sign up procedure.
