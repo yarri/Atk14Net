@@ -18,7 +18,7 @@ class UsersController extends ApplicationController{
 	}
 
 	function edit(){
-		$user = User::ById($this->params->g("id","integer"));
+		$user = User::GetInstanceById($this->params->g("id","integer"));
 		$this->form->set_initial($user->getValues());
 		if($this->request->post() && ($d = $this->form->validate($this->params))){
 			$user->s($d);
@@ -28,7 +28,7 @@ class UsersController extends ApplicationController{
 	}
 
 	function delete(){
-		if($this->request->post() && ($user = User::ById($this->params->g("id","integer")))){
+		if($this->request->post() && ($user = User::GetInstanceById($this->params->g("id","integer")))){
 			//$user->destroy();
 		}	
 	}

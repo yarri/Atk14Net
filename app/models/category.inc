@@ -9,21 +9,16 @@ class Category extends Model{
 	}
 
 	function ById($id,$lang = null){
-		return Model::Langify(
-			Model::_GetInstanceById("Category",$id),
-			$lang
-		);
+		return Model::_GetInstanceById("Category",$id);
 	}
 
 	function DefaultCategory($lang = null){
-		return Model::Langify(
-			Model::FindFirst(array(
+		return Model::FindFirst(array(
 				"class_name" => "Category",
 				"conditions" => "parent_category_id IS NULL",
 				"order" => "ranking",
 				"limit" => 1,
-			))
-		);
+		));
 	}
 
 	function getTitle(){ return $this->g("title_$this->lang"); }

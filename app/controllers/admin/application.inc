@@ -18,7 +18,7 @@ class ApplicationController extends Atk14Controller{
 	}
 
 	function _application_before_filter(){
-		if(!($this->user = User::ById($this->session->g("user_id"))) || !$this->user->isAdmin()){
+		if(!($this->user = User::GetInstanceById($this->session->g("user_id"))) || !$this->user->isAdmin()){
 			$this->_execute_action("access_forbidden");
 		}
 		$this->return_uri = $this->params->defined("return_uri") ? $this->params->g("return_uri") : "";

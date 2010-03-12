@@ -1,20 +1,20 @@
 <?
-class User extends inobj_TableRecord{
+class User extends Model{
 	function User(){
-		parent::inobj_TableRecord("users");
+		parent::Model("users");
 	}
 
 	function CreateNewRecord($values){
 		$values["password"] = User::CryptPassword($values["password"],$values["login"]);
-		return inobj_TableRecord::_CreateNewRecord("User",$values);
+		return Model::_CreateNewRecord("User",$values);
 	}
 
 	function GetInstanceById($id){
-		return inobj_TableRecord::_GetInstanceById("User",$id);
+		return Model::_GetInstanceById("User",$id);
 	}
 
 	function GetInstanceByLogin($login){
-		return inobj_TableRecord::FindFirst(array(
+		return Model::FindFirst(array(
 			"class_name" => "User",
 			"conditions" => "login=:login",
 			"bind_ar" => array(":login" => $login)
@@ -22,7 +22,7 @@ class User extends inobj_TableRecord{
 	}
 
 	function Login($login,$password){
-		if(($user = User::ByLogin($login)) && ($user->g("password")==User::CryptPassword($password,$login))){
+		if(($user = User::GetInstanceByLogin($login)) && ($user->g("password")==User::CryptPassword($password,$login))){
 			return $user;
 		}
 	}

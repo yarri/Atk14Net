@@ -34,7 +34,7 @@ class UsersController extends ApplicationController{
 
 	// Action for JS validator
 	function check_login_availability(){
-		$this->response->write(User::ByLogin($this->params->g("login","string")) ? "false" : "true");
+		$this->response->write(User::GetInstanceByLogin($this->params->g("login","string")) ? "false" : "true");
 		$this->render_template = false;
 	}
 

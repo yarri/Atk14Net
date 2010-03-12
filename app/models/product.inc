@@ -9,17 +9,12 @@ class Product extends Model{
 	}
 
 	function ById($id,$lang = null){
-		return Model::Langify(
-			Model::_GetInstanceById("Product",$id),
-			$lang
-		);
+		return Model::_GetInstanceById("Product",$id);
 	}
 
 	function ByCategory($category,$lang = null){
 		$dbmole = &Model::GetDbmole();
-		return Model::Langify(
-			Product::ById($dbmole->selectIntoArray("SELECT product_id FROM product_categories WHERE category_id=:category_id ORDER BY ranking",array(":category_id" => $category)))
-		);
+		return Product::ById($dbmole->selectIntoArray("SELECT product_id FROM product_categories WHERE category_id=:category_id ORDER BY ranking",array(":category_id" => $category)));
 	}
 
 	function getTitle(){ return $this->g("title_$this->lang"); }

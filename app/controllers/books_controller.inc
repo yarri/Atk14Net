@@ -18,7 +18,7 @@ class BooksController extends ApplicationController{
 			}
 		}
 
-		$finder = inobj_TableRecord::Finder(array(
+		$finder = Model::Finder(array(
 			"class_name" => "Book",
 			"conditions" => $conditions,
 			"bind_ar" => $bind_ar,

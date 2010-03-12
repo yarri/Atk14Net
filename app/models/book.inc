@@ -19,7 +19,7 @@
 *		"title" => "Some Title",
 *		"code" => "123",
 *	));
-* $books = inobj_TableRecord::FindFirst(array(
+* $books = Model::FindFirst(array(
 *		""
 *	))
 *
@@ -27,9 +27,9 @@
 *
 *
 */
-class Book extends inobj_TableRecord{
+class Book extends Model{
 	function Book(){
-		parent::inobj_TableRecord("books");
+		parent::Model("books");
 	}
 	
 	function CreateNewRecord($values){
@@ -37,11 +37,11 @@ class Book extends inobj_TableRecord{
 		$values = array_merge(array(
 			"..."
 		),$values);	*/
-		return inobj_TableRecord::_CreateNewRecord("Book",$values);
+		return Model::_CreateNewRecord("Book",$values);
 	}
 
 	function GetInstanceById($id){
-		return inobj_TableRecord::_GetInstanceById("Book",$id);
+		return Model::_GetInstanceById("Book",$id);
 	}
 
 	function getTitle(){ return $this->g("title"); }
