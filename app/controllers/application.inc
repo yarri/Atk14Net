@@ -7,8 +7,6 @@ class ApplicationController extends Atk14Controller{
 	}
 
 	function _initialize(){
-		$this->dbmole = &PgMole::GetInstance();
-
 		$this->doc_source_files = array(); // array for files to be included within auto documentation
 
 		$this->_prepend_before_filter("application_before_filter");
