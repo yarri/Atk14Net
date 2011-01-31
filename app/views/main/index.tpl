@@ -28,6 +28,16 @@
 			<li><h5>{a controller=sign_up_js_validation action=sign_up}With Javascript validation{/a}</h5></li>
 		</ul>
 	</li>
+
+	<li>
+		<h4>{a namesp controller=notification action=remind_member}Sending emails{/a}</h4>
+		<p>Sending emails with ApplicationMailer</p>
+	</li>
+
+	<li>
+		<h4>{a controller=notification action=remind_member}Sending emails{/a}</h4>
+		<p>Sending emails with ApplicationMailer</p>
+	</li>
 </ul>
 
 
