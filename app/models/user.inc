@@ -1,21 +1,11 @@
 <?
-class User extends Model{
-	function User(){
-		parent::Model("users");
-	}
-
-	function CreateNewRecord($values){
-		$values["password"] = User::CryptPassword($values["password"],$values["login"]);
-		return Model::_CreateNewRecord("User",$values);
-	}
-
-	function GetInstanceById($id){
-		return Model::_GetInstanceById("User",$id);
+class User extends ApplicationModel{
+	function __construct(){
+		parent::__construct("users");
 	}
 
 	function GetInstanceByLogin($login){
-		return Model::FindFirst(array(
-			"class_name" => "User",
+		return User::FindFirst(array(
 			"conditions" => "login=:login",
 			"bind_ar" => array(":login" => $login)
 		));
@@ -35,4 +25,3 @@ class User extends Model{
 
 	function getLogin(){ return $this->g("login"); }
 }
-?>

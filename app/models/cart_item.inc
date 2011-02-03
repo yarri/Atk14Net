@@ -15,4 +15,3 @@ class CartItem{
 		return $p->getPrice() * $this->getAmount();
 	}
 }
-?>

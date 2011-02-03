@@ -1,7 +1,7 @@
 <?
 class CartController extends ApplicationController{
 	function add_product(){
-		if(!$product = Product::ById($this->params->g("product","integer"))){
+		if(!$product = Product::GetInstanceById($this->params->g("product","integer"))){
 			return;
 		}
 		$this->cart->add($product,$this->params->g("amount","integer"));
@@ -16,4 +16,3 @@ class CartController extends ApplicationController{
 		$this->session->clear("cart");
 	}
 }
-?>

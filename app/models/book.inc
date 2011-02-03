@@ -19,7 +19,7 @@
 *		"title" => "Some Title",
 *		"code" => "123",
 *	));
-* $books = Model::FindFirst(array(
+* $books = ApplicationModel::FindFirst(array(
 *		""
 *	))
 *
@@ -27,23 +27,11 @@
 *
 *
 */
-class Book extends Model{
+class Book extends ApplicationModel{
 	function Book(){
-		parent::Model("books");
+		parent::ApplicationModel("books");
 	}
 	
-	function CreateNewRecord($values){
-		/*
-		$values = array_merge(array(
-			"..."
-		),$values);	*/
-		return Model::_CreateNewRecord("Book",$values);
-	}
-
-	function GetInstanceById($id){
-		return Model::_GetInstanceById("Book",$id);
-	}
-
 	function getTitle(){ return $this->g("title"); }
 	function getCode(){ return $this->g("code"); }
 	function getShelfmark(){ return $this->g("shelfmark"); }

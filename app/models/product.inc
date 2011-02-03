@@ -1,19 +1,11 @@
 <?
-class Product extends Model{
+class Product extends ApplicationModel{
 	function Product(){
-		parent::Model("products");
+		parent::ApplicationModel("products");
 	}
 	
-	function CreateNewRecord($values){
-		return Model::_CreateNewRecord("Product",$values);
-	}
-
-	function ById($id,$lang = null){
-		return Model::_GetInstanceById("Product",$id);
-	}
-
 	function ByCategory($category,$lang = null){
-		$dbmole = &Model::GetDbmole();
+		$dbmole = &ApplicationModel::GetDbmole();
 		return Product::ById($dbmole->selectIntoArray("SELECT product_id FROM product_categories WHERE category_id=:category_id ORDER BY ranking",array(":category_id" => $category)));
 	}
 
@@ -24,4 +16,3 @@ class Product extends Model{
 	function getPrice(){ return $this->g("price"); }
 	function getOldPrice(){ return $this->g("old_price"); }
 }
-?>

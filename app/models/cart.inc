@@ -46,4 +46,3 @@ class Cart{
 		return is_object($product) ? $product->getId() : $product;
 	}
 }
-?>

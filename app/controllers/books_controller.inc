@@ -18,8 +18,7 @@ class BooksController extends ApplicationController{
 			}
 		}
 
-		$finder = Model::Finder(array(
-			"class_name" => "Book",
+		$finder = Book::Finder(array(
 			"conditions" => $conditions,
 			"bind_ar" => $bind_ar,
 			"order" => $this->sorting->getOrder(),

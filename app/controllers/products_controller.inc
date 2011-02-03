@@ -1,7 +1,7 @@
 <?
 class ProductsController extends ApplicationController{
 	function overview(){
-		($category = Category::ById($this->params->g("category","integer"))) || ($category = Category::DefaultCategory());
+		($category = Category::GetInstanceById($this->params->g("category","integer"))) || ($category = Category::DefaultCategory());
 		$this->tpl_data["category"] = $category;
 		$this->tpl_data["products"] = Product::ByCategory($category);
 		$this->page_title = $category->getTitle();
@@ -9,7 +9,6 @@ class ProductsController extends ApplicationController{
 	}
 
 	function detail(){
-		if(!$product = Product::ById($this->params->g("id","integer"))){ return $this->_redirect_to_action("category"); }
+		if(!$product = Product::GetInstanceByById($this->params->g("id","integer"))){ return $this->_redirect_to_action("category"); }
 	}
 }
-?>
