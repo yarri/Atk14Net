@@ -4,10 +4,14 @@ class User extends ApplicationModel{
 		parent::__construct("users");
 	}
 
+	static function CreateNewRecord($values,$options = array()){
+		$values["password"] = User::CryptPassword($values["password"],$values["login"]);
+		return parent::CreateNewRecord($values,$options);
+	}
+
 	function GetInstanceByLogin($login){
 		return User::FindFirst(array(
-			"conditions" => "login=:login",
-			"bind_ar" => array(":login" => $login)
+			"conditions" => array("login" => $login)
 		));
 	}
 

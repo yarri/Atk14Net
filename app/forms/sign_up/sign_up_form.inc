@@ -26,7 +26,7 @@ class SignUpForm extends ApplicationForm{
 	function clean(){
 		$d = &$this->cleaned_data;
 
-		if(isset($d["login"]) && User::ByLogin($d["login"])){
+		if(isset($d["login"]) && User::GetInstanceByLogin($d["login"])){
 			$this->set_error("login",_("The given username has already been taken"));
 		}
 

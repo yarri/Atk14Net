@@ -52,4 +52,3 @@ class UsersController extends ApplicationController{
 		$this->doc_source_files[] = "models/user.inc";
 	}
 }
-?>
