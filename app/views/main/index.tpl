@@ -30,11 +30,6 @@
 	</li>
 
 	<li>
-		<h4>{a namesp controller=notification action=remind_member}Sending emails{/a}</h4>
-		<p>Sending emails with ApplicationMailer</p>
-	</li>
-
-	<li>
 		<h4>{a controller=notification action=remind_member}Sending emails{/a}</h4>
 		<p>Sending emails with ApplicationMailer</p>
 	</li>
