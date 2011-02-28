@@ -1,4 +1,4 @@
-<?
+<?php
 class YesNoField extends BooleanField {
 	function YesNoField($options = array()) {
 		parent::BooleanField($options);
@@ -14,4 +14,3 @@ class YesNoField extends BooleanField {
 		return array(null, ($value ? "Y" : "N"));
 	}
 }
-?>

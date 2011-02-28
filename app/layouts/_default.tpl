@@ -1,7 +1,10 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{$lang}" lang="{$lang}">
+
 <head>
-	<title>{$page_title|h} | ATK14 Powered Website</title>
+	<title>{$page_title|h} | ATK14 Demonstration Website</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="content-language" content="{$lang}" />
 	<meta name="description" content="{$page_description}" />
 	<meta name="x-root" content="{$root|h}" />
 	<meta name="x-lang" content="{$lang|h}" />
@@ -29,6 +32,7 @@
 </head>
 <body>
 	<div class="container">  
+		<h1>{a controller=main action=index}ATK14 Demonstration Website{/a}</h1>
 		{render partial=shared/flash_message}
 		{render partial=shared/user_info}
 		{render partial=shared/cart_info}

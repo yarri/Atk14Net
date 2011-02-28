@@ -1,6 +1,12 @@
-<?
+<?php
 class BooksController extends ApplicationController{
+
+	/**
+	* Provides the list of books.
+	*/
 	function index(){
+		$this->page_title = "Books";
+
 		$this->sorting->add("title",array("order_by" => "UPPER(title)"));
 		$this->sorting->add("code");
 
@@ -30,9 +36,19 @@ class BooksController extends ApplicationController{
 		$this->tpl_data["finder"] = $finder;
 	}
 
-	function detail(){ } 
-
+	/**
+	* Provides the detail of a book.
+	*/
+	function detail(){
+		$this->page_title = sprintf("Detail of the book %s",$this->book->getTitle());
+	} 
+	
+	/**
+	* Provides a book entry creation.
+	*/
 	function create_new(){
+		$this->page_title = "Create a new book entry";
+
 		if($this->request->post() && ($d = $this->form->validate($this->params))){
 			Book::CreateNewRecord($d);
 			$this->flash->notice("A new book entry was saved.");
@@ -40,7 +56,11 @@ class BooksController extends ApplicationController{
 		}
 	}
 
+	/**
+	* Provides a book entry editing.
+	*/
 	function edit(){
+		$this->page_title = sprintf("Edit book #%s",$this->book->getId());
 		$return_uri = $this->request->get() ? $this->request->getHttpReferer() : $this->params->getString("return_uri");
 		$this->form->set_hidden_field("return_uri",$return_uri);
 
@@ -52,6 +72,9 @@ class BooksController extends ApplicationController{
 		}
 	}
 
+	/**
+	* Provides a book entry destroying.
+	*/
 	function destroy(){
 		if(!$this->request->xhr()){
 			$this->flash->error("The requested operation could not be performed without JavaScript.");
@@ -62,6 +85,9 @@ class BooksController extends ApplicationController{
 		}
 	}
 
+	/**
+	* Finds and instantiates an Book object by tha parametr id.
+	*/
 	function _find_book(){
 		if($this->book = Book::GetInstanceById($this->params->getInt("id"))){
 			$this->tpl_data["book"] = &$this->book;

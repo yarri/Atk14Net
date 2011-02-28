@@ -1,4 +1,4 @@
-<h2>Edit Book entry</h2>
+<h2>{$page_title|h}</h2>
 
 {render partial=shared/form_error}
 

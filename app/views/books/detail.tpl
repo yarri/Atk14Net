@@ -1,4 +1,4 @@
-<h2>Book details</h2>
+<h2>{$page_title|h}</h2>
 
 <table>
 	<tbody>

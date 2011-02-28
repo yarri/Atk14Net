@@ -1,4 +1,4 @@
-<?
+<?php
 class BookField extends ChoiceField{
 	function BookField($options = array()){
 		$choices = array("" => "-- select a book --");

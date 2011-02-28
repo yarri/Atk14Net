@@ -2,7 +2,7 @@
 class SourcesController extends ApplicationController{
 
 	/**
-	* Displays content of a given file withing.
+	* Displays content of a given file.
 	*/
 	function detail(){
 		$file = $this->params->g("file");
@@ -20,16 +20,33 @@ class SourcesController extends ApplicationController{
 		}else{
 			$source = htmlspecialchars($source);
 		}
+
+		$replaces = array();
+
 		if(preg_match("/\\.tpl$/",$file)){
 			if(preg_match_all("/({render[^}]+partial=)(['\"]|)([^\\s}]+)(['\"]|)/",$source,$matches)){
-				$replaces = array();
 				for($i=0;$i<sizeof($matches[3]);$i++){
 					$link = "<a href=\"".$this->_link_to(array("file" => $this->_find_shared_template($matches[3][$i],$filename)))."\">{$matches[3][$i]}</a>";
 					$replaces[$matches[0][$i]] = $matches[1][$i].$matches[2][$i].$link.$matches[4][$i];
 				}
-				$source = strtr($source,$replaces);
 			}
 		}
+
+		if(preg_match("/\\.inc$/",$file)){
+			if(preg_match_all("/([a-zA-Z0-9]+Field)/",$source,$matches)){
+				for($i=0;$i<sizeof($matches[1]);$i++){
+					if($field_file = $this->_find_field_file($matches[1][$i])){
+						$link = "<a href=\"".$this->_link_to(array("file" => $field_file))."\">{$matches[1][$i]}</a>";
+						$replaces[$matches[0][$i]] = $link;
+					}
+				}
+			}
+		}
+
+		$source = strtr($source,$replaces);
+
+		
+
 		$this->tpl_data["source"] = $source;
 		$this->tpl_data["file"] = $file;
 	}
@@ -50,5 +67,13 @@ class SourcesController extends ApplicationController{
 			return "views$shared_filename";
 		}
 		return "???";
+	}
+
+	function _find_field_file($field_class){
+		$field = new String($field_class);
+		$filename = "fields/".$field->underscore().".inc";
+		if(file_exists(ATK14_DOCUMENT_ROOT."/app/$filename")){
+			return $filename;
+		}
 	}
 }

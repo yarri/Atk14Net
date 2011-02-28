@@ -1,4 +1,4 @@
-<h2>Books</h2>
+<h2>{$page_title|h}</h2>
 
 {form}
 	<fieldset>
