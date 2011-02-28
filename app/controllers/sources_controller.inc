@@ -33,6 +33,8 @@ class SourcesController extends ApplicationController{
 		}
 
 		if(preg_match("/\\.inc$/",$file)){
+
+			// searching fields
 			if(preg_match_all("/([a-zA-Z0-9]+Field)/",$source,$matches)){
 				for($i=0;$i<sizeof($matches[1]);$i++){
 					if($field_file = $this->_find_field_file($matches[1][$i])){
@@ -41,6 +43,17 @@ class SourcesController extends ApplicationController{
 					}
 				}
 			}
+
+			// searching models
+			if(preg_match_all("/([a-zA-Z0-9]+)((<[^>]+>)+::)/",$source,$matches)){
+				for($i=0;$i<sizeof($matches[1]);$i++){
+					if($field_file = $this->_find_model_file($matches[1][$i])){
+						$link = "<a href=\"".$this->_link_to(array("file" => $field_file))."\">{$matches[1][$i]}</a>";
+						$replaces[$matches[0][$i]] = $link.$matches[2][$i];
+					}
+				}
+			}
+
 		}
 
 		$source = strtr($source,$replaces);
@@ -72,6 +85,15 @@ class SourcesController extends ApplicationController{
 	function _find_field_file($field_class){
 		$field = new String($field_class);
 		$filename = "fields/".$field->underscore().".inc";
+		if(file_exists(ATK14_DOCUMENT_ROOT."/app/$filename")){
+			return $filename;
+		}
+	}
+
+	function _find_model_file($model_class){
+		$model = new String($model_class);
+		$filename = "models/".$model->underscore().".inc";
+		//echo ATK14_DOCUMENT_ROOT."/app/$filename"; exit;
 		if(file_exists(ATK14_DOCUMENT_ROOT."/app/$filename")){
 			return $filename;
 		}
