@@ -30,7 +30,7 @@
 	</li>
 
 	<li>
-		<h4>{a controller=notification action=remind_member}Sending emails{/a}</h4>
+		<h4>{a controller=reminders action=create_new}Sending emails{/a}</h4>
 		<p>Sending emails with ApplicationMailer</p>
 	</li>
 </ul>

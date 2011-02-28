@@ -1,4 +1,4 @@
-<?
+<?php
 function smarty_function_src($params,&$smarty){
 	$params = array_merge(array(
 		"title" => null,
@@ -7,7 +7,7 @@ function smarty_function_src($params,&$smarty){
 	$url_p = array(
 		"namespace" => "",
 		"controller" => "sources",
-		"action" => "display",
+		"action" => "detail",
 		"file" => $params["file"]
 	);
 	$url = Atk14Url::BuildLink($url_p);
@@ -18,4 +18,3 @@ function smarty_function_src($params,&$smarty){
 	if($params["add_br"]){ $out .= "<br />"; }
 	return $out;
 }
-?>

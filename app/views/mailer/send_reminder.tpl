@@ -1,5 +1,5 @@
 Dear member,
 
-return our book, you have borrowed.
+return our book "{$book->getTitle()}", you have borrowed.
 
 Your librarian

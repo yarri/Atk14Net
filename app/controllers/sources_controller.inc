@@ -1,6 +1,10 @@
-<?
+<?php
 class SourcesController extends ApplicationController{
-	function display(){
+
+	/**
+	* Displays content of a given file withing.
+	*/
+	function detail(){
 		$file = $this->params->g("file");
 		$filename = dirname(__FILE__)."/../$file";
 
@@ -48,4 +52,3 @@ class SourcesController extends ApplicationController{
 		return "???";
 	}
 }
-?>

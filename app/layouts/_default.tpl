@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>{$page_title|h} | Store of the year</title>
+	<title>{$page_title|h} | ATK14 Powered Website</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta name="description" content="{$page_description}" />
 	<meta name="x-root" content="{$root|h}" />
