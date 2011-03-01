@@ -2,5 +2,33 @@
 class MainController extends ApplicationController{
 	function index(){
 		$this->page_title = "Welcome";
+
+		// every day a new message
+		$mods = explode("\n",trim("
+			ATK14? The best is a weak expression!
+			ATK14? The thing you should be afraid of!
+			ATK14? The last thing you'll see!
+			ATK14? Forget it!
+			ATK14? Who cares?
+			AKT14? No! It's ATK14.
+			ATK14? The last framework!
+			ATK14? The first framework!
+			ATK14? Not the 14th framework!
+			ATK14? Your headache!
+			ATK14? Stay away from the others!
+			ATK14? Do not betray the Birdie!
+			ATK14? Remember the last pain?
+			ATK14? So what?
+			ATK14? Sounds like a gun or something.
+			ATK14? Is it dangerous?
+			ATK14? You shouldn't hack ATK14 core or God kills a Drupal core developer!
+			ATK14? You should hack ATK14 core or God gives life to a death kitten!
+			ATK14? Nothing else than pure quality!
+			ATK14? Take it or leave it!
+			ATK14? The Birdie is gonna hit ya!
+			ATK14? Do not trust the Birdie!
+			ATK14? Birdie is seeing you! Probably.
+		"));
+		$this->tpl_data["mod"] = trim($mods[floor(time()/(60*60*24))%sizeof($mods)]);
 	}
 }

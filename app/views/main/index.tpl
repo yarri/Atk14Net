@@ -1,6 +1,20 @@
-<h2>Welcome in Atk14 demo application</h2>
+<h2>{$mod}</h2>
 
-<h3>You can find here</h3>
+<img src="http://poctenicko.cz/ptaci-kasel/images/holub.gif" alt="ATK14 Birdie" />
+
+<h3>Do not miss</h3>
+
+<ul>
+	<li><a href="http://api.atk14.net/">API Reference</a></li>
+	<li><a href="http://code.google.com/p/atk14/wiki/Installation">ATK14 installation instructions</a></li>
+</ul>
+
+
+<h3>Here are some life examples from the real world</h3>
+
+<p>
+	At any page you can inspect sources of all involved files.
+</p>
 
 <ul>
 	<li>
@@ -34,5 +48,4 @@
 		<p>Sending emails with ApplicationMailer</p>
 	</li>
 </ul>
-
 

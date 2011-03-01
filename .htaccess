@@ -1,3 +1,3 @@
 RewriteEngine On
-RewriteCond %{REQUEST_URI} !^\/atk14demo/public\/
+RewriteCond %{REQUEST_URI} !^\/public\/
 RewriteRule .* dispatcher.php

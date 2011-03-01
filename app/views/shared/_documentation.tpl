@@ -1,5 +1,5 @@
 <div class="documentation">
-		<h3>Browsing sources</h3>
+		<h3>Browsing relevant file sources</h3>
 		{placeholder for=doc}
 
 		{foreach from=$doc_source_files item=s_file}
