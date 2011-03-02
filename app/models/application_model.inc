@@ -1,4 +1,4 @@
-<?
+<?php
 /**
 * The base class of all the application models.
 * Do you have any common methods or attributes for all your models? Put them right here.
@@ -28,13 +28,18 @@ class ApplicationModel extends inobj_TableRecord{
 	* 
 	* @return string
 	*/
-	function toJson(){
-		return json_encode($this->toExportArray());
-	}
+	function toJson(){ return json_encode($this->toExportArray()); }
+
+	/**
+	* Converts object into YAML.
+	*
+	* @return string
+	*/
+	function toYaml(){ return miniYAML::Dump($this->toExportArray()); }
 
 	/**
 	* Returns associative array with object`s attributes and their values.
-	* This array is used for exporting object as XML or JSON.
+	* This array is used for exporting object as XML, JSON or YAML.
 	* 
 	* Cover it in a given class if you want to return something else than just $object->toArray().
 	* 

@@ -13,7 +13,7 @@
 </p>
 
 
-{if $finder->getTotalAmount()}
+{if !$finder->isEmpty()}
 
 	<table>
 		<thead>
@@ -25,7 +25,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{render partial=book_item from=$books item=book}
+			{render partial=book_item from=$finder->getRecords() item=book}
 		</tbody>
 	</table>
 

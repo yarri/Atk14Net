@@ -5,7 +5,7 @@ class MainController extends ApplicationController{
 
 		// every day a new message
 		$mods = explode("\n",trim("
-			ATK14? The best is a weak expression!
+			ATK14? The best is just a weak expression!
 			ATK14? The thing you should be afraid of!
 			ATK14? The last thing you'll see!
 			ATK14? Forget it!
@@ -22,12 +22,14 @@ class MainController extends ApplicationController{
 			ATK14? Sounds like a gun or something.
 			ATK14? Is it dangerous?
 			ATK14? You shouldn't hack ATK14 core or God kills a Drupal core developer!
-			ATK14? You should hack ATK14 core or God gives life to a death kitten!
 			ATK14? Nothing else than pure quality!
 			ATK14? Take it or leave it!
 			ATK14? The Birdie is gonna hit ya!
 			ATK14? Do not trust the Birdie!
 			ATK14? Birdie is seeing you! Probably.
+			ATK14? Better to use Brainfuck next time!
+			ATK14? Lets celebrate the 0.1 release!
+			ATK14? Let the Bird control your body!
 		"));
 		$this->tpl_data["mod"] = trim($mods[floor(time()/(60*60*24))%sizeof($mods)]);
 	}

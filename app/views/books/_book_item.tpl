@@ -4,6 +4,9 @@
 	<td>{$book->getShelfmark()|h}</td>
 	<td>
 		{a action=edit id=$book}Edit{/a} |
-		{a_destroy id=$book}Destroy{/a_destroy}
+		{a_destroy id=$book}Destroy{/a_destroy} |
+		{a action=detail id=$book format=xml}as XML{/a} |
+		{a action=detail id=$book format=json}as JSON{/a} |
+		{a action=detail id=$book format=yaml}as YAML{/a}
 	</td>
 </tr>

@@ -24,16 +24,13 @@ class BooksController extends ApplicationController{
 			}
 		}
 
-		$finder = Book::Finder(array(
+		$this->tpl_data["finder"] = Book::Finder(array(
 			"conditions" => $conditions,
 			"bind_ar" => $bind_ar,
 			"order" => $this->sorting->getOrder(),
 			"limit" => 10,
 			"offset" => $this->params->getInt("from"),
 		));
-
-		$this->tpl_data["books"] = $finder->getRecords();
-		$this->tpl_data["finder"] = $finder;
 	}
 
 	/**
@@ -41,6 +38,28 @@ class BooksController extends ApplicationController{
 	*/
 	function detail(){
 		$this->page_title = sprintf("Detail of the book %s",$this->book->getTitle());
+
+		if($this->params->defined("format")){
+			$this->render_template = false;
+
+			switch($this->params->getString("format")){
+				case "xml":
+					$this->response->setContentType("text/xml");
+					$this->response->writeln($this->book->toXml());
+					break;
+				case "json":
+					$this->response->setContentType("text/plain");
+					$this->response->writeln($this->book->toJson());
+					break;
+				case "yaml":
+					$this->response->setContentType("text/plain");
+					$this->response->writeln($this->book->toYaml());
+					break;					
+				default:
+					$this->_execute_action("error404");
+			}
+
+		}
 	} 
 	
 	/**
@@ -76,13 +95,9 @@ class BooksController extends ApplicationController{
 	* Provides a book entry destroying.
 	*/
 	function destroy(){
-		if(!$this->request->xhr()){
-			$this->flash->error("The requested operation could not be performed without JavaScript.");
-			return $this->_redirect_to_action("index");
-		}
-		if($this->request->post()){
-			$this->book->destroy();
-		}
+		if(!$this->request->post()){ return $this->_execute_action("error404"); }
+		
+		$this->book->destroy();
 	}
 
 	/**
@@ -91,9 +106,8 @@ class BooksController extends ApplicationController{
 	function _find_book(){
 		if($this->book = Book::GetInstanceById($this->params->getInt("id"))){
 			$this->tpl_data["book"] = &$this->book;
-			return true;
+			return $this->book;
 		}
-		return false;
 	}
 
 	function _go_to_return_uri(){
