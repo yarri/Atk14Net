@@ -6,6 +6,7 @@
 
 <ul>
 	<li><a href="http://api.atk14.net/">API Reference</a></li>
+	<li><a href="http://code.google.com/p/atk14/">ATK14 Home on Google Code</a></li>
 	<li><a href="http://code.google.com/p/atk14/wiki/Installation">ATK14 installation instructions</a></li>
 </ul>
 
