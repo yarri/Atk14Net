@@ -1,6 +1,6 @@
 <h2>{$mod}</h2>
 
-<img src="http://poctenicko.cz/ptaci-kasel/images/holub.gif" alt="ATK14 Birdie" />
+<img src="{$public}images/atk14.gif" alt="ATK14 Birdie" title="ATK14 Birdie" />
 
 <h3>Do not miss</h3>
 
