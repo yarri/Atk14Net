@@ -5,6 +5,10 @@
 * Otherwise there's no need to care :)
 */
 class ApplicationModel extends inobj_TableRecord{
+
+	function ApplicationModel($table_name,$options = array()){
+		parent::inobj_TableRecord($table_name,$options);
+	}
 	
 	/**
 	* Converts object into XML.
