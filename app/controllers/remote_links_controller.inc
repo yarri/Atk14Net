@@ -20,6 +20,12 @@ class RemoteLinksController extends ApplicationController{
 		}
 	}
 
+	function get_json(){
+		$this->_render(array(
+			"text" => json_encode(array("id" => 123, "title" => "ATK14 Brochure", "description" => "The definite brochure for fearless guys!"))
+		));
+	}
+
 
 	function _before_filter(){
 		// all actions except index must be accessed with asynchronous javascript requests
