@@ -30,6 +30,11 @@ class MainController extends ApplicationController{
 			ATK14? Better to use Brainfuck next time!
 			ATK14? Lets celebrate the 0.1 release!
 			ATK14? Let the Bird control your body!
+			ATK14? Follow the White Birdie!
+			ATK14? The Birdie hits the fan!
+			ATK14? Don't even think about it!
+			ATK14? Redefines the quality!
+			ATK14? Are you kidding?
 		"));
 		$this->tpl_data["mod"] = trim($mods[floor(time()/(60*60*24))%sizeof($mods)]);
 	}
