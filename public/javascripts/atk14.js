@@ -1,5 +1,37 @@
 var ATK14 = (function( $ ) {
 
+	$( "a[data-remote]" ).live( "click", function() {
+		var $link = $( this ),
+			confirmMessage = $link.data( "confirm" );
+
+		if ( !confirmMessage || confirm( confirmMessage ) ) {
+			ATK14.handleRemote( this );
+		}
+
+		return false;
+	});
+
+	$( "form[data-remote]" ).live( "submit", function() {
+		ATK14.handleRemote( this );
+		return false;
+	});
+
+	$( "body" )
+		.ajaxStart(function() {
+			$( this ).addClass( "loading" );
+		})
+		.ajaxStop(function() {
+			$( this ).removeClass( "loading" );
+		});
+
+	$.ajaxSetup({
+		converters: {
+			"text atk14": true
+		},
+		dataType: "atk14"
+	});
+
+
 	return {
 
 		lang: $( "meta[name='x-lang']" ).attr( "content" ),
@@ -7,36 +39,6 @@ var ATK14 = (function( $ ) {
 		action: $( "meta[name='x-action']" ).attr( "content" ),
 
 		init: function() {
-			$( "a[data-remote]" ).live( "click", function() {
-				var $link = $( this ),
-					confirmMessage = $link.data( "confirm" );
-
-				if ( !confirmMessage || confirm( confirmMessage ) ) {
-					ATK14.handleRemote( this );
-				}
-
-				return false;
-			});
-
-			$( "form[data-remote]" ).live( "submit", function() {
-				ATK14.handleRemote( this );
-				return false;
-			});
-
-			$( "body" )
-				.ajaxStart(function() {
-					$( this ).addClass( "loading" );
-				})
-				.ajaxStop(function() {
-					$( this ).removeClass( "loading" );
-				});
-
-			$.ajaxSetup({
-				converters: {
-					"text atk14": true
-				},
-				dataType: "atk14"
-			});
 		},
 
 		handleRemote: function( element ) {
@@ -82,7 +84,3 @@ var ATK14 = (function( $ ) {
 	};
 
 })( jQuery );
-
-jQuery(function() {
-	ATK14.init();
-});
