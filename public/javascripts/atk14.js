@@ -8,9 +8,16 @@ var ATK14 = (function( $ ) {
 
 		init: function() {
 			$( "a[data-remote]" ).live( "click", function() {
-				ATK14.handleRemote( this );
+				var $link = $( this ),
+					confirmMessage = $link.data( "confirm" );
+
+				if ( !confirmMessage || confirm( confirmMessage ) ) {
+					ATK14.handleRemote( this );
+				}
+
 				return false;
 			});
+
 			$( "form[data-remote]" ).live( "submit", function() {
 				ATK14.handleRemote( this );
 				return false;
