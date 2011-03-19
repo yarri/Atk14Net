@@ -26,9 +26,9 @@ var ATK14 = (function( $ ) {
 
 	$.ajaxSetup({
 		converters: {
-			"text context": window.eval
+			"text conscript": true
 		},
-		dataType: "context"
+		dataType: "conscript"
 	});
 
 
@@ -63,6 +63,10 @@ var ATK14 = (function( $ ) {
 				},
 				success: function( data, status, xhr ) {
 					$element.trigger( "ajax:success", [ data, status, xhr ] );
+
+					if ( $.ajaxSettings.dataType === "conscript" ) {
+						eval( data );
+					}
 				},
 				complete: function( xhr, status ) {
 					$element.trigger( "ajax:complete", [ xhr, status ] );
