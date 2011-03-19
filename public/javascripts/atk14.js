@@ -26,9 +26,9 @@ var ATK14 = (function( $ ) {
 
 	$.ajaxSetup({
 		converters: {
-			"text atk14": true
+			"text context": window.eval
 		},
-		dataType: "atk14"
+		dataType: "context"
 	});
 
 
@@ -63,10 +63,6 @@ var ATK14 = (function( $ ) {
 				},
 				success: function( data, status, xhr ) {
 					$element.trigger( "ajax:success", [ data, status, xhr ] );
-
-					if ( $.ajaxSettings.dataType === "atk14" ) {
-						eval( data );
-					}
 				},
 				complete: function( xhr, status ) {
 					$element.trigger( "ajax:complete", [ xhr, status ] );
