@@ -34,12 +34,7 @@ var ATK14 = (function( $ ) {
 
 	return {
 
-		lang: $( "meta[name='x-lang']" ).attr( "content" ),
-
 		action: $( "meta[name='x-action']" ).attr( "content" ),
-
-		init: function() {
-		},
 
 		handleRemote: function( element ) {
 			var method, url, data, $link, $form,
