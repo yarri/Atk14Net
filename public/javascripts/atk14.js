@@ -64,7 +64,7 @@ var ATK14 = (function( $ ) {
 				success: function( data, status, xhr ) {
 					$element.trigger( "ajax:success", [ data, status, xhr ] );
 
-					if ( $.ajaxSettings.dataType === "conscript" ) {
+					if ( dataType === "conscript" ) {
 						eval( data );
 					}
 				},
