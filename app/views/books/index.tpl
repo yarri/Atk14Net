@@ -13,26 +13,30 @@
 </p>
 
 
-{if !$finder->isEmpty()}
+{if $finder}
 
-	<table>
-		<thead>
-			<tr>
-				{sortable key=title}<th>Title</th>{/sortable}
-				{sortable key=code}<th>Code</th>{/sortable}
-				<th>Shelfmark</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			{render partial=book_item from=$finder->getRecords() item=book}
-		</tbody>
-	</table>
+	{if $finder->notEmpty()}
 
-	{paginator}
+		<table>
+			<thead>
+				<tr>
+					{sortable key=title}<th>Title</th>{/sortable}
+					{sortable key=code}<th>Code</th>{/sortable}
+					<th>Shelfmark</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{render partial=book_item from=$finder->getRecords() item=book}
+			</tbody>
+		</table>
 
-{else}
+		{paginator}
 
-	<p>Nothing was found.</p>
+	{else}
+
+		<p>Nothing was found.</p>
+
+	{/if}
 
 {/if}

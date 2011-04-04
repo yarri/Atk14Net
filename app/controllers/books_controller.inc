@@ -7,21 +7,23 @@ class BooksController extends ApplicationController{
 	function index(){
 		$this->page_title = "Books";
 
+		if($this->params->isEmpty() || !($d = $this->form->validate($this->params))){
+			return;
+		}
+
 		$this->sorting->add("title",array("order_by" => "UPPER(title)"));
 		$this->sorting->add("code");
 
 		$conditions = array();
 		$bind_ar = array();
 
-		if($d = $this->form->validate($this->params)){
-			if($d["search"]){
-				$conditions[] = "UPPER(title) LIKE UPPER(:search)";
-				$bind_ar[":search"] = "%$d[search]%";
-			}
-			if($d["code"]){
-				$conditions[] = "UPPER(code) LIKE UPPER(:code)";
-				$bind_ar[":code"] = "%$d[code]%";
-			}
+		if($d["search"]){
+			$conditions[] = "UPPER(title) LIKE UPPER(:search)";
+			$bind_ar[":search"] = "%$d[search]%";
+		}
+		if($d["code"]){
+			$conditions[] = "UPPER(code) LIKE UPPER(:code)";
+			$bind_ar[":code"] = "%$d[code]%";
 		}
 
 		$this->tpl_data["finder"] = Book::Finder(array(
