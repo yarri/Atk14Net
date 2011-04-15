@@ -16,6 +16,12 @@
 	<![endif]-->
 	{stylesheet_link_tag file="styles.css" media="screen, projection"}
 
+	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+	<script>window.jQuery || document.write('<script src="/public/javascripts/libs/jquery/jquery-1.5.1.min.js">\x3C/script>')</script>
+	{javascript_script_tag file="atk14.js"}
+	{javascript_script_tag file="application.js"}
+
 	{placeholder for="head"}
 
 	{javascript_tag}
@@ -37,12 +43,6 @@
 
 		{render partial=shared/documentation}
 	</div>
-
-	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
-	<script>window.jQuery || document.write('<script src="/public/javascripts/libs/jquery/jquery-1.5.1.min.js">\x3C/script>')</script>
-	{javascript_script_tag file="atk14.js"}
-	{javascript_script_tag file="application.js"}
 </body>
 
 </html>

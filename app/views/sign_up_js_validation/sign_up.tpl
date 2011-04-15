@@ -15,7 +15,7 @@
 {/form}
 
 {content for=head}
-	{javascript_script_tag file="jquery/plugins/jquery.validate.js"}
+	{javascript_script_tag file="libs/jquery/plugins/jquery.validate.js"}
 {/content}
 
 {content for=js}
