@@ -48,5 +48,13 @@
 		<h4>{a controller=reminders action=create_new}Sending emails{/a}</h4>
 		<p>Sending emails with ApplicationMailer</p>
 	</li>
+
+	<li>
+		<h4>Form field examples</h4>
+
+		<ul>
+			<li>{a controller=fields action=email}E-mail field{/a}</li>
+		</ul>
+	</li>
 </ul>
 

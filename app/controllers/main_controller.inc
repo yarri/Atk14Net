@@ -37,6 +37,8 @@ class MainController extends ApplicationController{
 			ATK14? Are you kidding?
 			ATK14? Better to deal with Perl!
 			ATK14? Have never heard about a worse framework!
+			ATK14? The Birdie works for me!
+			ATK14? The Birdie works against me!
 		"));
 		$this->tpl_data["mod"] = trim($mods[floor(time()/(60*60*24))%sizeof($mods)]);
 	}

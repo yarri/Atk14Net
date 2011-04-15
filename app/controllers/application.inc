@@ -1,4 +1,4 @@
-<?
+<?php
 class ApplicationController extends Atk14Controller{
 
 	function forbidden(){
@@ -51,6 +51,7 @@ class ApplicationController extends Atk14Controller{
 		$files = array(
 			"controllers$namespace/{$this->controller}_controller.inc",
 			"forms$namespace/$this->controller/{$this->action}_form.inc",
+			"forms$namespace/$this->controller/{$this->controller}_form.inc",
 			"views$namespace/$this->controller/{$this->action}.tpl",
 			"views$namespace/$this->controller/{$this->action}.xhr.tpl",
 		);
@@ -62,4 +63,3 @@ class ApplicationController extends Atk14Controller{
 		$this->tpl_data["doc_source_files"] = $this->doc_source_files;
 	}
 }
-?>
