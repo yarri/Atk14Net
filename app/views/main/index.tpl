@@ -54,6 +54,7 @@
 
 		<ul>
 			<li>{a controller=fields action=email}E-mail field{/a}</li>
+			<li>{a controller=fields action=date}Date field{/a}</li>
 		</ul>
 	</li>
 </ul>

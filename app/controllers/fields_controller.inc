@@ -1,9 +1,8 @@
 <?php
 class FieldsController extends ApplicationController{
-	function email(){
-		$this->page_title = "E-mail field example";
-		$this->_validate_form();
-	}
+	function email(){ $this->_validate_form(); }
+	function date(){ $this->_validate_form(); }
+
 
 	function _validate_form(){
 		$this->template_name = "validate_form";
@@ -14,5 +13,10 @@ class FieldsController extends ApplicationController{
 		}
 
 		$this->doc_source_files[] = "views/fields/validate_form.tpl";
+	}
+
+	function _before_filter(){
+		$a = new String($this->action);
+		$this->page_title = sprintf("%s field example",$a->camelize());
 	}
 }
