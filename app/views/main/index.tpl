@@ -1,6 +1,17 @@
-<h2>{$mod}</h2>
+<blockquote>{$mod}</blockquote>
+<p>
+&mdash; an atk14 developper
+</p>
 
 <img src="{$public}images/atk14.gif" alt="ATK14 Birdie" title="ATK14 Birdie" />
+
+<h3>Welcome</h3>
+
+<img src="{$public}images/easy_to_use.jpg" alt="Easy to use" title="Easy to use" />
+
+<p>
+	ATK14 is easy to use. Definitely.
+</p>
 
 <h3>Do not miss</h3>
 
