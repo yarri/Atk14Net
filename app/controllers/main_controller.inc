@@ -25,6 +25,7 @@ class MainController extends ApplicationController{
 			ATK14? Nothing else than pure quality!
 			ATK14? Take it or leave it!
 			ATK14? The Birdie is gonna hit ya!
+			ATK14? The Birdie is gonna die for you!
 			ATK14? Do not trust the Birdie!
 			ATK14? Birdie is seeing you! Probably.
 			ATK14? Better to use Brainfuck next time!
@@ -40,6 +41,11 @@ class MainController extends ApplicationController{
 			ATK14? Have never heard about a worse framework!
 			ATK14? The Birdie works for me!
 			ATK14? The Birdie works against me!
+			ATK14? There ain't no power to stop the Birdie!
+			ATK14? Birdie's got a temper!
+			ATK14? The ideal framework for refrigerators!
+			ATK14? A glitch in the Matrix!
+			ATK14? The Matrix itself!
 		"));
 		$this->tpl_data["mod"] = trim($mods[floor(time()/(60*60*24))%sizeof($mods)]);
 	}

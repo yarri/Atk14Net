@@ -20,13 +20,10 @@ class ApplicationController extends Atk14Controller{
 
 	function _application_before_filter(){
 		$this->user = User::GetInstanceById($this->session->g("user_id"));
-		($this->cart = $this->session->g("cart")) || ($this->cart = new Cart());
 	}
 
 	function _application_after_filter(){
-		if(!$this->cart->isEmpty()){
-			$this->session->s("cart",$this->cart);
-		}
+
 	}
 
 	function _begin_database_transaction(){
@@ -44,7 +41,6 @@ class ApplicationController extends Atk14Controller{
 
 	function _before_render(){
 		$this->tpl_data["user"] = $this->user;
-		$this->tpl_data["cart"] = $this->cart;
 
 		$namespace = strlen($this->namespace) ? "/$this->namespace" : "";
 		$basedir = dirname(__FILE__)."/..";
