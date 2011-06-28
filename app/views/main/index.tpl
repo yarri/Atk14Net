@@ -3,14 +3,20 @@
 &mdash; an atk14 developper
 </p>
 
-<img src="{$public}images/atk14.gif" alt="ATK14 Birdie" title="ATK14 Birdie" />
-
 <h3>Welcome</h3>
 
-<img src="{$public}images/easy_to_use.jpg" alt="Easy to use" title="Easy to use" />
+<img src="{$public}images/atk14.gif" alt="ATK14 Birdie" title="ATK14 Birdie" />
 
 <p>
-	ATK14 is easy to use. Definitely.
+The official ATK14 mascot is a bit surprised to see you there.
+</p>
+
+<h3>You are gonna see professionals at work</h3>
+
+<img src="{$public}images/easy_to_use.jpg" alt="Web developper" title="Using ATK14 is such a fun" />
+
+<p>
+	There is only a few things as good as ATK14 is. No doupt.
 </p>
 
 <h3>Do not miss</h3>
@@ -22,7 +28,7 @@
 </ul>
 
 
-<h3>Here are some life examples from the real world</h3>
+<h3>Here are some life examples</h3>
 
 <p>
 	At any page you can inspect sources of all involved files.
