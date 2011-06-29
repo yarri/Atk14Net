@@ -30,7 +30,11 @@
 
 <body>
 	<div class="container">
-		<h1>{a controller=main action=index}ATK14 is a PHP framework for fearless gyus{/a}</h1>
+			{if $controller==main && $action==index}
+				<h1>ATK14 is a PHP framework for fearless gyus</h1>
+			{else}
+				<h1>{a controller=main action=index}ATK14{/a}</h1>
+			{/if}
 
 		{render partial=shared/flash_message}
 		<div>

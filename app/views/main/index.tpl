@@ -1,8 +1,3 @@
-<blockquote>{$mod}</blockquote>
-<p>
-&mdash; an atk14 developper
-</p>
-
 <h3>Welcome</h3>
 
 <img src="{$public}images/atk14.gif" alt="ATK14 Birdie" title="ATK14 Birdie" />
@@ -16,8 +11,16 @@ The official ATK14 mascot is a bit surprised to see you there.
 <img src="{$public}images/easy_to_use.jpg" alt="Web developper" title="Using ATK14 is such a fun" />
 
 <p>
-	There is only a few things as good as ATK14 is. No doupt.
+	Ssssh! A new webapp is beeing born.
 </p>
+
+<blockquote>{$mod}</blockquote>
+
+<p>
+&mdash; an atk14 developper
+</p>
+
+
 
 <h3>Do not miss</h3>
 
