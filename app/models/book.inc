@@ -35,4 +35,8 @@ class Book extends ApplicationModel{
 	function getTitle(){ return $this->g("title"); }
 	function getCode(){ return $this->g("code"); }
 	function getShelfmark(){ return $this->g("shelfmark"); }
+	function getSlug(){
+		$title = new String($this->getTitle());
+		return (string)$title->downcase()->gsub('/[^a-z0-9]/','-')->gsub('/-{2,}/','-')->gsub('/^-/','-')->gsub('/-$/','');
+	}
 }	

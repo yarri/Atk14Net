@@ -1,5 +1,5 @@
 <tr>
-	<td>{a action=detail id=$book}{$book->getTitle()|h}{/a}</td>
+	<td>{a action=detail id=$book xx=111}{$book->getTitle()|h}{/a}</td>
 	<td>{$book->getCode()|h}</td>
 	<td>{$book->getShelfmark()|h}</td>
 	<td>
