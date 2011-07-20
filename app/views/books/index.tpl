@@ -2,16 +2,16 @@
 
 {form}
 	<fieldset>
-		{render partial=shared/form_field fields=search,code}
+		{render partial=shared/form_field field=search}
 		<div class="button">
 			<button type="submit">Search</button>
 		</div>
 	</fieldset>
 {/form}
+
 <p>
 	{a action=create_new}Create new entry{/a}
 </p>
-
 
 {if $finder}
 

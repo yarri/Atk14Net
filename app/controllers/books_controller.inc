@@ -5,9 +5,9 @@ class BooksController extends ApplicationController{
 	* Provides the list of books.
 	*/
 	function index(){
-		$this->page_title = "Books";
+		$this->page_title = "Listing books";
 
-		if($this->params->isEmpty() || !($d = $this->form->validate($this->params))){
+		if(!($d = $this->form->validate($this->params))){
 			return;
 		}
 
@@ -18,12 +18,8 @@ class BooksController extends ApplicationController{
 		$bind_ar = array();
 
 		if($d["search"]){
-			$conditions[] = "UPPER(title) LIKE UPPER(:search)";
+			$conditions[] = "UPPER(title) LIKE UPPER(:search) OR UPPER(code) LIKE UPPER(:search) OR UPPER(shelfmark) LIKE UPPER(:search)";
 			$bind_ar[":search"] = "%$d[search]%";
-		}
-		if($d["code"]){
-			$conditions[] = "UPPER(code) LIKE UPPER(:code)";
-			$bind_ar[":code"] = "%$d[code]%";
 		}
 
 		$this->tpl_data["finder"] = Book::Finder(array(
@@ -41,26 +37,29 @@ class BooksController extends ApplicationController{
 	function detail(){
 		$this->page_title = sprintf("Detail of the book %s",$this->book->getTitle());
 
-		if($this->params->defined("format")){
-			$this->render_template = false;
-
-			switch($this->params->getString("format")){
+		// returning the book in a different format
+		if($format = $this->params->getString("format")){
+			switch($format){
 				case "xml":
-					$this->response->setContentType("text/xml");
-					$this->response->writeln($this->book->toXml());
+					$content_type = "text/xml";
+					$content = $this->book->toXml();
 					break;
 				case "json":
-					$this->response->setContentType("text/plain");
-					$this->response->writeln($this->book->toJson());
+					$content_type = "text/plain";
+					$content = $this->book->toJson();
 					break;
 				case "yaml":
-					$this->response->setContentType("text/plain");
-					$this->response->writeln($this->book->toYaml());
+					$content_type = "text/plain";
+					$content = $this->book->toYaml();
 					break;					
 				default:
 					$this->_execute_action("error404");
+					return;
 			}
 
+			$this->render_template = false;
+			$this->response->setContentType($content_type);
+			$this->response->writeln($content);
 		}
 	} 
 	
@@ -69,11 +68,12 @@ class BooksController extends ApplicationController{
 	*/
 	function create_new(){
 		$this->page_title = "Create a new book entry";
+		$this->_add_return_uri($this->form);
 
 		if($this->request->post() && ($d = $this->form->validate($this->params))){
 			Book::CreateNewRecord($d);
-			$this->flash->notice("A new book entry was saved.");
-			$this->_redirect_to_action("index");
+			$this->flash->notice("A new book entry was just created.");
+			$this->_go_to_return_uri();
 		}
 	}
 
@@ -82,13 +82,12 @@ class BooksController extends ApplicationController{
 	*/
 	function edit(){
 		$this->page_title = sprintf("Edit book #%s",$this->book->getId());
-		$return_uri = $this->request->get() ? $this->request->getHttpReferer() : $this->params->getString("return_uri");
-		$this->form->set_hidden_field("return_uri",$return_uri);
+		$this->_add_return_uri($this->form);
 
 		$this->form->set_initial($this->book->getValues());
 		if($this->request->post() && ($d = $this->form->validate($this->params))){
 			$this->book->s($d);
-			$this->flash->notice("The entry was updated.");
+			$this->flash->notice("The book has been updated.");
 			$this->_go_to_return_uri();
 		}
 	}
@@ -110,6 +109,11 @@ class BooksController extends ApplicationController{
 			$this->tpl_data["book"] = &$this->book;
 			return $this->book;
 		}
+	}
+
+	function _add_return_uri(&$form){
+		$return_uri = $this->request->get() ? $this->request->getHttpReferer() : $this->params->getString("return_uri");
+		$form->set_hidden_field("return_uri",$return_uri);
 	}
 
 	function _go_to_return_uri(){
