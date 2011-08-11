@@ -7,10 +7,10 @@
 	<meta name="x-lang" content="{$lang|h}" />
 	<meta name="x-action" content="{h}{$controller}/{$action}{/h}" />
 
-  {stylesheet_link_tag file="blueprint/screen.css" media="screen, projection"}
-  {stylesheet_link_tag file="blueprint/print.css" media="print"}
+  {stylesheet_link_tag file="lib/blueprint-css/blueprint/screen.css" media="screen, projection"}
+  {stylesheet_link_tag file="lib/blueprint-css/blueprint/print.css" media="print"}
   <!--[if IE]>
-  {stylesheet_link_tag file="blueprint/ie.css" media="screen, projection"}
+  {stylesheet_link_tag file="lib/blueprint-css/blueprint/ie.css" media="screen, projection"}
   <![endif]-->
 
 	{javascript_script_tag file="jquery.php"}
