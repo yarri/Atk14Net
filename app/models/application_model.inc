@@ -6,7 +6,7 @@
 */
 class ApplicationModel extends inobj_TableRecord{
 
-	function ApplicationModel($table_name,$options = array()){
+	function ApplicationModel($table_name = null,$options = array()){
 		parent::inobj_TableRecord($table_name,$options);
 	}
 	

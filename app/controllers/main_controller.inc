@@ -37,7 +37,7 @@ class MainController extends ApplicationController{
 			ATK14? Redefines the quality!
 			ATK14? Are you kidding?
 			ATK14? Are you sure?
-			ATK14? Better to deal with Perl!
+			ATK14? Better to do it in Perl!
 			ATK14? Have never heard about a worse framework!
 			ATK14? The Birdie works for me!
 			ATK14? The Birdie works against me!
@@ -48,6 +48,7 @@ class MainController extends ApplicationController{
 			ATK14? The Matrix itself!
 			ATK14? Wow! Look at all the crazy stuff here!
 			ATK14? There is only a few things as good as ATK14 is. No doupt.
+			ATK14? No worries!
 		"));
 		$this->tpl_data["mod"] = trim($mods[floor(time()/(60*60*24))%sizeof($mods)]);
 	}

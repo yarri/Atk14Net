@@ -1,9 +1,5 @@
 <?
 class User extends ApplicationModel{
-	function __construct(){
-		parent::__construct("users");
-	}
-
 	static function CreateNewRecord($values,$options = array()){
 		$values["password"] = User::CryptPassword($values["password"],$values["login"]);
 		return parent::CreateNewRecord($values,$options);
@@ -22,10 +18,8 @@ class User extends ApplicationModel{
 	}
 
 	function CryptPassword($password,$login){
-		return "md5:".md5($password.$login);
+		return "md5:".md5($password.$login.SECRET_TOKEN);
 	}
 
-	function isAdmin(){ return $this->g("is_admin")=="Y"; }
-
-	function getLogin(){ return $this->g("login"); }
+	function isAdmin(){ return $this->getIsAdmin()=="Y"; }
 }
