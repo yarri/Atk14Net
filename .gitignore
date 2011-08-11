@@ -1,4 +1,4 @@
-!./tmp/README
-./tmp/*
-!./log/README
-./log/*
+!tmp/README
+tmp/*
+!log/README
+log/*
