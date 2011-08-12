@@ -1,50 +1,60 @@
 <!DOCTYPE html>
 <html lang="{$lang}">
 
-<head>
-	<meta charset="utf-8">
-	<title>{$page_title|h} | ATK14</title>
-	<meta name="description" content="{$page_description}" />
-	<meta name="x-root" content="{$root|h}" />
-	<meta name="x-lang" content="{$lang|h}" />
-	<meta name="x-action" content="{h}{$controller}/{$action}{/h}" />
+	<head>
+		<meta charset="utf-8">
 
-	{stylesheet_link_tag file="lib/blueprint-css/blueprint/screen.css" media="screen, projection"}
-	{stylesheet_link_tag file="lib/blueprint-css/blueprint/print.css" media="print"}
-	<!--[if IE]>
-		{stylesheet_link_tag file="lib/blueprint-css/blueprint/ie.css" media="screen, projection"}
-	<![endif]-->
-	{stylesheet_link_tag file="styles.css" media="screen, projection"}
+		<title>{$page_title|h} | {"ATK14_APPLICATION_NAME"|dump_constant}</title>
+		<meta name="description" content="{$page_description|h}" />
+		{render partial=shared/layout/dev_info}
 
-	<script type="text/javascript" src="http{if $request->ssl()}s{/if}://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-	<script type="text/javascript" src="http{if $request->ssl()}s{/if}://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
-	{javascript_script_tag file="atk14.js"}
-	{javascript_script_tag file="application.js"}
+		<meta name="viewport" content="width=device-width,initial-scale=1">
 
-	{placeholder for="head"}
+		{stylesheet_link_tag file="lib/blueprint-css/blueprint/screen.css" media="screen, projection"}
+		{stylesheet_link_tag file="lib/blueprint-css/blueprint/print.css" media="print"}
+		<!--[if IE]>
+			{stylesheet_link_tag file="lib/blueprint-css/blueprint/ie.css" media="screen, projection"}
+		<![endif]-->
+		{stylesheet_link_tag file="styles.css" media="screen, projection"}
+	</head>
 
-	{javascript_tag}
-		{placeholder for="js"}
-	{/javascript_tag}
-</head>
+	<body id="body_{$controller}_{$action}">
 
-<body>
-	<div class="container">
-			{if $controller==main && $action==index}
-				<h1>ATK14 is a PHP framework for fearless guys</h1>
-			{else}
-				<h1>{a controller=main action=index}ATK14{/a}</h1>
-			{/if}
+		<div class="container">
+			<header>
+				{if $controller==main && $action==index}
+					<h1>ATK14 is a PHP framework for fearless gyus</h1>
+				{else}
+					<h1>{a controller=main action=index}ATK14{/a}</h1>
+				{/if}
+			</header>
 
-		{render partial=shared/flash_message}
-		<div>
-			{placeholder}
+			<div class="main" role="main">
+				{render partial=shared/layout/flash_message}
+				{placeholder}
+			</div>
+
+			<footer>
+				{render partial=shared/user_info}
+				{render partial=shared/documentation}
+			</footer>
 		</div>
 
-		{render partial=shared/user_info}
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="{$root|h}public/javascripts/libs/jquery/jquery-1.6.2.min.js"><\/script>')</script>
+		{javascript_script_tag file="atk14.js"}
+		{javascript_script_tag file="application.js"}
+		{* TODO: this is only nasty temporary solution, we know better... *}
+		{placeholder for="head"}
+		{javascript_tag}
+			{placeholder for="js"}
+		{/javascript_tag}
 
-		{render partial=shared/documentation}
-	</div>
-</body>
-
+		<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+			chromium.org/developers/how-tos/chrome-frame-getting-started -->
+		<!--[if lt IE 7 ]>
+			<script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+			<script defer>window.attachEvent('onload',function()\{CFInstall.check(\{mode:'overlay'\})\})</script>
+		<![endif]-->
+	</body>
 </html>
