@@ -31,7 +31,7 @@
 <body>
 	<div class="container">
 			{if $controller==main && $action==index}
-				<h1>ATK14 is a PHP framework for fearless gyus</h1>
+				<h1>ATK14 is a PHP framework for fearless guys</h1>
 			{else}
 				<h1>{a controller=main action=index}ATK14{/a}</h1>
 			{/if}
