@@ -12,13 +12,17 @@ class BooksController extends ApplicationController{
 		}
 
 		$this->sorting->add("title",array("order_by" => "UPPER(title)"));
+		$this->sorting->add("author",array(
+			"ascending_ordering" => "UPPER(author), UPPER(title)",
+			"descending_ordering" => "UPPER(author) DESC, UPPER(title) DESC"
+		));
 		$this->sorting->add("code");
 
 		$conditions = array();
 		$bind_ar = array();
 
 		if($d["search"]){
-			$conditions[] = "UPPER(title) LIKE UPPER(:search) OR UPPER(code) LIKE UPPER(:search) OR UPPER(shelfmark) LIKE UPPER(:search)";
+			$conditions[] = "UPPER(title) LIKE UPPER(:search) OR UPPER(author) LIKE UPPER(:search) OR UPPER(code) LIKE UPPER(:search) OR UPPER(shelfmark) LIKE UPPER(:search)";
 			$bind_ar[":search"] = "%$d[search]%";
 		}
 

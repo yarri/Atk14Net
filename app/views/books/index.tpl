@@ -21,6 +21,7 @@
 			<thead>
 				<tr>
 					{sortable key=title}<th>Title</th>{/sortable}
+					{sortable key=author}<th>Author</th>{/sortable}
 					{sortable key=code}<th>Code</th>{/sortable}
 					<th>Shelfmark</th>
 					<th></th>

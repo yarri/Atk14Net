@@ -20,3 +20,10 @@
 		</tr>
 	</tbody>
 </table>
+
+<h4>Other formats</h4>
+<p>
+	{a action=detail id=$book format=xml}as XML{/a} |
+	{a action=detail id=$book format=json}as JSON{/a} |
+	{a action=detail id=$book format=yaml}as YAML{/a}
+</p>
