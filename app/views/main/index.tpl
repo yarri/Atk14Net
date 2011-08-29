@@ -20,17 +20,6 @@ The official ATK14 mascot is a bit surprised to see you there.
 &mdash; an atk14 developper
 </p>
 
-
-
-<h3>Do not miss</h3>
-
-<ul>
-	<li><a href="http://api.atk14.net/">API Reference</a></li>
-	<li><a href="http://code.google.com/p/atk14/">ATK14 Home on Google Code</a></li>
-	<li><a href="http://code.google.com/p/atk14/wiki/Installation">ATK14 installation instructions</a></li>
-</ul>
-
-
 <h3>Here are some life examples</h3>
 
 <p>
@@ -78,4 +67,15 @@ The official ATK14 mascot is a bit surprised to see you there.
 		</ul>
 	</li>
 </ul>
+
+<h3>Important links</h3>
+
+<ul>
+	<li><a href="http://api.atk14.net/">API Reference</a></li>
+	<li><a href="https://github.com/yarri/Atk14">ATK14 Home on Github</a></li>
+	<li><a href="https://github.com/yarri/Atk14/tree/master/installation">ATK14 installation instructions</a></li>
+</ul>
+
+
+
 
