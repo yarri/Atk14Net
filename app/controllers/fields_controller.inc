@@ -3,6 +3,7 @@ class FieldsController extends ApplicationController{
 	function email(){ $this->_validate_form(); }
 	function date(){ $this->_validate_form(); }
 	function boolean(){ $this->_validate_form(); }
+	function multiple_choice(){ $this->_validate_form(); }
 
 
 	function _validate_form(){

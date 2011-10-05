@@ -65,6 +65,7 @@ The official ATK14 mascot is a bit surprised to see you there.
 			<li>{a controller=fields action=email}E-mail field{/a}</li>
 			<li>{a controller=fields action=date}Date field{/a}</li>
 			<li>{a controller=fields action=boolean}Boolean field{/a}</li>
+			<li>{a controller=fields action=multiple_choice}Multiple choice field{/a}</li>
 		</ul>
 	</li>
 </ul>
