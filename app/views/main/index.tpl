@@ -73,6 +73,7 @@ The official ATK14 mascot is a bit surprised to see you there.
 <h3>Important links</h3>
 
 <ul>
+	<li><a href="http://book.atk14.net/">ATK14 Book</a></li>
 	<li><a href="http://api.atk14.net/">API Reference</a></li>
 	<li><a href="https://github.com/yarri/Atk14">ATK14 Home on Github</a></li>
 	<li><a href="https://github.com/yarri/Atk14/tree/master/installation">ATK14 installation instructions</a></li>
