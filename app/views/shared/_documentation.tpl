@@ -7,8 +7,8 @@
 		{/foreach}
 		<br />
 		
-		Every controller is a descendant of the {src file=controllers/application.inc title="ApplicationController" add_br=false}<br />
-		Every form is a descendant of the {src file=forms/application_form.inc title="ApplicationForm" add_br=false}<br />
+		Every controller is a descendant of the {src file=controllers/application.php title="ApplicationController" add_br=false}<br />
+		Every form is a descendant of the {src file=forms/application_form.php title="ApplicationForm" add_br=false}<br />
 		Default layout is {src file=layouts/_default.tpl add_br=false}<br />
 
 		<br />

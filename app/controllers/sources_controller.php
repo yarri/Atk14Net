@@ -32,7 +32,7 @@ class SourcesController extends ApplicationController{
 			}
 		}
 
-		if(preg_match("/\\.inc$/",$file)){
+		if(preg_match("/\\.(inc|php)$/",$file)){
 
 			// searching fields
 			if(preg_match_all("/([a-zA-Z0-9]+Field)/",$source,$matches)){
@@ -84,7 +84,7 @@ class SourcesController extends ApplicationController{
 
 	function _find_field_file($field_class){
 		$field = new String($field_class);
-		$filename = "fields/".$field->underscore().".inc";
+		$filename = "fields/".$field->underscore().".php";
 		if(file_exists(ATK14_DOCUMENT_ROOT."/app/$filename")){
 			return $filename;
 		}
@@ -92,7 +92,7 @@ class SourcesController extends ApplicationController{
 
 	function _find_model_file($model_class){
 		$model = new String($model_class);
-		$filename = "models/".$model->underscore().".inc";
+		$filename = "models/".$model->underscore().".php";
 		//echo ATK14_DOCUMENT_ROOT."/app/$filename"; exit;
 		if(file_exists(ATK14_DOCUMENT_ROOT."/app/$filename")){
 			return $filename;

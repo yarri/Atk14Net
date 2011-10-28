@@ -49,6 +49,6 @@ class UsersController extends ApplicationController{
 	}
 
 	function _before_filter(){
-		$this->doc_source_files[] = "models/user.inc";
+		$this->doc_source_files[] = "models/user.php";
 	}
 }

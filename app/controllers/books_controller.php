@@ -128,7 +128,7 @@ class BooksController extends ApplicationController{
 	}
 
 	function _before_filter(){
-		$this->doc_source_files[] = "models/book.inc";
+		$this->doc_source_files[] = "models/book.php";
 
 		if(in_array($this->action,array("detail","edit","destroy")) && !$this->_find_book()){
 			return $this->_execute_action("error404");

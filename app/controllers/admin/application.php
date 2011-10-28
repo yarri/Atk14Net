@@ -1,4 +1,4 @@
-<?
+<?php
 class ApplicationController extends Atk14Controller{
 	function access_forbidden(){
 		$this->response->forbidden(_("You don't have permission to access the admin section."));
@@ -44,4 +44,3 @@ class ApplicationController extends Atk14Controller{
 		}
 	}
 }
-?>
