@@ -1,4 +1,4 @@
-<?
+<?php
 class tc_users extends tc_base{
 	function test_login(){
 		$client = new Atk14Client();

@@ -1,4 +1,4 @@
-<?
+<?php
 class GetDataForm extends ApplicationForm{
 	function set_up(){
 		$this->add_field("login",new CharField(array(

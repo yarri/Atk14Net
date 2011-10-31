@@ -1,4 +1,4 @@
-<?
+<?php
 class SignUpMultistepController extends ApplicationController{
 	function sign_up(){
 		$this->_walk(array(

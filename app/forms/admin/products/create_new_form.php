@@ -1,4 +1,4 @@
-<?
+<?php
 class CreateNewForm extends ApplicationForm{
 	function set_up(){
 		$this->add_field("catalog_id",new CharField(array(
@@ -41,4 +41,3 @@ class CreateNewForm extends ApplicationForm{
 		)));
 	}
 }
-?>

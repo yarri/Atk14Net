@@ -1,4 +1,4 @@
-<?
+<?php
 class CreateNewForm extends ApplicationForm{
 	function set_up(){
 		$this->add_field("title_cs",new CharField(array(
@@ -17,4 +17,3 @@ class CreateNewForm extends ApplicationForm{
 		)));
 	}
 }
-?>

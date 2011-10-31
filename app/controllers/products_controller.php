@@ -1,4 +1,4 @@
-<?
+<?php
 class ProductsController extends ApplicationController{
 	function overview(){
 		($category = Category::GetInstanceById($this->params->g("category","integer"))) || ($category = Category::DefaultCategory());

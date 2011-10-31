@@ -1,4 +1,4 @@
-<?
+<?php
 class Product extends ApplicationModel{
 	function Product(){
 		parent::ApplicationModel("products");

@@ -1,4 +1,4 @@
-<?
+<?php
 class UsersEditForm extends ApplicationForm{
 	function set_up(){
 		$this->add_field("login",new CharField(array(
@@ -18,4 +18,3 @@ class UsersEditForm extends ApplicationForm{
 		)));
 	}
 }
-?>

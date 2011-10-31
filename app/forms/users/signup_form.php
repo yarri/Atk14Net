@@ -1,4 +1,4 @@
-<?
+<?php
 class SignupForm extends ApplicationForm{
 	function set_up(){
 		$this->add_field("login",new CharField(array(
@@ -52,4 +52,3 @@ class SignupForm extends ApplicationForm{
 		return $js_v;
 	}
 }
-?>

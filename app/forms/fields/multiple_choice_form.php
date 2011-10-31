@@ -1,4 +1,4 @@
-<?
+<?php
 class MultipleChoiceForm extends FieldsForm{
 	function set_up(){
 		$this->set_method("get");

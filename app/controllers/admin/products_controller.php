@@ -1,4 +1,4 @@
-<?
+<?php
 class ProductsController extends ApplicationController{
 	function overview(){
 		$sorting = new Atk14Sorting($this->params);
@@ -39,4 +39,3 @@ class ProductsController extends ApplicationController{
 		$this->product = $this->tpl_data["product"] = Product::ById($this->params->g("id","integer"));
 	}
 }
-?>

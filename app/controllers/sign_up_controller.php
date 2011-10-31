@@ -1,4 +1,4 @@
-<?
+<?php
 class SignUpController extends ApplicationController{
 	function 	sign_up(){
 		if($this->request->post() && ($d = $this->form->validate($this->params))){

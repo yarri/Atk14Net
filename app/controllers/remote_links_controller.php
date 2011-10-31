@@ -1,4 +1,4 @@
-<?
+<?php
 class RemoteLinksController extends ApplicationController{
 	function index(){
 	}

@@ -1,4 +1,4 @@
-<?
+<?php
 class CategoriesController extends ApplicationController{
 	function overview(){
 		$this->tpl_data["categories"] = Model::FindAll(array(
@@ -40,4 +40,3 @@ class CategoriesController extends ApplicationController{
 		$this->tpl_data["category"] = $this->category = Category::ById($this->params->g("id","integer"));
 	}
 }
-?>

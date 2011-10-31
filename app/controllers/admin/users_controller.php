@@ -1,4 +1,4 @@
-<?
+<?php
 class UsersController extends ApplicationController{
 	function overview(){
 		$sorting = new Atk14Sorting($this->params);
@@ -37,4 +37,3 @@ class UsersController extends ApplicationController{
 		$this->page_title = _("Users");
 	}
 }
-?>

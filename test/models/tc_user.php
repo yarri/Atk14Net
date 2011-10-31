@@ -1,4 +1,4 @@
-<?
+<?php
 class tc_user extends tc_base{
 	function test_get_instance_by_login(){
 		global $dbmole;

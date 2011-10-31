@@ -31,6 +31,7 @@ class ApplicationController extends Atk14Controller{
 	}
 
 	function _end_database_transaction(){
+		if(TEST){ return; }
 		$this->dbmole->commit();
 	}
 

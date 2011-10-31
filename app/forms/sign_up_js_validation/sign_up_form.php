@@ -1,4 +1,4 @@
-<?
+<?php
 class SignUpForm extends ApplicationForm{
 	function set_up(){
 		$this->add_field("login",new CharField(array(

@@ -1,4 +1,4 @@
-<?
+<?php
 class SignUpJsValidationController extends ApplicationController{
 	function 	sign_up(){
 		$this->tpl_data["js_validator"] = $jv = $this->form->js_validator();

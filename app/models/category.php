@@ -1,4 +1,4 @@
-<?
+<?php
 class Category extends ApplicationModel{
 	function Category(){
 		parent::ApplicationModel("categories");

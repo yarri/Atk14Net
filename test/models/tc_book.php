@@ -1,4 +1,4 @@
-<?
+<?php
 class tc_book extends tc_base{
 	function test(){
 		global $dbmole;
