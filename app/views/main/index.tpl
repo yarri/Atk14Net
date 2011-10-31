@@ -6,12 +6,12 @@
 The official ATK14 mascot is a bit surprised to see you there.
 </p>
 
-<h3>You are gonna see professionals at work</h3>
+<h3>Why is it such a fun to use ATK14?</h3>
 
 <img src="{$public}images/easy_to_use.jpg" alt="Web developper" title="Using ATK14 is such a fun" />
 
 <p>
-	Ssssh! A new webapp is beeing born.
+	We simply don't know.
 </p>
 
 <blockquote>{$mod}</blockquote>
@@ -28,7 +28,7 @@ The official ATK14 mascot is a bit surprised to see you there.
 
 <ul>
 	<li>
-		<h4>{a controller=books}Books{/a}</h4>
+		<h4>{a controller=books}CRUD{/a}</h4>
 		<p>
 			A typical example of displaying (with sorting) / creating / editing / destroying records in a record set.
 		</p>
