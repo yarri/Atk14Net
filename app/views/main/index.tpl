@@ -59,13 +59,20 @@ The official ATK14 mascot is a bit surprised to see you there.
 	</li>
 
 	<li>
-		<h4>Form field examples</h4>
-
+		<h4>Form</h4>
 		<ul>
-			<li>{a controller=fields action=email}E-mail field{/a}</li>
-			<li>{a controller=fields action=date}Date field{/a}</li>
-			<li>{a controller=fields action=boolean}Boolean field{/a}</li>
-			<li>{a controller=fields action=multiple_choice}Multiple choice field{/a}</li>
+			<li>
+				<h5>Fields</h5>
+				<ul>
+					<li>{a controller=fields action=email}E-mail field{/a}</li>
+					<li>{a controller=fields action=date}Date field{/a}</li>
+					<li>{a controller=fields action=boolean}Boolean field{/a}</li>
+					<li>{a controller=fields action=multiple_choice}Multiple choice field{/a}</li>
+				</ul>
+			</li>
+			<li>
+				{a controller=forms action=csfr_protected}CSFR protected form{/a}
+			</li>
 		</ul>
 	</li>
 </ul>
