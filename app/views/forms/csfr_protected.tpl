@@ -4,7 +4,7 @@
 The form on this pages has a protection against CSFR.
 </p>
 <p>
-You can check out, that the form contains hidden field named <em>_token_</em>. Try to modify it's value or just let it expire (about 10 mins).
+You can check out, that the form contains hidden field named <em>_token</em>. Try to modify it's value or just let it expire (about 10 mins).
 </p>
 
 {form}

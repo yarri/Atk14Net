@@ -62,7 +62,9 @@ The official ATK14 mascot is a bit surprised to see you there.
 		<h4>Form</h4>
 		<ul>
 			<li>
-				<h5>Fields</h5>
+				{a controller=forms action=csfr_protected}CSFR protected form{/a}
+			</li>
+			<li>Field examples
 				<ul>
 					<li>{a controller=fields action=email}E-mail field{/a}</li>
 					<li>{a controller=fields action=date}Date field{/a}</li>
@@ -70,10 +72,8 @@ The official ATK14 mascot is a bit surprised to see you there.
 					<li>{a controller=fields action=multiple_choice}Multiple choice field{/a}</li>
 				</ul>
 			</li>
-			<li>
-				{a controller=forms action=csfr_protected}CSFR protected form{/a}
-			</li>
 		</ul>
+
 	</li>
 </ul>
 
