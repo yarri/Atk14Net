@@ -12,6 +12,7 @@ define("SECRET_TOKEN",(file_exists(dirname(__FILE__)."/random.txt") ? files::get
 
 define("ATK14_DOCUMENT_ROOT",dirname(__FILE__)."/../");
 define("ATK14_HTTP_HOST",PRODUCTION ? "www.atk14.net" : "atk14.localhost");
+define("ATK14_APPLICATION_NAME","ATK14 Website");
 
 // We do not want to send e-mails from The Demo Application
 define("SENDMAIL_DO_NOT_SEND_MAILS",true);
