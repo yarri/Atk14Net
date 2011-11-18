@@ -12,7 +12,7 @@ class UsersController extends ApplicationController{
 			"class_name" => "User",
 			"order" => $sorting->getOrder(),
 			"limit" => 40,
-			"offset" => isset($d["from"]) ? $d["from"] : 0
+			"offset" => $this->params->getInt("from"),
 		));
 		$this->tpl_data["sorting"] = $sorting;
 	}

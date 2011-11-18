@@ -31,7 +31,7 @@ class BooksController extends ApplicationController{
 			"bind_ar" => $bind_ar,
 			"order" => $this->sorting->getOrder(),
 			"limit" => 10,
-			"offset" => $this->params->getInt("from"),
+			"offset" => $this->params->getInt("offset"),
 		));
 	}
 

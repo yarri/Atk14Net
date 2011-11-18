@@ -1,9 +1,0 @@
-<?php
-class FormsController extends ApplicationController{
-
-	function csrf_protected(){
-		if($this->request->post() && ($d = $this->form->validate($this->params))){
-			$this->flash->success(sprintf("You are <em>%s</em> and the form has been submitted correctly",h($d["name"])));
-		}
-	}
-}

@@ -62,7 +62,7 @@ The official ATK14 mascot is a bit surprised to see you there.
 		<h4>Form</h4>
 		<ul>
 			<li>
-				{a controller=forms action=csrf_protected}CSRF protected form{/a}
+				{a controller=money_transfers action=create_new}CSRF protected form{/a}
 			</li>
 			<li>Field examples
 				<ul>
