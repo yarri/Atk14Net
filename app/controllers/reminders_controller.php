@@ -1,8 +1,8 @@
 <?php
 class RemindersController extends ApplicationController {
 	function create_new(){
-		$this->doc_source_files[] = "controllers/application_mailer.php";
-		$this->doc_source_files[] = "views/mailer/send_reminder.tpl";
+		$this->doc_source_files[] = "app/controllers/application_mailer.php";
+		$this->doc_source_files[] = "app/views/mailer/send_reminder.tpl";
 
 		$this->page_title = "Book returning reminder";
 

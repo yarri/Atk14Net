@@ -14,7 +14,7 @@ class FieldsController extends ApplicationController{
 			$this->tpl_data["validated_data"] = $d;
 		}
 
-		$this->doc_source_files[] = "views/fields/validate_form.tpl";
+		$this->doc_source_files[] = "app/views/fields/validate_form.tpl";
 	}
 
 	function _before_filter(){

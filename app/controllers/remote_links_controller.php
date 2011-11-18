@@ -33,8 +33,8 @@ class RemoteLinksController extends ApplicationController{
 			$this->_execute_action("error404");
 		}
 
-		$this->doc_source_files[] = "views/remote_links/change_inner_html.xhr.tpl";
-		$this->doc_source_files[] = "views/remote_links/change_box_color.xhr.tpl";
-		$this->doc_source_files[] = "views/remote_links/destroy.xhr.tpl";
+		$this->doc_source_files[] = "app/views/remote_links/change_inner_html.xhr.tpl";
+		$this->doc_source_files[] = "app/views/remote_links/change_box_color.xhr.tpl";
+		$this->doc_source_files[] = "app/views/remote_links/destroy.xhr.tpl";
 	}
 }

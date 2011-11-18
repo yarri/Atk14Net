@@ -23,7 +23,6 @@ class ApplicationController extends Atk14Controller{
 	}
 
 	function _application_after_filter(){
-
 	}
 
 	function _begin_database_transaction(){
@@ -46,11 +45,11 @@ class ApplicationController extends Atk14Controller{
 		$namespace = strlen($this->namespace) ? "/$this->namespace" : "";
 		$basedir = dirname(__FILE__)."/..";
 		$files = array(
-			"controllers$namespace/{$this->controller}_controller.php",
-			"forms$namespace/$this->controller/{$this->action}_form.php",
-			"forms$namespace/$this->controller/{$this->controller}_form.php",
-			"views$namespace/$this->controller/{$this->action}.tpl",
-			"views$namespace/$this->controller/{$this->action}.xhr.tpl",
+			"app/controllers$namespace/{$this->controller}_controller.php",
+			"app/forms$namespace/$this->controller/{$this->action}_form.php",
+			"app/forms$namespace/$this->controller/{$this->controller}_form.php",
+			"app/views$namespace/$this->controller/{$this->action}.tpl",
+			"app/views$namespace/$this->controller/{$this->action}.xhr.tpl",
 		);
 		foreach($files as $f){
 			if(file_exists("$basedir/$f")){

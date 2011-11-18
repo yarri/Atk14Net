@@ -1,5 +1,6 @@
 <?php
 class User extends ApplicationModel{
+
 	static function CreateNewRecord($values,$options = array()){
 		$values["password"] = User::CryptPassword($values["password"],$values["login"]);
 		return parent::CreateNewRecord($values,$options);
