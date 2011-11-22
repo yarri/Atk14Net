@@ -1,6 +1,4 @@
 <?php
-// file app/forms/users/create_new_form.php
-
 class CreateNewForm extends ApplicationForm{
 	function set_up(){
 		$this->add_field("login",new CharField(array(

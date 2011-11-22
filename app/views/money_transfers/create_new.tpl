@@ -1,5 +1,3 @@
-{* file app/views/money_transfers/create_new/tpl *}
-
 <h2>{$page_title}</h2>
 
 <p>The form on this pages has a protection against CSFR.</p>
