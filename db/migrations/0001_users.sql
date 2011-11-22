@@ -1,3 +1,4 @@
+-- file db/migrations/0001_users.sql
 CREATE SEQUENCE seq_users;
 CREATE TABLE users(
 	id INT PRIMARY KEY DEFAULT NEXTVAL('seq_users'),

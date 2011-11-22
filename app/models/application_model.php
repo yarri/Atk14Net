@@ -1,9 +1,11 @@
 <?php
+// file app/model/application_model.php
+
 /**
-* The base class of all the application models.
-* Do you have any common methods or attributes for all your models? Put them right here.
-* Otherwise there's no need to care :)
-*/
+ * The base class of all the application models.
+ * Do you have any common methods or attributes for all your models? Put them right here.
+ * Otherwise there's no need to care :)
+ */
 class ApplicationModel extends TableRecord{
 
 	function ApplicationModel($table_name = null,$options = array()){
@@ -11,10 +13,10 @@ class ApplicationModel extends TableRecord{
 	}
 	
 	/**
-	* Converts object into XML.
-	* 
-	* @return string
-	*/
+	 * Converts object into XML.
+	 * 
+	 * @return string
+	 */
 	function toXml(){
 		$class_name = new String(get_class($this));
 		$root = $class_name->underscore(); // "LittleKitty" turns into "little_kitty"
@@ -28,26 +30,26 @@ class ApplicationModel extends TableRecord{
 	}
 
 	/**
-	* Converts object into JSON.
-	* 
-	* @return string
-	*/
+	 * Converts object into JSON.
+	 * 
+	 * @return string
+	 */
 	function toJson(){ return json_encode($this->toExportArray()); }
 
 	/**
-	* Converts object into YAML.
-	*
-	* @return string
-	*/
+	 * Converts object into YAML.
+	 *
+	 * @return string
+	 */
 	function toYaml(){ return miniYAML::Dump($this->toExportArray()); }
 
 	/**
-	* Returns associative array with object`s attributes and their values.
-	* This array is used for exporting object as XML, JSON or YAML.
-	* 
-	* Cover it in a given class if you want to return something else than just $object->toArray().
-	* 
-	* @return array
-	*/
+	 * Returns associative array with object`s attributes and their values.
+	 * This array is used for exporting object as XML, JSON or YAML.
+	 * 
+	 * Cover it in a given class if you want to return something else than just $object->toArray().
+	 * 
+	 * @return array
+	 */
 	function toExportArray(){ return $this->toArray(); }
 }

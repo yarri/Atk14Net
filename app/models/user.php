@@ -1,4 +1,5 @@
 <?php
+// file app/models/user.php
 class User extends ApplicationModel{
 
 	static function CreateNewRecord($values,$options = array()){
@@ -6,19 +7,19 @@ class User extends ApplicationModel{
 		return parent::CreateNewRecord($values,$options);
 	}
 
-	function GetInstanceByLogin($login){
+	static function GetInstanceByLogin($login){
 		return User::FindFirst(array(
 			"conditions" => array("login" => $login)
 		));
 	}
 
-	function Login($login,$password){
+	static function Login($login,$password){
 		if(($user = User::GetInstanceByLogin($login)) && ($user->g("password")==User::CryptPassword($password,$login))){
 			return $user;
 		}
 	}
 
-	function CryptPassword($password,$login){
+	static function CryptPassword($password,$login){
 		return "md5:".md5($password.$login.SECRET_TOKEN);
 	}
 

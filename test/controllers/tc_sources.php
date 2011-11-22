@@ -12,6 +12,7 @@ class tc_sources extends tc_base{
 			"/app/controllers/application.php",
 			"app/controllers//application.php",
 			"app/../app/controllers/application.php",
+			"app",
 			"config/random.txt"
 		) as $invalid_file){
 			$c = $client->get("sources/detail",array(

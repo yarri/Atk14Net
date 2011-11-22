@@ -17,7 +17,7 @@ class SourcesController extends ApplicationController{
 			$sanitized_file = "";
 		}
 
-		if($sanitized_file=="" || $sanitized_file!=$file || !file_exists($filename)){
+		if($sanitized_file=="" || $sanitized_file!=$file || !file_exists($filename) || !is_file($filename)){
 			return $this->_execute_action("error404");
 		}
 		
