@@ -7,6 +7,6 @@
 	{/if}
 {else}
 	{t}You are not logged in{/t}
-	{a controller=users action=login}{t}Login{/t}{/a} or {a controller=users action=signup}Signup{/a}
+	{a controller=users action=login}{t}Login{/t}{/a} or {a controller=users action=create_new}Signup{/a}
 {/if}
 </div>

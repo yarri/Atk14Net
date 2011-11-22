@@ -1,9 +1,6 @@
 <?php
 class UsersController extends ApplicationController{
-	function signup(){
-		$this->tpl_data["js_validator"] = $jv = $this->form->js_validator();
-		//var_dump($jv->get_rules());
-		//var_dump($jv->get_messages());
+	function create_new(){
 		if($this->request->post() && ($d = $this->form->validate($this->params))){
 			$user = User::CreateNewRecord($d);
 			$this->_store_login($user);
@@ -13,7 +10,6 @@ class UsersController extends ApplicationController{
 				"action" => "index"
 			));
 		}
-	//	var_dump($this->form->js_validation_data(array("return" => "array")));
 	}
 
 	function login(){
@@ -30,12 +26,6 @@ class UsersController extends ApplicationController{
 				$this->form->set_error(_("Invalid username or password"));
 			}
 		}
-	}
-
-	// Action for JS validator
-	function check_login_availability(){
-		$this->response->write(User::GetInstanceByLogin($this->params->g("login","string")) ? "false" : "true");
-		$this->render_template = false;
 	}
 
 	function logout(){

@@ -43,7 +43,7 @@ class ApplicationController extends Atk14Controller{
 		$this->tpl_data["user"] = $this->user;
 
 		$namespace = strlen($this->namespace) ? "/$this->namespace" : "";
-		$basedir = dirname(__FILE__)."/..";
+		$basedir = dirname(__FILE__)."/../../";
 		$files = array(
 			"app/controllers$namespace/{$this->controller}_controller.php",
 			"app/forms$namespace/$this->controller/{$this->action}_form.php",
