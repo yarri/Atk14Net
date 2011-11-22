@@ -6,7 +6,7 @@
 
 {render partial=shared/form_field fields=login,password}
 
-<div class="button">
+<div class="buttons">
 <input type="submit" value="{t}Login{/t}" />
 </div>
 

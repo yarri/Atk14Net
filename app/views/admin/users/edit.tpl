@@ -7,8 +7,8 @@
 <fieldset>
 	{render partial=shared/form_field fields=login,name,email,is_admin}
 
-	<div class="button">
-		<input type="submit" value="{t}Update{/t}" />
+	<div class="buttons">
+		<input type="submit" value="Update" />
 	</div>
 </fieldset>
 

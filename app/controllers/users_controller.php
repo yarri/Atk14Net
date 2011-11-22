@@ -1,5 +1,8 @@
 <?php
+// file app/controllers/user_controller.php
+
 class UsersController extends ApplicationController{
+
 	function create_new(){
 		if($this->request->post() && ($d = $this->form->validate($this->params))){
 			$user = User::CreateNewRecord($d);

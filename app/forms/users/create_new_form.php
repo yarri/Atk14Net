@@ -26,10 +26,10 @@ class CreateNewForm extends ApplicationForm{
 	}
 
 	function clean(){
-		$d = &$this->cleaned_data;
+		$d = $this->cleaned_data;
 
 		if(isset($d["login"]) && User::GetInstanceByLogin($d["login"])){
-			$this->set_error("login","The given username has already been taken");
+			$this->set_error("login","The given username has been already taken");
 		}
 
 		if(isset($d["password"]) && isset($d["password_confirmation"]) && $d["password"]!=$d["password_confirmation"]){
