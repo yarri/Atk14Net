@@ -1,6 +1,4 @@
 <?php
-// file app/money_transfers/create_new_form.php
-
 class CreateNewForm extends ApplicationForm{
 	function set_up(){
 		$this->add_field("amount",new FloatField(array(

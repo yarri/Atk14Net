@@ -1,5 +1,4 @@
 <?php
-// file app/controllers/money_transfers_controller.php
 class MoneyTransfersController extends ApplicationController{
 
 	function create_new(){
