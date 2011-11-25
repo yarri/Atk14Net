@@ -35,6 +35,13 @@ The official ATK14 mascot is a bit surprised to see you there.
 	</li>
 
 	<li>
+		<h4>{a controller=links}Links{/a}</h4>
+		<p>
+			How one can create a link to somewhere...
+		</p>
+	</li>
+
+	<li>
 		<h4>{a controller=remote_links}Remote links{/a}</h4>
 		<p>
 			A few examples of XHR links.
