@@ -10,6 +10,6 @@
 <h4>POST link</h3>
 
 <ul>
-	<li>{a action=some_post_action _data-method=post}Link{/a}</li>
+	<li>{a action=some_post_action _method=post}Post link{/a}</li>
+	<li>{a action=some_post_action _method=post _confirm="Are you sure to do this?"}Post link with a confirmation{/a}</li>
 </ul>	
-
