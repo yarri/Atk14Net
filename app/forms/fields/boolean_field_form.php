@@ -1,5 +1,5 @@
 <?php
-class BooleanForm extends ApplicationForm{
+class BooleanFieldForm extends ApplicationForm{
 	function set_up(){
 		$this->set_method("get");
 		$this->add_field("bool",new BooleanField(array(

@@ -1,5 +1,5 @@
 <?php
-class MultipleChoiceForm extends FieldsForm{
+class MultipleChoiceFieldForm extends FieldsForm{
 	function set_up(){
 		$this->set_method("get");
 		$this->add_field("colors",new MultipleChoiceField(array(

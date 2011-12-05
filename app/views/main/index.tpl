@@ -73,10 +73,11 @@ The official ATK14 mascot is a bit surprised to see you there.
 			</li>
 			<li>Field examples
 				<ul>
-					<li>{a controller=fields action=email}E-mail field{/a}</li>
-					<li>{a controller=fields action=date}Date field{/a}</li>
-					<li>{a controller=fields action=boolean}Boolean field{/a}</li>
-					<li>{a controller=fields action=multiple_choice}Multiple choice field{/a}</li>
+					<li>{a controller=fields action=char_field}Character field{/a}</li>
+					<li>{a controller=fields action=email_field}E-mail field{/a}</li>
+					<li>{a controller=fields action=date_field}Date field{/a}</li>
+					<li>{a controller=fields action=boolean_field}Boolean field{/a}</li>
+					<li>{a controller=fields action=multiple_choice_field}Multiple choice field{/a}</li>
 				</ul>
 			</li>
 		</ul>
