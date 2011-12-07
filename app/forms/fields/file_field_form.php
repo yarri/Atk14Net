@@ -4,6 +4,8 @@ class FileFieldForm extends FieldsForm{
 		$this->enable_file_upload();
 
 		$this->add_field("file",new FileField(array(
+
+			// "required" => true
 		)));
 	}
 }
