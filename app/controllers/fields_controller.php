@@ -5,12 +5,16 @@ class FieldsController extends ApplicationController{
 	function date_field(){ $this->_validate_form(); }
 	function boolean_field(){ $this->_validate_form(); }
 	function multiple_choice_field(){ $this->_validate_form(); }
+	function file_field(){
+		$this->page_description = "Here is a file upload example.";
+		$this->_validate_form();
+	}
+	function image_field(){ $this->_validate_form(); }
 
 
 	function _validate_form(){
 		$this->template_name = "validate_form";
-		if($this->params->notEmpty() && ($d = $this->form->validate($this->params))){
-			// ok, the form is valid
+		if(($this->params->notEmpty() || $this->request->post()) && ($d = $this->form->validate($this->params))){
 			$this->flash->success("Nice! The form has been validated without an error");
 			$this->tpl_data["validated_data"] = $d;
 		}
@@ -19,6 +23,7 @@ class FieldsController extends ApplicationController{
 	}
 
 	function _before_filter(){
+		$this->page_description = "";
 		$a = new String($this->action);
 		$this->page_title = sprintf("%s field example",$a->camelize());
 	}

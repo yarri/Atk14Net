@@ -1,5 +1,7 @@
 <h2>{$page_title}</h2>
 
+<p>{$page_description}</p>
+
 {render partial=shared/form_error}
 {form}
 	<fieldset>
