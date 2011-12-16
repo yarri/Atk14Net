@@ -1,5 +1,5 @@
 <?php
-class EmailFieldForm extends FieldsForm{
+class EmailFieldForm extends ApplicationForm{
 	function set_up(){
 		$this->set_method("get");
 

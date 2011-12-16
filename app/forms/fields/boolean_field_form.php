@@ -1,5 +1,5 @@
 <?php
-class BooleanFieldForm extends FieldsForm{
+class BooleanFieldForm extends ApplicationForm{
 	function set_up(){
 		$this->set_method("get");
 

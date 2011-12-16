@@ -1,9 +1,11 @@
 <?php
-class ImageFieldForm extends FieldsForm{
+class ImageFieldForm extends ApplicationForm{
 	function set_up(){
 		$this->enable_file_upload();
 
 		$this->add_field("image",new ImageField(array(
+			"label" => "Image",
+			"help_text" => "Expecting jpeg, png or gif file",
 
 			// "width" => null,
 			// "height" => null,
@@ -11,6 +13,9 @@ class ImageFieldForm extends FieldsForm{
 			// "max_height" => null,
 			// "min_width" => null,
 			// "min_height" => null,
+
+			// "required" => true,
+			// "hint" => "",
 		)));
 	}
 }

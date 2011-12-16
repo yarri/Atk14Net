@@ -25,7 +25,7 @@
 				{if $controller==main && $action==index}
 					<h1>ATK14 is a PHP framework for fearless guys</h1>
 				{else}
-					<h1>{a controller=main action=index}ATK14{/a}</h1>
+					<h1>{a controller=main action=index _title="for fearless guys only"}ATK14 Demonstration Site{/a}</h1>
 				{/if}
 			</header>
 
@@ -41,7 +41,7 @@
 		</div>
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="{$root|h}public/javascripts/libs/jquery/jquery-1.6.2.min.js"><\/script>')</script>
+		<script>window.jQuery || document.write('<script src="{$public}javascripts/libs/jquery/jquery-1.6.2.min.js"><\/script>')</script>
 		{javascript_script_tag file="atk14.js"}
 		{javascript_script_tag file="application.js"}
 		{* TODO: this is only nasty temporary solution, we know better... *}

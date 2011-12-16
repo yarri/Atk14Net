@@ -1,5 +1,5 @@
 <?php
-class FileFieldForm extends FieldsForm{
+class FileFieldForm extends ApplicationForm{
 	function set_up(){
 		$this->enable_file_upload();
 
