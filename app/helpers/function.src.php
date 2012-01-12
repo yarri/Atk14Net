@@ -14,7 +14,7 @@ function smarty_function_src($params,&$smarty){
 
 	$title = isset($params["title"]) ? $params["title"] : $params["file"];
 
-	$out = "<a href=\"$url\">$title</a>";
+	$out = "<a href=\"$url\" data-remote=\"true\">$title</a>";
 	if($params["add_br"]){ $out .= "<br />"; }
 	return $out;
 }

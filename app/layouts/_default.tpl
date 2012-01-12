@@ -16,6 +16,10 @@
 			{stylesheet_link_tag file="lib/blueprint-css/blueprint/ie.css" media="screen, projection"}
 		<![endif]-->
 		{stylesheet_link_tag file="styles.css" media="screen, projection"}
+
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
+
+		{placeholder for="head"}
 	</head>
 
 	<body id="body_{$controller}_{$action}">
@@ -40,14 +44,19 @@
 			</footer>
 		</div>
 
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		{* <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> *}
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+
 		<script>window.jQuery || document.write('<script src="{$public}javascripts/libs/jquery/jquery-1.6.2.min.js"><\/script>')</script>
 		{javascript_script_tag file="atk14.js"}
 		{javascript_script_tag file="application.js"}
 		{* TODO: this is only nasty temporary solution, we know better... *}
-		{placeholder for="head"}
 		{javascript_tag}
 			{placeholder for="js"}
+			$(function() \{
+				{placeholder for="domready"}
+			\});
 		{/javascript_tag}
 
 		<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.

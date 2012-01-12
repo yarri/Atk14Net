@@ -20,6 +20,8 @@ class SourcesController extends ApplicationController{
 		if($sanitized_file=="" || $sanitized_file!=$file || !file_exists($filename) || !is_file($filename)){
 			return $this->_execute_action("error404");
 		}
+
+		$this->page_title = sprintf("%s source code",preg_replace('/.*\/([^\/]+)$/','\1',$file));
 		
 		$source = file_get_contents($filename);
 
@@ -44,7 +46,7 @@ class SourcesController extends ApplicationController{
 		if(preg_match("/\\.tpl$/",$file)){
 			if(preg_match_all("/({render[^}]+partial=)(['\"]|)([^\\s}]+)(['\"]|)/",$source,$matches)){
 				for($i=0;$i<sizeof($matches[3]);$i++){
-					$link = "<a href=\"".$this->_link_to(array("file" => $this->_find_shared_template($matches[3][$i],$filename)))."\">{$matches[3][$i]}</a>";
+					$link = "<a href=\"".$this->_link_to(array("file" => $this->_find_shared_template($matches[3][$i],$filename)))."\" data-remote=\"true\">{$matches[3][$i]}</a>";
 					$replaces[$matches[0][$i]] = $matches[1][$i].$matches[2][$i].$link.$matches[4][$i];
 				}
 			}
@@ -57,7 +59,7 @@ class SourcesController extends ApplicationController{
 			if(preg_match_all("/([a-zA-Z0-9]+Field)/",$source,$matches)){
 				for($i=0;$i<sizeof($matches[1]);$i++){
 					if($field_file = $this->_find_field_file($matches[1][$i])){
-						$link = "<a href=\"".$this->_link_to(array("file" => $field_file))."\">{$matches[1][$i]}</a>";
+						$link = "<a href=\"".$this->_link_to(array("file" => $field_file))."\" data-remote=\"true\">{$matches[1][$i]}</a>";
 						$replaces[$matches[0][$i]] = $link;
 					}
 				}
@@ -68,7 +70,7 @@ class SourcesController extends ApplicationController{
 			if(preg_match_all("/([a-zA-Z0-9]+)((<[^>]+>)+::)/",$source,$matches)){
 				for($i=0;$i<sizeof($matches[1]);$i++){
 					if($field_file = $this->_find_model_file($matches[1][$i])){
-						$link = "<a href=\"".$this->_link_to(array("file" => $field_file))."\">{$matches[1][$i]}</a>";
+						$link = "<a href=\"".$this->_link_to(array("file" => $field_file))."\" data-remote=\"true\">{$matches[1][$i]}</a>";
 						$replaces[$matches[0][$i]] = $link.$matches[2][$i];
 					}
 				}
