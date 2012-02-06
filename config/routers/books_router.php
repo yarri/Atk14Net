@@ -1,5 +1,15 @@
 <?php
+/**
+ * Produces routes like:
+ * 	/book/16-british-humanities-index
+ * 	/book/16-british-humanities-index.xml
+ * 
+ * czech variants:
+ * 	/kniha/16-british-humanities-index
+ * 	/kniha/16-british-humanities-index.xml
+ */
 class BooksRouter extends Atk14Router{
+
 	function recognize($uri){
 		if(preg_match('/^\/(book|kniha)\/([0-9]+)-([^.]*)(|\.([a-z]+))$/',$uri,$matches)){
 			if(!$book = Book::GetInstanceById($matches[2])){
