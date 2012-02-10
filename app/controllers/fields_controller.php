@@ -10,6 +10,11 @@ class FieldsController extends ApplicationController{
 		$this->_validate_form();
 	}
 	function image_field(){ $this->_validate_form(); }
+	function odd_number_field(){
+		$this->page_description = "OddNumberField is a custom field.";
+		$this->doc_source_files[] = "app/fields/odd_number_field.php";
+		$this->_validate_form();
+	}
 
 
 	function _validate_form(){

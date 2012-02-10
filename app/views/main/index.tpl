@@ -90,6 +90,7 @@ The official ATK14 mascot is a bit surprised to see you there.
 					<li>{a controller=fields action=multiple_choice_field}Multiple choice field{/a}</li>
 					<li>{a controller=fields action=file_field}File field{/a}</li>
 					<li>{a controller=fields action=image_field}Image field{/a}</li>
+					<li>{a controller=fields action=odd_number_field}Odd number field{/a}</li>
 				</ul>
 			</li>
 		</ul>
