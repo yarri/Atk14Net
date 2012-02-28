@@ -1,9 +1,8 @@
-<h3>Welcome</h3>
-
+<blockquote><span>{$mod}<sup>*</sup></span></blockquote>
 <img src="{$public}images/atk14.gif" alt="ATK14 Birdie" title="ATK14 Birdie" />
 
 <p>
-The official ATK14 mascot is a bit surprised to see you there.
+<sup>*</sup> The official ATK14 mascot rulez!
 </p>
 
 <h3>Why is it such a fun to use ATK14?</h3>
@@ -12,12 +11,6 @@ The official ATK14 mascot is a bit surprised to see you there.
 
 <p>
 	We simply don't know.
-</p>
-
-<blockquote>{$mod}</blockquote>
-
-<p>
-&mdash; an atk14 developper
 </p>
 
 <h3>Important links</h3>

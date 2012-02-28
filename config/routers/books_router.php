@@ -27,7 +27,7 @@ class BooksRouter extends Atk14Router{
 				$this->params->add("format",$matches[5]);
 			}
 
-			// 
+			// raise a redirection when the book`s title has been changed
 			if($slug!=$book->getSlug()){
 				$this->_redirect_to($this->_build_book_link($book));
 			}
