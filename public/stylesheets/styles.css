@@ -129,7 +129,6 @@ ul.radios, ul.checkboxes{
 }
 
 #body_main_index blockquote {
-	display: block;
 	width: 600px;
 	height: 452px;
 	background-image: url('../images/bubble.png');

@@ -5,12 +5,12 @@
 <sup>*</sup> The official ATK14 mascot rulez!
 </p>
 
-<h3>Why is it such a fun to use ATK14?</h3>
+<h3>We develop tools</h3>
 
 <img src="{$public}images/easy_to_use.jpg" alt="Web developper" title="Using ATK14 is such a fun" />
 
 <p>
-	We simply don't know.
+	We are our tools believers. If you are brave enough you can believe in our tools too.
 </p>
 
 <h3>Important links</h3>

@@ -2,6 +2,8 @@
 class LinksController extends ApplicationController{
 	function index(){
 		$this->page_tilte = "Links";
+
+		$this->tpl_data["link_built_in_controller"] = $this->_link_to(array("controller" => "main"));
 	}
 
 	function some_post_action(){
