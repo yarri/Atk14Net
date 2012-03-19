@@ -1,11 +1,15 @@
 <h2>{$page_title}</h2>
 
-On this page you can upload a big file to the server. File will be split up to a 1MB chunks.
+<p>
+	On this page you can upload a big file to the server. File will be split up to 1MB chunks. The md5 sum will be displayed after a successful file upload.
+</p>
+
+<p>
+	Some additional jquery plugins are required to do a chunked upload. Check out the template file create_new.tpl
+</p>
 
 {render partial=form}
 
-
-{* Some additional jquery plugins are required to do a chunked upload *}
 
 {content for=js_script_tags}
 		{javascript_script_tag file=libs/modernizr/modernizr-1.6.min.js}
@@ -13,6 +17,7 @@ On this page you can upload a big file to the server. File will be split up to a
 		{javascript_script_tag file=libs/plugins/jquery.sliceupload.js}
 {/content}
 
+{* Enabling chunked upload on a given field *}
 {content for=domready}{literal}
 	$("#id_file" ).sliceUpload({
 		chunkSize: 1024*1024,
