@@ -51,6 +51,7 @@
 		<script>window.jQuery || document.write('<script src="{$public}javascripts/libs/jquery/jquery-1.6.2.min.js"><\/script>')</script>
 		{javascript_script_tag file="atk14.js"}
 		{javascript_script_tag file="application.js"}
+		{placeholder for=js_script_tags}
 		{* TODO: this is only nasty temporary solution, we know better... *}
 		{javascript_tag}
 			{placeholder for="js"}
