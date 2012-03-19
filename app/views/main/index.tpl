@@ -71,9 +71,8 @@
 	<li>
 		<h4>Form</h4>
 		<ul>
-			<li>
-				{a controller=money_transfers action=create_new}CSRF protected form{/a}
-			</li>
+			<li>{a controller=money_transfers action=create_new}CSRF protected form{/a}</li>
+			<li>{a controller=big_file_uploads action=create_new}Chunked file upload{/a}</li>
 			<li>Field examples
 				<ul>
 					<li>{a controller=fields action=char_field}Character field{/a}</li>
