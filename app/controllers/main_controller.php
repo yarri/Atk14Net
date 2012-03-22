@@ -19,7 +19,7 @@ class MainController extends ApplicationController{
 			ATK14? Do not betray the Birdie!
 			ATK14? Remember the last pain?
 			ATK14? So what?
-			ATK14? Sounds like a gun or something.
+			ATK14? Sounds like a gun or something...
 			ATK14? Is it dangerous?
 			ATK14? You shouldn't hack ATK14 core or God kills a Drupal core developer!
 			ATK14? Nothing else than pure quality!
@@ -51,6 +51,10 @@ class MainController extends ApplicationController{
 			ATK14? There is only a few things as good as ATK14 is. No doubt.
 			ATK14? No worries!
 			ATK14? Why the hell ATK14? Because ATK has been already taken.
+			ATK14? You either work with ATK14 or you don't work with ATK14! There is no other option.
+			ATK14? It does nothing by default!
+			ATK14? Why it has to be written in ATK14?
+			ATK14? It always looks the same to me. Just Great!
 		"));
 		$this->tpl_data["mod"] = trim($mods[floor(time()/(60*60*24))%sizeof($mods)]);
 	}
