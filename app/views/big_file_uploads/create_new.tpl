@@ -1,7 +1,7 @@
 <h2>{$page_title}</h2>
 
 <p>
-	On this page you can upload a big file to the server. File will be split up to 1MB chunks. The md5 sum will be displayed after a successful file upload.
+	On this page you can upload a big file to the server. File will be split up to 1MB chunks using HTML5 File API and AJAX. The md5 sum will be displayed after a successful file upload.
 </p>
 
 <p>

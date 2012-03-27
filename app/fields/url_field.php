@@ -13,6 +13,9 @@ class UrlField extends RegexField{
 		));
 	}
 
+	/**
+	 * This is RegexField`s hook method beeing called atomatically after a successful pattern matching.
+	 */
 	function processResult($value, $matches){
 		if($matches[1]==""){
 			$value = "http://$value";

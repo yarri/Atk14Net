@@ -1,3 +1,5 @@
+<h2>{$page_title}</h2>
+
 {render partial=shared/form_error}
 
 {form}
@@ -14,7 +16,7 @@
 
 {/form}
 
-{content for=head}
+{content for=js_script_tags}
 	{javascript_script_tag file="libs/jquery/plugins/jquery.validate.js"}
 {/content}
 

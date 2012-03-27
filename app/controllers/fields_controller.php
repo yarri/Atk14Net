@@ -5,6 +5,7 @@ class FieldsController extends ApplicationController{
 	function date_field(){ $this->_validate_form(); }
 	function boolean_field(){ $this->_validate_form(); }
 	function multiple_choice_field(){ $this->_validate_form(); }
+	function regex_field(){ $this->_validate_form(); }
 	function file_field(){
 		$this->page_description = "Here is a file upload example.";
 		$this->_validate_form();
@@ -13,6 +14,12 @@ class FieldsController extends ApplicationController{
 	function odd_number_field(){
 		$this->page_description = "OddNumberField is a custom field.";
 		$this->doc_source_files[] = "app/fields/odd_number_field.php";
+		$this->_validate_form();
+	}
+
+	function url_field(){
+		$this->page_description = "UrlField is a custom field.";
+		$this->doc_source_files[] = "app/fields/url_field.php";
 		$this->_validate_form();
 	}
 

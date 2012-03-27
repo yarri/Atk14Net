@@ -1,6 +1,8 @@
 <?php
 class SignUpJsValidationController extends ApplicationController{
 	function 	sign_up(){
+		$this->page_title = "Sign up procedure with Javascript validation";
+
 		$this->tpl_data["js_validator"] = $jv = $this->form->js_validator();
 
 		if($this->request->post() && ($d = $this->form->validate($this->params))){

@@ -2,24 +2,24 @@
 class SignUpForm extends ApplicationForm{
 	function set_up(){
 		$this->add_field("login",new CharField(array(
-			"title" => _("Desired username"),
+			"title" => "Desired username",
 			"min_length" => 2,
 		)));
 		$this->add_field("password",new CharField(array(
-			"title" => _("Desired password"),
+			"title" => "Desired password",
 			"widget" => new PasswordInput(),
 		)));
 		$this->add_field("password_confirmation",new CharField(array(
-			"title" => _("Confirm password"),
+			"title" => "Confirm password",
 			"widget" => new PasswordInput(),
 		)));
 		$this->add_field("name",new CharField(array(
-			"title" => _("Your Name"),
+			"title" => "Your Name",
 			"min_length" => 2,
 			"max_length" => 255
 		)));
 		$this->add_field("email",new EmailField(array(
-			"title" => _("E-mail address")
+			"title" => "E-mail address"
 		)));
 	}
 
@@ -34,7 +34,7 @@ class SignUpForm extends ApplicationForm{
 			$this->set_error("password_confirmation",_("Passwords are not equals"));
 		}
 
-		unset($d["password_confirmation"]);
+		unset($d["password_confirmation"]); // cleaned data will not contain password_confirmation as it is useful for validation only
 
 		return array(null,$d);
 	}

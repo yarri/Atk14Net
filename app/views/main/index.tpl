@@ -26,14 +26,14 @@
 <h3>Here are some life examples</h3>
 
 <p>
-	At any page you can inspect sources of all involved files.
+	At any page you can inspect sources of all involved files
 </p>
 
 <ul>
 	<li>
 		<h4>{a controller=books}CRUD{/a}</h4>
 		<p>
-			A typical example of displaying (with sorting) / creating / editing / destroying records in a record set.
+			A typical example of displaying (with sorting) / creating / editing / destroying records in a record set
 		</p>
 	</li>
 
@@ -47,29 +47,12 @@
 	<li>
 		<h4>{a controller=remote_links}Remote links{/a}</h4>
 		<p>
-			A few examples of XHR links.
+			A few examples of XHR links
 		</p>
 	</li>
 
 	<li>
-		<h4>Sign up forms</h4>
-		<p>
-		A sign up procedure.
-		</p>
-		<ul>
-			<li><h5>{a controller=sign_up action=sign_up}Simple{/a}</h5></li>
-			<li><h5>{a controller=sign_up_multistep action=sign_up}Multisptep{/a}</h5></li>
-			<li><h5>{a controller=sign_up_js_validation action=sign_up}With Javascript validation{/a}</h5></li>
-		</ul>
-	</li>
-
-	<li>
-		<h4>{a controller=reminders action=create_new}Sending emails{/a}</h4>
-		<p>Sending emails with ApplicationMailer</p>
-	</li>
-
-	<li>
-		<h4>Form</h4>
+		<h4>Forms</h4>
 		<ul>
 			<li>{a controller=money_transfers action=create_new}CSRF protected form{/a}</li>
 			<li>{a controller=big_file_uploads action=create_new}Chunked file upload{/a}</li>
@@ -80,13 +63,31 @@
 					<li>{a controller=fields action=date_field}Date field{/a}</li>
 					<li>{a controller=fields action=boolean_field}Boolean field{/a}</li>
 					<li>{a controller=fields action=multiple_choice_field}Multiple choice field{/a}</li>
+					<li>{a controller=fields action=regex_field}Regex field{/a}</li>
 					<li>{a controller=fields action=file_field}File field{/a}</li>
 					<li>{a controller=fields action=image_field}Image field{/a}</li>
+				</ul>
+			</li>
+			<li>Custom Fields
+				<ul>
 					<li>{a controller=fields action=odd_number_field}Odd number field{/a}</li>
+					<li>{a controller=fields action=url_field}URL field{/a}</li>
+				</ul>
+			</li>
+
+			<li>Sign up procedure examples
+				<ul>
+					<li>{a controller=sign_up action=sign_up}Classic{/a}</li>
+					<li>{a controller=sign_up_multistep action=sign_up}Multisptep{/a}</li>
+					<li>{a controller=sign_up_js_validation action=sign_up}With Javascript validation{/a}</li>
 				</ul>
 			</li>
 		</ul>
+	</li>
 
+	<li>
+		<h4>{a controller=reminders action=create_new}Sending emails{/a}</h4>
+		<p>Sending emails with ApplicationMailer</p>
 	</li>
 </ul>
 

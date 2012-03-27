@@ -13,6 +13,6 @@
 {/form}
 
 {if $validated_data}
-	<h3>How the form output data looks like?</h3>
+	<h3>The form`s cleaned data looks pretty good</h3>
 	{dump var=$validated_data}
 {/if}

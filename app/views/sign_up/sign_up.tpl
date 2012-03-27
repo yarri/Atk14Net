@@ -1,3 +1,7 @@
+<h2>{$page_title}</h2>
+
+<p>Here is a sign up procedure served in a very classic way. Just one form is involved.</p>
+
 {render partial=shared/form_error}
 
 {form}
