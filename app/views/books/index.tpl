@@ -15,7 +15,11 @@
 
 {if $finder}
 
-	{if $finder->notEmpty()}
+	{if $finder->isEmpty()}
+
+		<p>Nothing was found.</p>
+
+	{else}
 
 		<table>
 			<thead>
@@ -33,10 +37,6 @@
 		</table>
 
 		{paginator}
-
-	{else}
-
-		<p>Nothing was found.</p>
 
 	{/if}
 

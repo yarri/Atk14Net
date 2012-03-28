@@ -2,15 +2,12 @@
 class BooksController extends ApplicationController{
 
 	/**
-	* Provides the list of books.
-	*/
+	 * Provides the list of books.
+	 */
 	function index(){
 		$this->page_title = "Listing books";
 
-		if(!($d = $this->form->validate($this->params))){
-			return;
-		}
-
+		// initialize sorting
 		$this->sorting->add("title",array("order_by" => "UPPER(title)"));
 		$this->sorting->add("author",array(
 			"ascending_ordering" => "UPPER(author), UPPER(title)",
@@ -18,9 +15,14 @@ class BooksController extends ApplicationController{
 		));
 		$this->sorting->add("code");
 
+		// validate input parameters
+		if(!($d = $this->form->validate($this->params))){
+			return;
+		}
+
+		// build conditions
 		$conditions = array();
 		$bind_ar = array();
-
 		if($d["search"]){
 			$conditions[] = "UPPER(title) LIKE UPPER(:search) OR UPPER(author) LIKE UPPER(:search) OR UPPER(code) LIKE UPPER(:search) OR UPPER(shelfmark) LIKE UPPER(:search)";
 			$bind_ar[":search"] = "%$d[search]%";
@@ -36,8 +38,8 @@ class BooksController extends ApplicationController{
 	}
 
 	/**
-	* Provides the detail of a book.
-	*/
+	 * Provides detail of a book in various formats
+	 */
 	function detail(){
 		$this->page_title = sprintf("Detail of the book %s",$this->book->getTitle());
 
@@ -55,7 +57,7 @@ class BooksController extends ApplicationController{
 				case "yaml":
 					$content_type = "text/plain";
 					$content = $this->book->toYaml();
-					break;					
+					break;
 				default:
 					$this->_execute_action("error404");
 					return;
@@ -68,8 +70,8 @@ class BooksController extends ApplicationController{
 	} 
 	
 	/**
-	* Provides a book entry creation.
-	*/
+	 * Provides a book entry creation.
+	 */
 	function create_new(){
 		$this->page_title = "Create a new book entry";
 		$this->_add_return_uri($this->form);
@@ -82,8 +84,8 @@ class BooksController extends ApplicationController{
 	}
 
 	/**
-	* Provides a book entry editing.
-	*/
+	 * Provides a book entry editing.
+	 */
 	function edit(){
 		$this->page_title = sprintf("Edit book #%s",$this->book->getId());
 		$this->_add_return_uri($this->form);
@@ -97,8 +99,8 @@ class BooksController extends ApplicationController{
 	}
 
 	/**
-	* Provides a book entry destroying.
-	*/
+	 * Provides a book entry destroying.
+	 */
 	function destroy(){
 		if(!$this->request->post()){ return $this->_execute_action("error404"); }
 		
@@ -106,8 +108,8 @@ class BooksController extends ApplicationController{
 	}
 
 	/**
-	* Finds and instantiates an Book object by tha parametr id.
-	*/
+	 * Finds and instantiates an Book object by the parametr id.
+	 */
 	function _find_book(){
 		if($this->book = Book::GetInstanceById($this->params->getInt("id"))){
 			$this->tpl_data["book"] = &$this->book;
@@ -115,6 +117,9 @@ class BooksController extends ApplicationController{
 		}
 	}
 
+	/**
+	 * Adds return uri to a form.
+	 */
 	function _add_return_uri(&$form){
 		$return_uri = $this->request->get() ? $this->request->getHttpReferer() : $this->params->getString("return_uri");
 		$form->set_hidden_field("return_uri",$return_uri);
@@ -130,6 +135,7 @@ class BooksController extends ApplicationController{
 	function _before_filter(){
 		$this->doc_source_files[] = "app/models/book.php";
 
+		// we need a book in certanin actions
 		if(in_array($this->action,array("detail","edit","destroy")) && !$this->_find_book()){
 			return $this->_execute_action("error404");
 		}
