@@ -24,7 +24,7 @@ class BooksController extends ApplicationController{
 		$conditions = array();
 		$bind_ar = array();
 		if($d["search"]){
-			$conditions[] = "UPPER(title) LIKE UPPER(:search) OR UPPER(author) LIKE UPPER(:search) OR UPPER(code) LIKE UPPER(:search) OR UPPER(shelfmark) LIKE UPPER(:search)";
+			$conditions[] = "UPPER(title||author||code||shelfmark) LIKE UPPER(:search)";
 			$bind_ar[":search"] = "%$d[search]%";
 		}
 
