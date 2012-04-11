@@ -5,6 +5,8 @@ class DefaultRouter extends Atk14Router{
 	
 	function setUp(){
 
+		$this->addRoute("/rss/motds","rss/motds");
+
 		$this->addRoute("/",array(
 			"lang" => $this->default_lang,
 			"path" => "main/index",

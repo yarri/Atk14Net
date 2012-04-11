@@ -8,6 +8,8 @@
 		<meta name="description" content="{$page_description|h}" />
 		{render partial=shared/layout/dev_info}
 
+		<link rel="alternate" title="ATK14`s Messages of the day" href="{link_to controller=rss action=motds}" type="application/rss+xml" />
+
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
 		{stylesheet_link_tag file="lib/blueprint-css/blueprint/screen.css" media="screen, projection"}
