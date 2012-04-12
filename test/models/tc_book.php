@@ -1,10 +1,6 @@
 <?php
-class tc_book extends tc_base{
+class TcBook extends TcBase{
 	function test(){
-		global $dbmole;
-
-		$dbmole->begin();
-
 		$book = Book::CreateNewRecord(array(
 			"title" => "Test",
 			"code" => "AB123",
@@ -16,7 +12,5 @@ class tc_book extends tc_base{
 		$book->s("title","Test 2");
 
 		$this->assertEquals("Test 2",$book->g("title"));
-	
-		$dbmole->rollback();
 	}
 }

@@ -1,7 +1,7 @@
 <?php
-class tc_users extends tc_base{
+class TcUsers extends TcBase{
 	function test_login(){
-		$client = new Atk14Client();
+		$client = $this->client;
 
 		$user = User::CreateNewRecord(array(
 			"login" => "testing_user",
