@@ -1,10 +1,6 @@
 <?php
-class tc_user extends tc_base{
+class TcUser extends TcBase{
 	function test_get_instance_by_login(){
-		global $dbmole;
-
-		$dbmole->begin();
-
 		$this->assertNull(User::GetInstanceByLogin("unit_testing_user"));
 
 		$new_user = User::CreateNewRecord(array(
@@ -16,7 +12,5 @@ class tc_user extends tc_base{
 
 		$this->assertTrue(is_object($user = User::GetInstanceByLogin("unit_testing_user")));
 		$this->assertEquals($new_user->getId(),$user->getId());
-
-		$dbmole->rollback();
 	}
 }

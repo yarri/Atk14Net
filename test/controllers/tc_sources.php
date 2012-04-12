@@ -1,8 +1,7 @@
 <?php
-class tc_sources extends tc_base{
+class TcSources extends TcBase{
 	function test_detail(){
-		$client = new Atk14Client();
-		$c = $client->get("sources/detail",array(
+		$c = $this->client->get("sources/detail",array(
 			"file" => "app/controllers/application.php",
 		));
 		$this->assertEquals(200,$c->response->getStatusCode());
@@ -15,7 +14,7 @@ class tc_sources extends tc_base{
 			"app",
 			"config/random.txt"
 		) as $invalid_file){
-			$c = $client->get("sources/detail",array(
+			$c = $this->client->get("sources/detail",array(
 				"file" => $invalid_file
 			));
 			$this->assertEquals(404,$c->response->getStatusCode());
