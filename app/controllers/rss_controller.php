@@ -4,7 +4,7 @@ class RssController extends ApplicationController{
 		$items = array();
 		$date = Date::Today();
 		$counter = 0;
-		while($counter<10){
+		while($counter<5){
 			$items[] = array(
 				"title" => Motd::GetMessage($date),
 				"pubDate" => $date->toGmdate(),

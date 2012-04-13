@@ -64,6 +64,10 @@ class Motd {
 			ATK14? It does nothing by default!
 			ATK14? Why it has to be written in ATK14?
 			ATK14? It always looks the same to me. Just Great!
+			ATK14? Birdie has balls of steel!
+			ATK14? Never stops to surprise me!
+			ATK14? ATK15? ATK16? ATK17? Who dares to stop that?
+			ATK14? For Christ sakes! 
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}
