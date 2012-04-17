@@ -1,10 +1,10 @@
 <?php
 class ApplicationRobot extends Atk14Robot{
-	function before_run(){
+	function beforeRun(){
 		$this->dbmole->begin();
 	}
 
-	function after_run(){
+	function afterRun(){
 		$this->dbmole->commit();
 	}
 }
