@@ -5,6 +5,7 @@ body.loading, body.loading button, body.loading input, body.loading a, body.load
 	cursor: wait;
 }
 
+
 /*
  * Blueprint has built-in classes notice, error and success.
  * Here is an another one. I`ve found it missing.
@@ -64,6 +65,17 @@ ul.radios label, ul.checkboxes label{
 ul.radios, ul.checkboxes{
 	list-style: none;
 }
+
+/*
+ * In-browser \validated values.
+ * see http://www.atk14.net/en/sign_up_js_validation/sign_up/
+ */
+form label.checked{
+	background-color: #4b9a4b;
+	border: 2px solid #173f17;
+	color: white;
+}
+
 
 /*
  * Error explanation produced by

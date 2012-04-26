@@ -9,7 +9,8 @@ Building links is easy like hell. Check out this pages` template source code.
 <ul>
 	<li>{a controller=main action=index}Homepage 1{/a}</li>
 	<li>{a controller=main}Homepage 2{/a}</li>
-	<li>{a controller=main _title="This is third link to the frontpage" _class=warning}Homepage 3 (with title and class){/a}</li>
+	<li>{a controller=main _title="This is third link to the frontpage" _class=warning _with_hostname=1}Homepage 3 (with title, class and hostname){/a}</li>
+	<li>{a controller=main _with_hostname="www.example.com"}Homepage 4 (with a different hostname){/a}</li>
 	<li><a href="{link_to controller=main}">Yet another one</a></li>
 	<li><a href="{$link_built_in_controller}">And finally one link built in controller</a></li>
 </ul>

@@ -1,5 +1,11 @@
 <h2>{$page_title}</h2>
 
+<p>
+On this page there is an example of in-browser form validation.<br />
+jQuery Validation plugin is used. Validation rules are provided by a ATK14`s form through the <em>js_validator</em>.<br />
+Check out the controller, form and template source code.
+</p>
+
 {render partial=shared/form_error}
 
 {form}
@@ -37,9 +43,7 @@
 			\},
 			// set this class to error-labels to indicate valid fields
 			success: function(label) \{
-				console.log(label);
-				// set &nbsp; as text for IE
-				label.html("&nbsp;").addClass("checked");
+				label.html("Ok").addClass("checked");
 			\}
 		\});
 	\});
