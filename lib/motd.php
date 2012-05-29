@@ -67,7 +67,9 @@ class Motd {
 			ATK14? Birdie has balls of steel!
 			ATK14? Never stops to surprise me!
 			ATK14? ATK15? ATK16? ATK17? Who dares to stop that?
-			ATK14? For Christ sakes! 
+			ATK14? For Christ sakes!
+			ATK14? Fork the bitch on Github!
+			ATK14? Good guess, but wrong.
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}

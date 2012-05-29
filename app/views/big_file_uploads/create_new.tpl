@@ -19,7 +19,7 @@
 
 {* Enabling chunked upload on a given field *}
 {content for=domready}{literal}
-	$("#id_file" ).sliceUpload({
+	$("#id_file").sliceUpload({
 		chunkSize: 1024*1024,
 		fileLoaded: function(responseText){
 			if (responseText.length>0) {

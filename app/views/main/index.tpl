@@ -31,7 +31,7 @@
 
 <ul>
 	<li>
-		<h4>{a controller=books}CRUD{/a}</h4>
+		<h4>{a controller=books}Books, a typical CRUD controller{/a}</h4>
 		<p>
 			A typical example of displaying (with sorting) / creating / editing / destroying records in a record set
 		</p>
@@ -49,6 +49,21 @@
 		<p>
 			A few examples of XHR links
 		</p>
+	</li>
+
+	<li>
+		<h4>{a controller=reminders action=create_new}Sending emails{/a}</h4>
+		<p>How easy it is to send an email somewhere...</p>
+	</li>
+
+	<li>
+		<h4>Sign up procedure examples</h4>
+		<p>There are three interesting variants available.</p>
+		<ul>
+			<li>{a controller=sign_up action=sign_up}Classic{/a}</li>
+			<li>{a controller=sign_up_multistep action=sign_up}Multisptep{/a}</li>
+			<li>{a controller=sign_up_js_validation action=sign_up}With Javascript validation{/a}</li>
+		</ul>
 	</li>
 
 	<li>
@@ -75,20 +90,11 @@
 				</ul>
 			</li>
 
-			<li>Sign up procedure examples
-				<ul>
-					<li>{a controller=sign_up action=sign_up}Classic{/a}</li>
-					<li>{a controller=sign_up_multistep action=sign_up}Multisptep{/a}</li>
-					<li>{a controller=sign_up_js_validation action=sign_up}With Javascript validation{/a}</li>
-				</ul>
-			</li>
+
 		</ul>
 	</li>
 
-	<li>
-		<h4>{a controller=reminders action=create_new}Sending emails{/a}</h4>
-		<p>Sending emails with ApplicationMailer</p>
-	</li>
+
 </ul>
 
 
