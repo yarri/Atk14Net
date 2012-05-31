@@ -4,7 +4,13 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>{$page_title|h} | {"ATK14_APPLICATION_NAME"|dump_constant}</title>
+		<title>
+			{if $controller=="main" && $action=="index"}
+			ATK14 framework
+			{else}
+			{$page_title|h} | {"ATK14_APPLICATION_NAME"|dump_constant}
+			{/if}
+		</title>
 		<meta name="description" content="{$page_description|h}" />
 		{render partial=shared/layout/dev_info}
 

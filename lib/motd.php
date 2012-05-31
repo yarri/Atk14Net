@@ -70,6 +70,10 @@ class Motd {
 			ATK14? For Christ sakes!
 			ATK14? Fork the bitch on Github!
 			ATK14? Good guess, but wrong.
+			ATK14? Ment to be a replacement for an every other framework!
+			ATK14? Ment to be replaced by an every other framework!
+			ATK14? Why are you here?
+			ATK14? Oh please not today!
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}
