@@ -12,7 +12,7 @@
 
 
 	<fieldset>
-		{render partial=shared/form_field field=file}
+		{render partial="shared/form_field" field=file}
 		<div class="buttons">
 			<button type="submit">Send File</button>
 		</div>

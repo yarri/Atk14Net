@@ -1,7 +1,7 @@
 {*
  * Vytiskne dane formularove pole:
- * {render partial=shared/form_field field=$form->get_field("title")}
- * {render partial=shared/form_field field=title}
+ * {render partial="shared/form_field" field=$form->get_field("title")}
+ * {render partial="shared/form_field" field=title}
  *
  * Generuje toto:
  * <div>
@@ -20,23 +20,14 @@
  *  - error
  * 
  * Pokud ma mit div dalsi tridu (tridy), je mozne predat parametr class: 
- * {render partial=shared/form_field field=$form->get_field("title") class="blue"}
+ * {render partial="shared/form_field" field=$form->get_field("title") class="blue"}
  *
  * Dale mozno predat parametr hide_label=1, potom se tagu <label> prida trida access a tim se skryje:
- * {render partial=shared/form_field field=$form->get_field("title") hide_label=1}
+ * {render partial="shared/form_field" field=$form->get_field("title") hide_label=1}
  *}
 
-{if is_string($fields) && strlen($fields)>0}
-	{php}
-		$this->_tpl_vars["_fields"] = explode(",",$this->_tpl_vars["fields"]);
-		unset($this->_tpl_vars["fields"]);
-	{/php}
-	{render partial=shared/form_field from=$_fields item=field}
-{elseif is_array($fields)}
-	{foreach from=$fields item=field}
-		{render partial=shared/form_field field=$field fields=null}
-	{/foreach}
-{else}
+{if $field}
+
 	{if is_string($field)}
 		{if !$form->has_field($field)}
 			{error_log}The form doesn't contain field {$field}{/error_log}
@@ -66,4 +57,18 @@
 			</ul>
 		{/if}
 	</div>
+
+{else}
+
+	{if isset($fields) && is_string($fields)}
+		{assign var=fields value=","|explode:$fields} {* using PHP function as a smarty modifier! *}
+	{/if}
+
+	{if isset($fields) && is_array($fields)}
+		{foreach from=$fields item=field}
+			{render partial="shared/form_field" field=$field}
+		{/foreach}
+
+	{/if}
+
 {/if}

@@ -12,7 +12,7 @@
 			{/if}
 		</title>
 		<meta name="description" content="{$page_description|h}" />
-		{render partial=shared/layout/dev_info}
+		{render partial="shared/layout/dev_info"}
 
 		<link rel="alternate" title="ATK14`s Messages of the day" href="{link_to controller=rss action=motds}" type="application/rss+xml" />
 
@@ -42,13 +42,13 @@
 			</header>
 
 			<div class="main" role="main">
-				{render partial=shared/layout/flash_message}
+				{render partial="shared/layout/flash_message"}
 				{placeholder}
 			</div>
 
 			<footer>
-				{render partial=shared/user_info}
-				{render partial=shared/documentation}
+				{render partial="shared/user_info"}
+				{render partial="shared/documentation"}
 			</footer>
 		</div>
 

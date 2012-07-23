@@ -1,4 +1,4 @@
-<h2>{$page_tilte}</h2>
+<h2>{$page_title}</h2>
 
 <p>
 Building links is easy like hell. Check out this pages` template source code.

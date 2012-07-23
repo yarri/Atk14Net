@@ -12,9 +12,9 @@
 
 
 {content for=js_script_tags}
-		{javascript_script_tag file=libs/modernizr/modernizr-1.6.min.js}
-		{javascript_script_tag file=libs/plugins/jquery.fileupload.js}
-		{javascript_script_tag file=libs/plugins/jquery.sliceupload.js}
+		{javascript_script_tag file="libs/modernizr/modernizr-1.6.min.js"}
+		{javascript_script_tag file="libs/plugins/jquery.fileupload.js"}
+		{javascript_script_tag file="libs/plugins/jquery.sliceupload.js"}
 {/content}
 
 {* Enabling chunked upload on a given field *}

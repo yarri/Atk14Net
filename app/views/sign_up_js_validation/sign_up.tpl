@@ -6,13 +6,13 @@ jQuery Validation plugin is used. Validation rules are provided by a ATK14`s for
 Check out the controller, form and template source code.
 </p>
 
-{render partial=shared/form_error}
+{render partial="shared/form_error"}
 
 {form}
 
 <fieldset>
 
-	{render partial=shared/form_field fields=login,password,password_confirmation,name,email}
+	{render partial="shared/form_field" fields="login,password,password_confirmation,name,email"}
 
 	<div class="buttons">
 	<input type="submit" value="Sign up" />
@@ -27,24 +27,24 @@ Check out the controller, form and template source code.
 {/content}
 
 {content for=js}
-	$(document).ready(function() \{
+	$(document).ready(function() {
 		// validate signup form on keyup and submit
-		var validator = $("form").validate(\{
+		var validator = $("form").validate({
 			rules: {to_json var=$js_validator->get_rules()},
 			messages: {to_json var=$js_validator->get_messages()},
 			// the errorPlacement has to take the table layout into account
-			errorPlacement: function(error, element) \{
+			errorPlacement: function(error, element) {
 				if ( element.is(":radio") )
 					error.appendTo( element.parent().next().next() );
 				else if ( element.is(":checkbox") )
 					error.appendTo ( element.next() );
 				else
 					error.appendTo( element.parent() );
-			\},
+			},
 			// set this class to error-labels to indicate valid fields
-			success: function(label) \{
+			success: function(label) {
 				label.html("Ok").addClass("checked");
-			\}
-		\});
-	\});
+			}
+		});
+	});
 {/content}

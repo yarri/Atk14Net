@@ -162,7 +162,7 @@ class TcUser extends TcBase{
 </li>
 
 <li>
-<h4>Running tests</h4>
+<h4>Run tests</h4>
 {code}{literal}
 $ cd test/models/
 $ ../../scripts/run_unit_tests tc_user.php
