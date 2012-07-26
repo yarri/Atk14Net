@@ -74,6 +74,9 @@ class Motd {
 			ATK14? Ment to be replaced by an every other framework!
 			ATK14? Why are you here?
 			ATK14? Oh please not today!
+			ATK14? Brighter Than the Sun!
+			ATK14? Kick the beast ass!
+			ATK14? Beware the Birdie at night!
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}
