@@ -155,3 +155,19 @@ form label.checked{
 	width: 20em;
 	margin: auto;
 }
+
+#top-nav h3 {
+	display: none;
+}
+
+#top-nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	height: 2em;
+}
+
+#top-nav ul li {
+	padding-right: 1em;
+	float: left;
+}
