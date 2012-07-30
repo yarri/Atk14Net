@@ -3,7 +3,7 @@
 
 <ul>
 	<li><a href="http://api.atk14.net/">API Reference</a></li>
-	<li><a href="http://book.atk14.net/">Book</a></li>
+	<li><a href="http://book.atk14.net/">The Book</a></li>
 	<li><a href="https://github.com/yarri/Atk14">ATK14 Home on Github</a></li>
 	<li><a href="https://github.com/yarri/Atk14/tree/master/installation">Installation Instructions</a></li>
 </ul>
@@ -20,7 +20,7 @@
 
 {render_component controller=snippets action=detail id=atk14_is_a_way_classy_mvc_framework}
 
-<h3>Here are some life examples</h3>
+<h3>Here are some real life examples</h3>
 
 <p>
 	At any page you can inspect sources of all involved files

@@ -1,4 +1,4 @@
 {if $request->xhr() || $rendering_component}
-{a_remote id=$snippet.next.id}show next snippet{/a_remote} | {a action=detail id=$snippet.id}permalink{/a}
+<strong>code snippet</strong> ({a_remote id=$snippet.next.id _title="show another code snippet"}show next{/a_remote} | {a action=detail id=$snippet.id _title="permanent link to the {$snippet.title|h}"}permalink{/a})
 {/if}
 {render partial=$snippet.template}
