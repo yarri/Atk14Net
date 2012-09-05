@@ -156,6 +156,10 @@ form label.checked{
 	margin: auto;
 }
 
+#top-nav {
+	background-color: black;
+}
+
 #top-nav h3 {
 	display: none;
 }
@@ -165,9 +169,21 @@ form label.checked{
 	padding: 0;
 	margin: 0;
 	height: 2em;
+	padding-left: 1em;
 }
 
 #top-nav ul li {
 	padding-right: 1em;
 	float: left;
+}
+
+#top-nav a {
+	color: white;
+}
+
+#body_main_index h1 {
+	background-color: black;
+	color: white;
+	padding: 2em 0.2em 0.2em 0.2em;
+	margin-bottom: 0;
 }
