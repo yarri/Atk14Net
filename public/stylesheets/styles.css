@@ -140,6 +140,15 @@ form label.checked{
 	color: #666666;
 }
 
+/* ATK14 is a PHP framework for fearless guys */
+#body_main_index h1 {
+	font-size: 3.5em;
+	background-color: black;
+	color: white;
+	padding: 2em 0.2em 0.2em 0.2em;
+	margin-bottom: 0;
+}
+
 #body_main_index blockquote {
 	width: 600px;
 	height: 452px;
@@ -169,7 +178,7 @@ form label.checked{
 	padding: 0;
 	margin: 0;
 	height: 2em;
-	padding-left: 1em;
+	padding-left: 0.8em;
 }
 
 #top-nav ul li {
@@ -179,11 +188,4 @@ form label.checked{
 
 #top-nav a {
 	color: white;
-}
-
-#body_main_index h1 {
-	background-color: black;
-	color: white;
-	padding: 2em 0.2em 0.2em 0.2em;
-	margin-bottom: 0;
 }
