@@ -28,13 +28,13 @@ class Book extends ApplicationModel{
 
 <li>
 <h4>Controller</h4>
-<pre><code>{h}{literal}<?php
+{code}{literal}<?php
 // file: app/controllers/books_controller.php
 class BooksController extends ApplicationController{
   function detail(){
-    $this->tpl_data["book"] = Book::FindById($this->params["id"]);
+    $this->tpl_data["book"] = Book::FindById($this->params->getInt("id"));
   }
-}{/literal}{/h}</code></pre>
+}{/literal}{/code}
 </li>
 
 <li>
@@ -57,7 +57,7 @@ class BooksController extends ApplicationController{
 {* file: app/layouts/default.tpl *}
 <html>
 <head>
-  <title>Just a Great Application</title>
+  <title>Books</title>
 </head>	
 <body>
   {placeholder}
@@ -72,5 +72,3 @@ class BooksController extends ApplicationController{
 {code}http://project.localhost/en/books/detail/?id=123{/code}
 </li>
 </ul>
-
-
