@@ -1,7 +1,7 @@
 <h2>{$page_title}</h2>
 
 <p>
-	On this page you can upload a big file to the server. File will be split up to 1MB chunks using HTML5 File API and AJAX. The md5 sum will be displayed after a successful file upload.
+	On this page you can easily upload a really big file (e.g. 1GB) to the server. File will be split up to 1MB chunks using HTML5 File API and AJAX. The md5 sum will be displayed after a successful file upload.
 </p>
 
 <p>
@@ -10,7 +10,6 @@
 
 {render partial=form}
 
-
 {content for=js_script_tags}
 		{javascript_script_tag file="libs/modernizr/modernizr-1.6.min.js"}
 		{javascript_script_tag file="libs/plugins/jquery.fileupload.js"}
@@ -18,7 +17,7 @@
 {/content}
 
 {* Enabling chunked upload on a given field *}
-{content for=domready}{literal}
+{content for=domready}
 	$("#id_file").sliceUpload({
 		chunkSize: 1024*1024,
 		fileLoaded: function(responseText){
@@ -29,4 +28,4 @@
 			return true;
 		}
 	});
-{/literal}{/content}
+{/content}
