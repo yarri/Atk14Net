@@ -94,11 +94,3 @@
 	</li>
 
 </ul>
-
-<h3>We develop tools</h3>
-
-<img src="{$public}images/easy_to_use.jpg" alt="Web developper" title="Using ATK14 is such a fun" />
-
-<p>
-	We are our tools believers. If you are brave enough you can believe in our tools too.
-</p>
