@@ -39,7 +39,8 @@
 	$.fn.sliceUpload.defaultOptions = {
 		mimeType: /image.*/,
 		dataType: 'json',
-		chunkSize: 0,
+		chunkSize: 1048576, // 1MB
+		statusExpected: 200, // unset this option to handle all responses by yourself (vital for rest apis)
 		loadStart: function(e, num_files, i) {
 			if (i == 0) {
 				$('body').addClass('loading');
@@ -64,7 +65,7 @@
 		},
 
 		// if fileLoaded() returns false, the upload will not continue
-		fileLoaded: function(responseText) { return true; }
+		fileLoaded: function(responseText, responseCode) { return true; }
 	};
 
 	function calcTotalProgress(e, num_files, i) {
@@ -122,8 +123,8 @@
 		// handling response, again triggering callback from options
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4) {
-				if (xhr.status == 200) {
-					if(options.fileLoaded.call($upload[0], xhr.responseText)==false) {
+				if (!options.statusExpected || xhr.status == options.statusExpected) {
+					if(options.fileLoaded.call($upload[0], xhr.responseText, xhr.status)==false) {
 						return;
 					}
 
