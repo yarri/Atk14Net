@@ -21,7 +21,6 @@ CREATE TABLE books(
 <pre><code>{h}{literal}<?php
 // file: app/models/book.php
 class Book extends ApplicationModel{
-  // if there is no need of any special, class could be empty 
 }
 {/literal}{/h}</code></pre>
 </li>
