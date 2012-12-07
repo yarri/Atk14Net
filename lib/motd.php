@@ -77,6 +77,8 @@ class Motd {
 			ATK14? Brighter Than the Sun!
 			ATK14? Kick the beast ass!
 			ATK14? Beware the Birdie at night!
+			.atk14 { display: none; }
+			ATK14? Best not viewed on any browser!
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}

@@ -1,5 +1,4 @@
 <?php
-// file app/models/user.php
 class User extends ApplicationModel{
 
 	static function CreateNewRecord($values,$options = array()){

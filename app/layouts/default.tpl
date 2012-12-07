@@ -79,6 +79,7 @@
 		<![endif]-->
 
 		{* Google analytics code *}
+		{if $PRODUCTION}
 		{javascript_tag}
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-27229703-1']);
@@ -90,5 +91,6 @@
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			\})();
 		{/javascript_tag}
+		{/if}
 	</body>
 </html>
