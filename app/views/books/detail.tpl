@@ -11,6 +11,10 @@
 			<td>{$book->getTitle()}</td>
 		</tr>
 		<tr>
+			<th>Author</th>
+			<td>{$book->getAuthor()}</td>
+		</tr>
+		<tr>
 			<th>Book Code</th>
 			<td>{$book->getCode()}</td>
 		</tr>

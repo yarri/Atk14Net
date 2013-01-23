@@ -2,7 +2,7 @@
 	<div class="success">
 	<h3>File uploaded!</h3>
 	<ul>
-		<li>filename: {$filename|h}</li>
+		<li>filename: {$filename}</li>
 		<li>size: {$filesize} bytes</li>
 		<li>md5: {$checksum}</li>
 	</ul>

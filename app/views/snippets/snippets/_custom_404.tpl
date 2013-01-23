@@ -24,7 +24,7 @@ class ApplicationController extends Atk14Controller{
 
 <h2>{$page_title}</h2>
 
-<p>We are unable to find a content for <em>{$request->getRequestUri()|h}</em></p>
+<p>We are unable to find a content for <em>{$request->getRequestUri()}</em></p>
 {/literal}{/code}
 </li>
 

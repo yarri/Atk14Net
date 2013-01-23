@@ -1,8 +1,8 @@
 <tr>
-	<td>{a action=detail id=$book}{$book->getTitle()|h}{/a}</td>
-	<td>{$book->getAuthor()|h}</td>
-	<td>{$book->getCode()|h}</td>
-	<td>{$book->getShelfmark()|h}</td>
+	<td>{a action=detail id=$book}{$book->getTitle()}{/a}</td>
+	<td>{$book->getAuthor()}</td>
+	<td>{$book->getCode()}</td>
+	<td>{$book->getShelfmark()}</td>
 	<td>
 		{a action=edit id=$book}Edit{/a} |
 		{a_destroy id=$book}Destroy{/a_destroy}
