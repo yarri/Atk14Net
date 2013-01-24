@@ -40,9 +40,9 @@ class BooksController extends ApplicationController{
 <h4>View</h4>
 {code}{literal}
 {* file: app/views/books/detail.tpl *}
-<h1>{$book->getTitle()|h}</h2>
+<h1>{$book->getTitle()}</h2>
 <ul>
-  <li>Author: {$book->getAuthor()|h}</li>
+  <li>Author: {$book->getAuthor()}</li>
   <li>Publication date: {$book->getPublicationDate()|format_date}<li>
   <li>Cover: {$book->getCoverUrl()|display_image}</li>
 </ul>

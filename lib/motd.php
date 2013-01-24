@@ -79,6 +79,12 @@ class Motd {
 			ATK14? Beware the Birdie at night!
 			.atk14 { display: none; }
 			ATK14? Best not viewed on any browser!
+			ATK14? Real wrath-of-God type stuff!
+			ATK14? That would have worked if you hadn’t stopped me!
+			ATK14? Forty years of darkness. Earthquakes, volcanoes...
+			ATK14? Listen! Do you smell something?
+			ATK14? He slimed me!
+			ATK14? Isn't this a mistace?
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}

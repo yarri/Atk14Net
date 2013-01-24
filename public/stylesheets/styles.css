@@ -149,10 +149,14 @@ form label.checked{
 	margin-bottom: 0;
 }
 
+#birdie{
+margin-top: 100px;
+float: left;
+}
 #body_main_index blockquote {
 	width: 600px;
 	height: 452px;
-	background-image: url('../images/bubble.png');
+	background-image: url('../images/bubble_r.png');
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
@@ -160,9 +164,21 @@ form label.checked{
 
 #body_main_index blockquote span {
 	display: block;
-	font-size: 1.2em;
-	width: 20em;
+	font-size: 2em;
+	width: 300px;
 	margin: auto;
+	padding-bottom: 3em; 
+	padding-left: 3em;
+	color: black;
+	font-weight: bold;
+	/* Safari */
+	-webkit-transform: rotate(+45deg);
+	/* Firefox */
+	-moz-transform: rotate(+45deg);
+	/* IE */
+	-ms-transform: rotate(+45deg);
+	/* Opera */
+	-o-transform: rotate(+45deg);
 }
 
 #top-nav {
@@ -188,4 +204,10 @@ form label.checked{
 
 #top-nav a {
 	color: white;
+}
+
+footer {
+	color: #999999;
+	border-top: 1px solid #aaaaaa;
+	padding-top: 1em;
 }

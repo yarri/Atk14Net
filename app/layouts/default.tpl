@@ -46,11 +46,13 @@
 				{placeholder}
 			</div>
 
+
+			{* render partial="shared/user_info" *}
+			{render partial="shared/documentation"}
+
 			<footer>
-				{* render partial="shared/user_info" *}
-				{render partial="shared/documentation"}
 				<p>
-					This site runs on ATK14 Framework for now and ever after
+					This site runs on ATK14 Framework, for now and ever after
 				</p>
 			</footer>
 		</div>

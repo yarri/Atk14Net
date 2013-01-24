@@ -9,10 +9,8 @@
 </ul>
 </div>
 
-
-
+<img src="{$public}images/atk14.png" alt="ATK14 Birdie" title="ATK14 Birdie - the official ATK14 mascot" id="birdie" />
 <blockquote><span>{$mod}<sup>*</sup></span></blockquote>
-<img src="{$public}images/atk14.png" alt="ATK14 Birdie" title="ATK14 Birdie" />
 
 <p>
 <sup>*</sup> The official ATK14 mascot rulez!
