@@ -2,6 +2,7 @@
 <h3>Important links</h3>
 
 <ul>
+	<li>{a action="main/about"}What is ATK14?{/a}</li>
 	<li><a href="http://api.atk14.net/">API Reference</a></li>
 	<li><a href="http://book.atk14.net/">The Book</a></li>
 	<li><a href="https://github.com/yarri/Atk14">ATK14 Home on Github</a></li>
@@ -9,11 +10,11 @@
 </ul>
 </div>
 
-<img src="{$public}images/atk14.png" alt="ATK14 Birdie" title="ATK14 Birdie - the official ATK14 mascot" id="birdie" />
-<blockquote><span>{$mod}<sup>*</sup></span></blockquote>
+<img src="{$public}images/atk14.png" alt="ATK14 Birdie" title="this is the official ATK14 mascot" id="birdie" />
+<blockquote><span title="this is what the official ATK14 mascot is saying">{$mod}<sup>*</sup></span></blockquote>
 
 <p>
-<sup>*</sup> The official ATK14 mascot rulez!
+<sup>*</sup> <span title="this is true">The official ATK14 mascot rulez!</span>
 </p>
 
 {render_component controller=snippets action=detail id=atk14_is_a_way_classy_mvc_framework}

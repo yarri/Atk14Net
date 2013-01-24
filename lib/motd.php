@@ -85,6 +85,7 @@ class Motd {
 			ATK14? Listen! Do you smell something?
 			ATK14? He slimed me!
 			ATK14? Isn't this a mistace?
+			ATK14? Are you sure that there is no a better choice?
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}

@@ -7,6 +7,8 @@ class DefaultRouter extends Atk14Router{
 
 		$this->addRoute("/rss/motds/","rss/motds");
 
+		$this->addRoute("/about/","main/about");
+
 		$this->addRoute("/snippet/<id>/",array(
 			"path" => "snippets/detail",
 			"params" => array(
