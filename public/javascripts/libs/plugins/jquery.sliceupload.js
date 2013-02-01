@@ -93,12 +93,12 @@
 			next = i + 1,
 			chunk;
 
-		if ( File.prototype.mozSlice ) {
+		if ( File.prototype.slice ) {
+			chunk = file.slice( i*size, i*size + size );
+		} else if ( File.prototype.mozSlice ) {
 			chunk = file.mozSlice( i*size, i*size + size );
 		} else if ( File.prototype.webkitSlice ) {
 			chunk = file.webkitSlice( i*size, i*size + size );
-		} else {
-			chunk = file.slice( i*size, size );
 		}
 
 		var xhr = new XMLHttpRequest();
@@ -132,7 +132,9 @@
 						handleChunk.call( $upload[0], file, size, num_files, next );
 					}
 
-					ATK14.attachBehaviors();
+					if ( $.isFunction(ATK14.attachBehaviors) ) {
+						ATK14.attachBehaviors();
+					}
 				}
 			}
 		};
