@@ -1,29 +1,25 @@
-<blockquote><span>{$mod}<sup>*</sup></span></blockquote>
-<img src="{$public}images/atk14.gif" alt="ATK14 Birdie" title="ATK14 Birdie" />
-
-<p>
-<sup>*</sup> The official ATK14 mascot rulez!
-</p>
-
-<h3>We develop tools</h3>
-
-<img src="{$public}images/easy_to_use.jpg" alt="Web developper" title="Using ATK14 is such a fun" />
-
-<p>
-	We are our tools believers. If you are brave enough you can believe in our tools too.
-</p>
-
+<div id="top-nav">
 <h3>Important links</h3>
 
 <ul>
-	<li><a href="http://book.atk14.net/">ATK14 Book</a></li>
+	<li>{a action="main/about"}What is ATK14?{/a}</li>
 	<li><a href="http://api.atk14.net/">API Reference</a></li>
+	<li><a href="http://book.atk14.net/">The Book</a></li>
 	<li><a href="https://github.com/yarri/Atk14">ATK14 Home on Github</a></li>
-	<li><a href="https://github.com/yarri/Atk14/tree/master/installation">ATK14 installation instructions</a></li>
+	<li><a href="https://github.com/yarri/Atk14/tree/master/installation">Installation Instructions</a></li>
 </ul>
+</div>
 
+<img src="{$public}images/atk14.png" alt="ATK14 Birdie" title="this is the official ATK14 mascot" id="birdie" />
+<blockquote><span title="this is what the official ATK14 mascot is saying">{$mod}<sup>*</sup></span></blockquote>
 
-<h3>Here are some life examples</h3>
+<p>
+<sup>*</sup> <span title="this is true">The official ATK14 mascot rulez!</span>
+</p>
+
+{render_component controller=snippets action=detail id=atk14_is_a_way_classy_mvc_framework}
+
+<h3>Here are some real life examples</h3>
 
 <p>
 	At any page you can inspect sources of all involved files
@@ -31,7 +27,7 @@
 
 <ul>
 	<li>
-		<h4>{a controller=books}CRUD{/a}</h4>
+		<h4>{a controller=books}Books, a typical CRUD controller{/a}</h4>
 		<p>
 			A typical example of displaying (with sorting) / creating / editing / destroying records in a record set
 		</p>
@@ -52,10 +48,24 @@
 	</li>
 
 	<li>
+		<h4>{a controller=reminders action=create_new}Sending emails{/a}</h4>
+		<p>How easy it is to send an email somewhere...</p>
+	</li>
+
+	<li>
+		<h4>Sign up procedure examples</h4>
+		<p>There are three interesting variants available.</p>
+		<ul>
+			<li>{a controller=sign_up action=sign_up}Classic{/a}</li>
+			<li>{a controller=sign_up_multistep action=sign_up}Multisptep{/a}</li>
+			<li>{a controller=sign_up_js_validation action=sign_up}With Javascript validation{/a}</li>
+		</ul>
+	</li>
+
+	<li>
 		<h4>Forms</h4>
 		<ul>
 			<li>{a controller=money_transfers action=create_new}CSRF protected form{/a}</li>
-			<li>{a controller=big_file_uploads action=create_new}Chunked file upload{/a}</li>
 			<li>Field examples
 				<ul>
 					<li>{a controller=fields action=char_field}Character field{/a}</li>
@@ -74,21 +84,12 @@
 					<li>{a controller=fields action=url_field}URL field{/a}</li>
 				</ul>
 			</li>
-
-			<li>Sign up procedure examples
+			<li>Asynchronous File Uploads
 				<ul>
-					<li>{a controller=sign_up action=sign_up}Classic{/a}</li>
-					<li>{a controller=sign_up_multistep action=sign_up}Multisptep{/a}</li>
-					<li>{a controller=sign_up_js_validation action=sign_up}With Javascript validation{/a}</li>
+					<li>{a controller=chunked_file_uploads action=create_new}Chunked field upload{/a}</li>
 				</ul>
 			</li>
 		</ul>
 	</li>
 
-	<li>
-		<h4>{a controller=reminders action=create_new}Sending emails{/a}</h4>
-		<p>Sending emails with ApplicationMailer</p>
-	</li>
 </ul>
-
-

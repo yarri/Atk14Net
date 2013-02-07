@@ -4,7 +4,7 @@ class PhoneField extends RegexField{
 		$options = array_merge(array(
 			"error_message" => _("Enter valid phone number (+420.605123456)"),
 			"null_empty_output" => true,
-			"help_text" => _("Èíslo zadejte ve tvaru +420.605123456"),
+			"help_text" => _("Expecting number format is +420.605123456"),
 		),$options);
 		// TODO: jsou cisla, ktera zacinaji nulou: +044.1425838079
 		parent::RegexField("/^\\+[1-9][0-9]{1,3}\\.[0-9]{6,12}$/",$options);

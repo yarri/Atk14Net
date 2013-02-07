@@ -4,9 +4,15 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>{$page_title|h} | {"ATK14_APPLICATION_NAME"|dump_constant}</title>
+		<title>
+			{if $controller=="main" && $action=="index"}
+			ATK14 framework
+			{else}
+			{$page_title|h} | {"ATK14_APPLICATION_NAME"|dump_constant}
+			{/if}
+		</title>
 		<meta name="description" content="{$page_description|h}" />
-		{render partial=shared/layout/dev_info}
+		{render partial="shared/layout/dev_info"}
 
 		<link rel="alternate" title="ATK14`s Messages of the day" href="{link_to controller=rss action=motds}" type="application/rss+xml" />
 
@@ -36,13 +42,18 @@
 			</header>
 
 			<div class="main" role="main">
-				{render partial=shared/layout/flash_message}
+				{render partial="shared/layout/flash_message"}
 				{placeholder}
 			</div>
 
+
+			{* render partial="shared/user_info" *}
+			{render partial="shared/documentation"}
+
 			<footer>
-				{render partial=shared/user_info}
-				{render partial=shared/documentation}
+				<p>
+					This site runs on ATK14 Framework, for now and ever after
+				</p>
 			</footer>
 		</div>
 
@@ -70,6 +81,7 @@
 		<![endif]-->
 
 		{* Google analytics code *}
+		{if $PRODUCTION}
 		{javascript_tag}
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-27229703-1']);
@@ -81,5 +93,6 @@
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			\})();
 		{/javascript_tag}
+		{/if}
 	</body>
 </html>

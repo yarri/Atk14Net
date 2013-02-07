@@ -2,7 +2,7 @@
 
 <p>{$page_description}</p>
 
-{render partial=shared/form_error}
+{render partial="shared/form_error"}
 {form}
 	<fieldset>
 		{render partial="shared/form_field" fields=$form->get_field_keys()}

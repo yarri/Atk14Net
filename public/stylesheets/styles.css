@@ -5,6 +5,7 @@ body.loading, body.loading button, body.loading input, body.loading a, body.load
 	cursor: wait;
 }
 
+
 /*
  * Blueprint has built-in classes notice, error and success.
  * Here is an another one. I`ve found it missing.
@@ -64,6 +65,17 @@ ul.radios label, ul.checkboxes label{
 ul.radios, ul.checkboxes{
 	list-style: none;
 }
+
+/*
+ * In-browser \validated values.
+ * see http://www.atk14.net/en/sign_up_js_validation/sign_up/
+ */
+form label.checked{
+	background-color: #4b9a4b;
+	border: 2px solid #173f17;
+	color: white;
+}
+
 
 /*
  * Error explanation produced by
@@ -128,10 +140,23 @@ ul.radios, ul.checkboxes{
 	color: #666666;
 }
 
+/* ATK14 is a PHP framework for fearless guys */
+#body_main_index h1 {
+	font-size: 3.5em;
+	background-color: black;
+	color: white;
+	padding: 2em 0.2em 0.2em 0.2em;
+	margin-bottom: 0;
+}
+
+#birdie{
+margin-top: 100px;
+float: left;
+}
 #body_main_index blockquote {
 	width: 600px;
 	height: 452px;
-	background-image: url('../images/bubble.png');
+	background-image: url('../images/bubble_r.png');
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
@@ -139,7 +164,50 @@ ul.radios, ul.checkboxes{
 
 #body_main_index blockquote span {
 	display: block;
-	font-size: 1.2em;
-	width: 20em;
+	font-size: 2em;
+	width: 300px;
 	margin: auto;
+	padding-bottom: 3em; 
+	padding-left: 3em;
+	color: black;
+	font-weight: bold;
+	/* Safari */
+	-webkit-transform: rotate(+45deg);
+	/* Firefox */
+	-moz-transform: rotate(+45deg);
+	/* IE */
+	-ms-transform: rotate(+45deg);
+	/* Opera */
+	-o-transform: rotate(+45deg);
+}
+
+#top-nav {
+	background-color: black;
+}
+
+#top-nav h3 {
+	display: none;
+}
+
+#top-nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	height: 2em;
+	padding-left: 0.8em;
+}
+
+#top-nav ul li {
+	padding-right: 1em;
+	float: left;
+}
+
+#top-nav a {
+	color: white;
+}
+
+footer {
+	color: #999999;
+	border-top: 1px solid #aaaaaa;
+	padding-top: 1em;
 }

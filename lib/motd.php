@@ -67,7 +67,29 @@ class Motd {
 			ATK14? Birdie has balls of steel!
 			ATK14? Never stops to surprise me!
 			ATK14? ATK15? ATK16? ATK17? Who dares to stop that?
-			ATK14? For Christ sakes! 
+			ATK14? For Christ sakes!
+			ATK14? Fork the bitch on Github!
+			ATK14? Good guess, but wrong.
+			ATK14? Ment to be a replacement for an every other framework!
+			ATK14? Ment to be replaced by an every other framework!
+			ATK14? Why are you here?
+			ATK14? Oh please not today!
+			ATK14? Brighter Than the Sun!
+			ATK14? Kick the beast ass!
+			ATK14? Beware the Birdie at night!
+			.atk14 { display: none; }
+			ATK14? Best not viewed on any browser!
+			ATK14? Real wrath-of-God type stuff!
+			ATK14? That would have worked if you hadn’t stopped me!
+			ATK14? Forty years of darkness. Earthquakes, volcanoes...
+			ATK14? Listen! Do you smell something?
+			ATK14? He slimed me!
+			ATK14? Isn't this a mistace?
+			ATK14? Are you sure that there is no a better choice?
+			ATK14? You fool. No man can kill me. Die now!
+			ATK14? I do not believe this darkness will endure!
+			ATK14? Birdie lives...
+			ATK14? I think this has gone to far!
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}

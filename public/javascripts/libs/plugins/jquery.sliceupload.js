@@ -39,7 +39,8 @@
 	$.fn.sliceUpload.defaultOptions = {
 		mimeType: /image.*/,
 		dataType: 'json',
-		chunkSize: 0,
+		chunkSize: 1048576, // 1MB
+		statusExpected: 200, // unset this option to handle all responses by yourself (vital for rest apis)
 		loadStart: function(e, num_files, i) {
 			if (i == 0) {
 				$('body').addClass('loading');
@@ -64,7 +65,7 @@
 		},
 
 		// if fileLoaded() returns false, the upload will not continue
-		fileLoaded: function(responseText) { return true; }
+		fileLoaded: function(responseText, responseCode) { return true; }
 	};
 
 	function calcTotalProgress(e, num_files, i) {
@@ -92,12 +93,12 @@
 			next = i + 1,
 			chunk;
 
-		if ( File.prototype.mozSlice ) {
+		if ( File.prototype.slice ) {
+			chunk = file.slice( i*size, i*size + size );
+		} else if ( File.prototype.mozSlice ) {
 			chunk = file.mozSlice( i*size, i*size + size );
 		} else if ( File.prototype.webkitSlice ) {
 			chunk = file.webkitSlice( i*size, i*size + size );
-		} else {
-			chunk = file.slice( i*size, size );
 		}
 
 		var xhr = new XMLHttpRequest();
@@ -122,8 +123,8 @@
 		// handling response, again triggering callback from options
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4) {
-				if (xhr.status == 200) {
-					if(options.fileLoaded.call($upload[0], xhr.responseText)==false) {
+				if (!options.statusExpected || xhr.status == options.statusExpected) {
+					if(options.fileLoaded.call($upload[0], xhr.responseText, xhr.status)==false) {
 						return;
 					}
 
@@ -131,7 +132,9 @@
 						handleChunk.call( $upload[0], file, size, num_files, next );
 					}
 
-					ATK14.attachBehaviors();
+					if ( $.isFunction(ATK14.attachBehaviors) ) {
+						ATK14.attachBehaviors();
+					}
 				}
 			}
 		};

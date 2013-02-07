@@ -1,6 +1,6 @@
 <!--
-	ROOT:		{$root|h}
-	LANG:		{$lang}
-	ACTION:		{h}{$controller}/{$action}{/h}
-	NAMESPACE:	{$namespace|h}
+	ROOT: {$root}
+	LANG: {$lang}
+	ACTION: {$controller}/{$action}
+	NAMESPACE: {$namespace}
 -->
