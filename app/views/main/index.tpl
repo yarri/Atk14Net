@@ -27,7 +27,7 @@
 
 <ul>
 	<li>
-		<h4>{a controller=books}Books, a typical CRUD controller{/a}</h4>
+		<h4>{a controller=books}Typical CRUD controller{/a}</h4>
 		<p>
 			A typical example of displaying (with sorting) / creating / editing / destroying records in a record set
 		</p>
