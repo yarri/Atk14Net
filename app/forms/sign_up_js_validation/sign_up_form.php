@@ -1,10 +1,18 @@
 <?php
 class SignUpForm extends ApplicationForm{
 	function set_up(){
-		$this->add_field("login",new CharField(array(
+		/*$this->add_field("login",new CharField(array(
 			"title" => _("Desired username"),
 			"min_length" => 2,
+		)));*/
+
+		$f = $this->add_field("login",new RegexField("/^[a-z0-9.]{2,6}$/i",array(
+			"title" => _("Desired username"),
+			"min_length" => 2,
+			"max_length" => 10,
 		)));
+		$f->update_message("invalid","Only letters a..z, 0..9 and dot allowed, up to 6 characters");
+
 		$this->add_field("password",new CharField(array(
 			"title" => _("Desired password"),
 			"widget" => new PasswordInput(),

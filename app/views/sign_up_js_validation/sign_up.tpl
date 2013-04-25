@@ -27,7 +27,25 @@ Check out the controller, form and template source code.
 {/content}
 
 {content for=js}
+	{literal}
 	$(document).ready(function() {
+
+		// in the validator there is no regexp test, so we add it
+		$.validator.addMethod(
+        "regex",
+        function(value, element, regexp) {
+						// regexp comes here as '/^[a-z]{1,5}$/i'
+						// it must be splitted to: pattern='^[a-z]{1,5}', modifiers='i'
+						var matches = regexp.match(/\/(.*)\/([^\/]*)/);
+						var pattern = matches[1];
+						var modifiers = matches[2];
+					
+						var re = new RegExp(pattern,modifiers);
+            return this.optional(element) || re.test(value);
+        },
+        "Please check your input."
+		);{/literal}
+
 		// validate signup form on keyup and submit
 		var validator = $("form").validate({
 			rules: {to_json var=$js_validator->get_rules()},
