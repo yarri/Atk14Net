@@ -8,7 +8,7 @@ Check out the controller, form and template source code.
 
 {render partial="shared/form_error"}
 
-{form}
+{form _novalidate=novalidate}
 
 <fieldset>
 

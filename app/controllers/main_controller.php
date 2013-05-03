@@ -9,6 +9,6 @@ class MainController extends ApplicationController{
 
 	function about(){
 		$this->page_title = "About";
-		$this->tpl_data["text"] = Michelf\Markdown::defaultTransform(files::get_file_content(dirname(__FILE__)."/../../atk14/README.md"));
+		$this->tpl_data["text"] = Michelf\Markdown::defaultTransform(Files::GetFileContent(dirname(__FILE__)."/../../atk14/README.md"));
 	}
 }

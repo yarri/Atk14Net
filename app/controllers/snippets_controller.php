@@ -22,7 +22,7 @@ class SnippetsController extends ApplicationController{
 			$template = "snippets/$matches[1]";
 
 			// 
-			$content = files::get_file_content($filename);
+			$content = Files::GetFileContent($filename);
 			$title = "";
 			if(preg_match('/<h3>(.+?)<\/h3>/',$content,$matches)){ $title = $matches[1]; }
 

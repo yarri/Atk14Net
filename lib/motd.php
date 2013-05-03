@@ -89,7 +89,10 @@ class Motd {
 			ATK14? You fool. No man can kill me. Die now!
 			ATK14? I do not believe this darkness will endure!
 			ATK14? Birdie lives...
-			ATK14? I think this has gone to far!
+			ATK14? I think this has gone too far!
+			ATK14? The light at the end of the tunnel!
+			ATK14? I don't think someone takes it seriously!
+			ATK14? This time I'm gonna make it!
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}

@@ -8,7 +8,7 @@
 * You can inspect all ATK14 system`s constants in sys/src/default_settings.inc
 */
 
-define("SECRET_TOKEN",(file_exists(dirname(__FILE__)."/random.txt") ? files::get_file_content(dirname(__FILE__)."/random.txt",$err,$err_str) : "djfklsjdfkljsfiu903480	sjs92i0F>jjdpwojdp["));
+define("SECRET_TOKEN",(file_exists(dirname(__FILE__)."/random.txt") ? Files::GetFileContent(dirname(__FILE__)."/random.txt",$err,$err_str) : "djfklsjdfkljsfiu903480	sjs92i0F>jjdpwojdp["));
 
 define("ATK14_DOCUMENT_ROOT",dirname(__FILE__)."/../");
 define("ATK14_HTTP_HOST",PRODUCTION ? "www.atk14.net" : "atk14.localhost");
