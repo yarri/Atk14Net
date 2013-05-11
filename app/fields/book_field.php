@@ -1,6 +1,6 @@
 <?php
 class BookField extends ChoiceField{
-	function BookField($options = array()){
+	function __construct($options = array()){
 		$choices = array("" => "-- select a book --");
 		foreach(Book::FindAll(array("order_by" => "UPPER(title)")) as $b){
 			$choices[$b->getId()] = $b->getTitle();
@@ -10,7 +10,7 @@ class BookField extends ChoiceField{
 			"choices" => $choices,
 		),$options);
 
-		parent::ChoiceField($options);
+		parent::__construct($options);
 	}
 
 	/**

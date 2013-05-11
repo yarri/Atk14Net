@@ -1,7 +1,7 @@
 <?php
 class YesNoField extends BooleanField {
-	function YesNoField($options = array()) {
-		parent::BooleanField($options);
+	function __construct($options = array()) {
+		parent::__construct($options);
 	}
 
 	function format_initial_data($value) {
