@@ -19,6 +19,12 @@
 
 {render_component controller=snippets action=detail id=atk14_is_a_way_classy_mvc_framework}
 
+<h3>A very important notice</h3>
+
+<p>
+	New ATK14 skeleton is about to be released. Check it out on <a href="https://github.com/yarri/Atk14Skelet">GitHub</a> or see it <a href="http://atk14skelet.atk14.net/">up and running</a>
+</p>
+
 <h3>Here are some real life examples</h3>
 
 <p>

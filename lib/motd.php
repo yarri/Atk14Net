@@ -93,6 +93,9 @@ class Motd {
 			ATK14? The light at the end of the tunnel!
 			ATK14? I don't think someone takes it seriously!
 			ATK14? This time I'm gonna make it!
+			ATK14? Relax! It's ATK14!
+			ATK14? This is big. This is very big. There is definitely something here!
+			ATK14? Concentrate... I want you to tell me what you think it is.
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}
