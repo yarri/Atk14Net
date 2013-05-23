@@ -35,12 +35,6 @@ class SourcesController extends ApplicationController{
 
 		$source = str_replace("\t","  ",$source);
 
-		if(preg_match("/\\.(inc|php)$/",$file)){
-			$source = highlight_string($source,true);
-		}else{
-			$source = htmlspecialchars($source);
-		}
-
 		$replaces = array();
 
 		if(preg_match("/\\.tpl$/",$file)){
