@@ -35,6 +35,7 @@ class SourcesController extends ApplicationController{
 
 		$source = str_replace("\t","  ",$source);
 
+		/*
 		$replaces = array();
 
 		if(preg_match("/\\.tpl$/",$file)){
@@ -69,10 +70,10 @@ class SourcesController extends ApplicationController{
 					}
 				}
 			}
-
 		}
 
 		$source = strtr($source,$replaces);
+		*/
 
 		$this->tpl_data["source"] = $source;
 		$this->tpl_data["file"] = $file;

@@ -40,6 +40,8 @@ class BooksController extends ApplicationController{
 	function detail(){
 		$this->page_title = sprintf("Detail of the book %s",$this->book->getTitle());
 
+		// Book object is passed to the template in _before_filter() by calling _find_book()
+
 		// returning the book in a different format
 		if($format = $this->params->getString("format")){
 			switch($format){

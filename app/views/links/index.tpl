@@ -12,7 +12,7 @@ Building links is easy like hell. Check out this pages` template source code.
 	<li>{a controller=main}Homepage 3{/a}</li> {* when no action is given and the controller differs from the current one, action "index" is considered *}
 	<li>{a controller=main _title="This is third link to the frontpage" _class=warning _with_hostname=1}Homepage 4 (with title, class and hostname){/a}</li>
 	<li>{a controller=main _with_hostname="www.example.com"}Homepage 5 (with a different hostname){/a}</li>
-	<li><a href="{link_to controller=main}">Yet another one</a></li>
+	<li><a href="{link_to controller=main id=123 format=xml}">Yet another one</a></li>
 	<li><a href="{$link_built_in_controller}">And finally one link built in controller</a></li>
 </ul>
 
