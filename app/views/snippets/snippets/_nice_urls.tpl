@@ -1,6 +1,7 @@
-<h3>ATK14`s nice URLs</h3>
+<h4>ATK14`s nice URLs</h4>
 
 <ul>
+
 <li>
 	<h4>Generic URLs</h4>
 	URL to article`s detail in default form.
@@ -11,7 +12,7 @@
 </li>
 
 <li>	
-	<h4>Add Routes</h4>
+	<h4>Adding Routes</h4>
 	{code}
 <?php
 // file: config/routers/default_router.php
@@ -43,7 +44,7 @@ class DefaultRouter extends Atk14Router{
 </li>
 
 <li>
-	<h4>Decompile Nice URLs</h4>
+	<h4>Decompiling Nice URLs</h4>
 	{code}{literal}
 $ ./scripts/recognize_route http://www.example.com/article-123/
 URI: /article-123/

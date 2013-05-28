@@ -1,4 +1,4 @@
-<h3>ATK14 is a way classy MVC framework</h3>
+<h4>ATK14 is a way classy MVC framework</h4>
 
 <ul>
 <li>
@@ -50,7 +50,7 @@ class BooksController extends ApplicationController{
 </li>
 
 <li>
-<h4>Layout</h3>
+<h4>Layout</h4>
 
 {code}{literal}
 {* file: app/layouts/default.tpl *}

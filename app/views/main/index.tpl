@@ -17,7 +17,10 @@
 <sup>*</sup> <span title="this is true">The official ATK14 mascot rulez!</span>
 </p>
 
+<h3>Code Snippet</h3>
+<div style="max-height: 400px; overflow:scroll;" id="snippet_container">
 {render_component controller=snippets action=detail id=atk14_is_a_way_classy_mvc_framework}
+</div>
 
 <h3>A very important notice</h3>
 

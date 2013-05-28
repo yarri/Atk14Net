@@ -1,4 +1,4 @@
-<h3>Custom 404 Page</h3>
+<h4>Custom 404 Page</h4>
 
 <ul>
 
