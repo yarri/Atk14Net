@@ -31,7 +31,7 @@ class Motd {
 			ATK14? Sounds like a gun or something...
 			ATK14? Is it dangerous?
 			ATK14? You shouldn't hack ATK14 core or God kills a Drupal core developer!
-			ATK14? Nothing else than pure quality!
+			ATK14? Pure quality! No more, no less...
 			ATK14? Take it or leave it!
 			ATK14? The Birdie is gonna hit ya!
 			ATK14? The Birdie is gonna die for you!
@@ -79,7 +79,7 @@ class Motd {
 			ATK14? Beware the Birdie at night!
 			.atk14 { display: none; }
 			ATK14? Best not viewed on any browser!
-			ATK14? Real wrath-of-God type stuff!
+			ATK14? Really wrath-of-God type of stuff!
 			ATK14? That would have worked if you hadn’t stopped me!
 			ATK14? Forty years of darkness. Earthquakes, volcanoes...
 			ATK14? Listen! Do you smell something?
@@ -98,6 +98,13 @@ class Motd {
 			ATK14? Concentrate... I want you to tell me what you think it is.
 			ATK14? Yep! That's my name!
 			ATK14? Sounds like a cryptic evil machine!
+			ATK14? Has no mercy!
+			ATK14? Certainly this shouldn't exist!
+			ATK14? I see no light in the tunnel!
+			ATK14? I feel like beer today!
+			ATK14? Well, I'm happy to disappoint you.
+			ATK14? I knew you'd come!
+			ATK14? Don't argue with him!
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}
