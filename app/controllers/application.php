@@ -26,17 +26,19 @@ class ApplicationController extends Atk14Controller{
 	}
 
 	function _begin_database_transaction(){
-		$this->dbmole->begin();
+		$this->dbmole->begin(array(
+			"execute_after_connecting" => true
+		));
 	}
 
 	function _end_database_transaction(){
 		if(TEST){ return; }
-		$this->dbmole->commit();
+		$this->dbmole->isConnected() && $this->dbmole->commit();
 	}
 
 	function _rollback(){
 		$this->dbmole->rollback();
-		$this->dbmole->begin();
+		$this->_begin_database_transaction();
 	}
 
 	function _before_render(){
@@ -57,5 +59,11 @@ class ApplicationController extends Atk14Controller{
 			}
 		}
 		$this->tpl_data["doc_source_files"] = $this->doc_source_files;
+	}
+
+	function _after_render(){
+		parent::_after_render();
+
+		//$this->response->write($this->dbmole->getStatistics());
 	}
 }
