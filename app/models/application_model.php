@@ -8,8 +8,8 @@
  */
 class ApplicationModel extends TableRecord{
 
-	function ApplicationModel($table_name = null,$options = array()){
-		parent::TableRecord($table_name,$options);
+	function __construct($table_name = null,$options = array()){
+		parent::__construct($table_name,$options);
 	}
 	
 	/**
