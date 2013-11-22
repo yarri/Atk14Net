@@ -2,4 +2,4 @@
 tmp/*
 !log/README
 log/*
-config/random.txt
+config/secret_token.tpl

@@ -14,4 +14,4 @@ production:
   database: atk14_demo
   host: 127.0.0.1
   username: atk14_demo
-  password: demo
+  password: <?=sha1(SECRET_TOKEN."Very_Sophisticated_Production_Password_Hiding")?>
