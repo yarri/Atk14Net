@@ -105,6 +105,13 @@ class Motd {
 			ATK14? Well, I'm happy to disappoint you.
 			ATK14? I knew you'd come!
 			ATK14? Don't argue with him!
+			ATK14? I used to think it's a big fake!
+			ATK14? No matter what it is. I want it!
+			ATK14? Good luck with that!
+			ATK14? $ ./scripts/destroy_it_all --force --no-confirmation --no-asking --forever --now
+			ATK14? Nothing happens! Seriously!
+			ATK14? It's not what it looks like!
+			ATK14? It's EXACTLY what it looks like!
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}
