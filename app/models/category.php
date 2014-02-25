@@ -1,9 +1,5 @@
 <?php
 class Category extends ApplicationModel{
-	function Category(){
-		parent::ApplicationModel("categories");
-	}
-	
 	function DefaultCategory($lang = null){
 		return ApplicationModel::FindFirst(array(
 				"class_name" => "Category",

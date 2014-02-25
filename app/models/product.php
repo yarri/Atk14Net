@@ -1,8 +1,5 @@
 <?php
 class Product extends ApplicationModel{
-	function Product(){
-		parent::ApplicationModel("products");
-	}
 	
 	function ByCategory($category,$lang = null){
 		$dbmole = &ApplicationModel::GetDbmole();

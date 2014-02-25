@@ -39,10 +39,6 @@
 */
 class Book extends ApplicationModel{
 
-	function Book(){
-		parent::ApplicationModel("books");
-	}
-	
 	function getTitle(){ return $this->g("title"); }
 	function getCode(){ return $this->g("code"); }
 	function getShelfmark(){ return $this->g("shelfmark"); }
