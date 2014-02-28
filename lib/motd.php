@@ -70,8 +70,8 @@ class Motd {
 			ATK14? For Christ sakes!
 			ATK14? Fork the bitch on Github!
 			ATK14? Good guess, but wrong.
-			ATK14? Meant to be a replacement for an every other framework!
-			ATK14? Meant to be replaced by an every other framework!
+			ATK14? Meant to be a replacement for every other framework!
+			ATK14? Meant to be replaced by every other framework!
 			ATK14? Why are you here?
 			ATK14? Oh please not today!
 			ATK14? Brighter Than the Sun!
