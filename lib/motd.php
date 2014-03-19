@@ -117,6 +117,12 @@ class Motd {
 			ATK14? Finish it, Palmer!
 			ATK14? Better luck next time!
 			ATK14? I'm back and stronger than ever!
+			ATK14? You should leave this page!
+			ATK14? There's no way back!
+			ATK14? Don't believe in Microsoft SQL!
+			ATK14? Let the source code talk!
+			ATK14? Nothing can go wrong!
+			ATK14? Is that what I think it is?
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}
