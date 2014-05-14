@@ -123,6 +123,9 @@ class Motd {
 			ATK14? Let the source code talk!
 			ATK14? Nothing can go wrong!
 			ATK14? Is that what I think it is?
+			ATK14? The root of all evil!
+			ATK14? Is it legal?
+			ATK14? It's getting bigger everyday!
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}
