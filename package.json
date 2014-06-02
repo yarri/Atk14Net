@@ -1,0 +1,41 @@
+{
+  "name": "atk14-skelet",
+  "title": "ATK14 Skelet Application",
+  "version": "0.1.0",
+  "description": "Front-end assets for ATK14 Skelet application.",
+  "homepage": "http://atk14skelet.atk14.net/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yarri/Atk14Skelet.git"
+  },
+  "contributors": [
+    {
+      "name": "Jaromír Tomek",
+      "email": "jaromir.tomek@gmail.com"
+    },
+    {
+      "name": "Bohdan Ganický",
+      "email": "bohdan.ganicky@gmail.com"
+    }
+  ],
+  "license": "WTFPL",
+  "readmeFilename": "README.md",
+  "gitHead": "08020875c22b1655ab0c9e5495a44df286687240",
+  "bugs": {
+    "url": "https://github.com/yarri/Atk14Skelet/issues"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-less": "^0.11.0",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jscs-checker": "^0.4.1",
+    "jshint-stylish": "^0.1.5",
+    "load-grunt-tasks": "^0.4.0",
+    "time-grunt": "^0.3.1"
+  }
+}
