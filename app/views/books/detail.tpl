@@ -1,6 +1,6 @@
-<h2>{$page_title}</h2>
+<h1>{$page_title}</h1>
 
-<table>
+<table class="table table-auto table-noborder">
 	<tbody>
 		<tr>
 			<th>Id</th>

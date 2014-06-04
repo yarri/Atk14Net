@@ -1,18 +1,16 @@
-<h2>{$page_title}</h2>
+<h1>{$page_title}</h1>
 
-<p>{$page_description}</p>
+<p class="lead">{$page_description}</p>
 
 {render partial="shared/form_error"}
 {form}
-	<fieldset>
-		{render partial="shared/form_field" fields=$form->get_field_keys()}
-		<div class="buttons">
-			<button type="submit">Validate the Form</button>
-		</div>
-	</fieldset>
+	{render partial="shared/form_field" fields=$form->get_field_keys()}
+	<div class="form-group">
+		<button type="submit" class="btn btn-default">Validate the Form</button>
+	</div>
 {/form}
 
 {if $validated_data}
-	<h3>The form`s cleaned data looks pretty good</h3>
+	<h2>The form`s cleaned data looks pretty good</h2>
 	{dump var=$validated_data}
 {/if}

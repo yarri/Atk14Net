@@ -5,11 +5,11 @@
  * thus one can places a link to somewhere withing the flash message or something.
  *}
 {if $flash->notice()}
-	<div class="flash notice">{$flash->notice() nofilter}</div>
+	<div class="alert alert-info">{$flash->notice() nofilter}</div>
 {/if}
 {if $flash->error()}
-	<div class="flash error">{$flash->error() nofilter}</div>
+	<div class="alert alert-danger">{$flash->error() nofilter}</div>
 {/if}
 {if $flash->success()}
-	<div class="flash success">{$flash->success() nofilter}</div>
+	<div class="alert alert-success">{$flash->success() nofilter}</div>
 {/if}

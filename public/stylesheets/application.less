@@ -1,0 +1,95 @@
+@import url("../assets/vendor/bootstrap/less/bootstrap.less");
+
+
+
+.main h1 {
+	.page-header();
+}
+
+/*
+ * In-browser \validated values.
+ * see http://www.atk14.net/en/sign_up_js_validation/sign_up/
+ */
+p.error {
+	.alert();
+	.alert-danger();
+
+	&.checked {
+		.alert-success();
+	}
+}
+
+
+
+
+#body_main_index blockquote {
+	width: 600px;
+	height: 452px;
+	background-image: url('../images/bubble_r.png');
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+#body_main_index blockquote span {
+	display: block;
+	font-size: 2em;
+	width: 300px;
+	margin: auto;
+	padding-bottom: 3em; 
+	padding-left: 3em;
+	color: black;
+	font-weight: bold;
+	/* Safari */
+	-webkit-transform: rotate(+45deg);
+	/* Firefox */
+	-moz-transform: rotate(+45deg);
+	/* IE */
+	-ms-transform: rotate(+45deg);
+	/* Opera */
+	-o-transform: rotate(+45deg);
+}
+
+.pagination ul {
+	.pagination();
+}
+
+.documentation {
+	.well();
+	margin-top: @line-height-computed*2;
+
+	ul {
+		.list-unstyled();
+	}
+}
+.modal-docs {
+	.modal-dialog {
+		width: auto;
+		max-width: 90%;
+	}
+}
+
+.table {
+  > tbody {
+  	> tr {
+		> th {
+			text-align: right;
+		}
+	}
+  }
+}
+.table-noborder {
+	> thead,
+	> tbody,
+	> tfoot {
+		> tr {
+			> th,
+			> td {
+				border: none;
+			}
+		}
+	}
+}
+.table-auto {
+	width: auto;
+}

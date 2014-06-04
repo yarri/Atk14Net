@@ -1,7 +1,7 @@
-<h2>Legal agreements</h2>
+<h1>Legal agreements</h1>
 
-<p>Some legal agreements...</p>
+<p class="lead">Some legal agreements...</p>
 
 {form}
-<button type="submit">Continue</button>
+	<button type="submit" class="btn btn-default">Continue</button>
 {/form}

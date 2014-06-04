@@ -4,95 +4,68 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>
-			{if $controller=="main" && $action=="index"}
-			ATK14 framework
+		<title>{trim}
+			{if $controller=="main" && $action=="index" && $namespace==""}
+				{"ATK14_APPLICATION_NAME"|dump_constant}
 			{else}
-			{$page_title|h} | {"ATK14_APPLICATION_NAME"|dump_constant}
+				{$page_title} | {"ATK14_APPLICATION_NAME"|dump_constant}
 			{/if}
-		</title>
-		<meta name="description" content="{$page_description|h}" />
-		{render partial="shared/layout/dev_info"}
+		{/trim}</title>
 
-		<link rel="alternate" title="ATK14`s Messages of the day" href="{link_to controller=rss action=motds}" type="application/rss+xml" />
+		<meta name="description" content="{$page_description|h}">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="alternate" title="ATK14`s Messages of the day" href="{link_to controller=rss action=motds}" type="application/rss+xml">
 
-		{stylesheet_link_tag file="lib/blueprint-css/blueprint/screen.css" media="screen, projection"}
-		{stylesheet_link_tag file="lib/blueprint-css/blueprint/print.css" media="print"}
-		<!--[if IE]>
-			{stylesheet_link_tag file="lib/blueprint-css/blueprint/ie.css" media="screen, projection"}
+		{if $DEVELOPMENT}
+			{render partial="shared/layout/dev_info"}
+
+			{stylesheet_link_tag file="../dist/css/app.css" media="screen"}
+		{else}
+			{stylesheet_link_tag file="../dist/css/app.min.css" media="screen"}
+		{/if}
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="../dist/vendor/js/html5shiv.js"></script>
+			<script src="../dist/vendor/js/respond.min.js"></script>
 		<![endif]-->
-		{stylesheet_link_tag file="styles.css" media="screen, projection"}
 
-		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
-
-		{placeholder for="head"}
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" type="text/css" media="all">
 	</head>
 
-	<body id="body_{$controller}_{$action}">
+	<body class="body_{$controller}_{$action}" data-controller="{$controller}" data-action="{$action}">
+		{render partial="shared/layout/header"}
 
 		<div class="container">
-			<header>
-				{if $controller==main && $action==index}
-					<h1>ATK14 is a PHP framework for fearless guys</h1>
-				{else}
-					<h1>{a controller=main action=index _title="for fearless guys only"}ATK14 Demonstration Site{/a}</h1>
-				{/if}
-			</header>
-
 			<div class="main" role="main">
 				{render partial="shared/layout/flash_message"}
 				{placeholder}
 			</div>
 
-
-			{* render partial="shared/user_info" *}
 			{render partial="shared/documentation"}
-
-			<footer>
-				<p>
-					This site runs on ATK14 Framework, for now and ever after
-				</p>
-			</footer>
 		</div>
 
-		{* <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> *}
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-
-		<script>window.jQuery || document.write('<script src="{$public}javascripts/libs/jquery/jquery-1.6.2.min.js"><\/script>')</script>
-		{javascript_script_tag file="atk14.js"}
-		{javascript_script_tag file="application.js"}
-		{placeholder for=js_script_tags}
-		{* TODO: this is only nasty temporary solution, we know better... *}
-		{javascript_tag}
-			{placeholder for="js"}
-			$(function() \{
-				{placeholder for="domready"}
-			\});
-		{/javascript_tag}
-
-		<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
-			chromium.org/developers/how-tos/chrome-frame-getting-started -->
-		<!--[if lt IE 7 ]>
-			<script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-			<script defer>window.attachEvent('onload',function()\{CFInstall.check(\{mode:'overlay'\})\})</script>
-		<![endif]-->
+		{if $DEVELOPMENT}
+			{javascript_script_tag file="../dist/js/app.js"}
+			<script src="//localhost:35729/livereload.js"></script>
+		{else}
+			{javascript_script_tag file="../dist/js/app.min.js"}
+		{/if}
 
 		{* Google analytics code *}
 		{if $PRODUCTION}
-		{javascript_tag}
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-27229703-1']);
-			_gaq.push(['_trackPageview']);
+			{javascript_tag}
+				var _gaq = _gaq || [];
+				_gaq.push(['_setAccount', 'UA-27229703-1']);
+				_gaq.push(['_trackPageview']);
 
-			(function() \{
-				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			\})();
-		{/javascript_tag}
+				(function() \{
+					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				\})();
+			{/javascript_tag}
 		{/if}
 	</body>
 </html>

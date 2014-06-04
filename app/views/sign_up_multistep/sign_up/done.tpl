@@ -1,5 +1,3 @@
-<h2>Welcome {$just_registered_user->getLogin()}</h2>
+<h1>Welcome {$just_registered_user->getLogin()}</h1>
 
-<p>
-Your registration has been realized successfuly!
-</p>
+<p class="alert alert-success">Your registration has been realized successfuly!</p>

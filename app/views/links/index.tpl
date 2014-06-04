@@ -1,11 +1,8 @@
-<h2>{$page_title}</h2>
+<h1>{$page_title}</h1>
 
-<p>
-Building links is easy like hell. Check out this pages` template source code.
-</p>
+<p class="lead">Building links is easy like hell. Check out this pages` template source code.</p>
 
-<h4>Links to frontpage</h4>
-
+<h2>Links to frontpage</h2>
 <ul>
 	<li>{a controller=main action=index}Homepage 1{/a}</li>
 	<li>{a action="main/index"}Homepage 2{/a}</li> {* condensed notation of controller and action combination *}
@@ -16,9 +13,8 @@ Building links is easy like hell. Check out this pages` template source code.
 	<li><a href="{$link_built_in_controller}">And finally one link built in controller</a></li>
 </ul>
 
-<h4>POST links</h3>
-
+<h2>POST links</h2>
 <ul>
 	<li>{a action=some_post_action _method=post}Post link{/a}</li>
 	<li>{a action=some_post_action _method=post _confirm="Are you sure to do this?"}Post link with a confirmation{/a}</li>
-</ul>	
+</ul>

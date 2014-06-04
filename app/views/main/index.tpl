@@ -1,38 +1,25 @@
-<div id="top-nav">
-<h3>Important links</h3>
 
-<ul>
-	<li>{a action="main/about"}What is ATK14?{/a}</li>
-	<li><a href="http://api.atk14.net/">API Reference</a></li>
-	<li><a href="http://book.atk14.net/">The Book</a></li>
-	<li><a href="https://github.com/yarri/Atk14">ATK14 Home on Github</a></li>
-	<li><a href="https://github.com/yarri/Atk14/tree/master/installation">Installation Instructions</a></li>
-</ul>
-</div>
 
-<img src="{$public}images/atk14.png" alt="ATK14 Birdie" title="this is the official ATK14 mascot" id="birdie" />
+
+
+<img src="{$public}images/atk14.png" alt="ATK14 Birdie" title="this is the official ATK14 mascot" id="birdie">
 <blockquote><span title="this is what the official ATK14 mascot is saying">{$mod}<sup>*</sup></span></blockquote>
 
 <p>
-<sup>*</sup> <span title="this is true">The official ATK14 mascot rulez!</span>
+	<sup>*</sup> <span title="this is true">The official ATK14 mascot rulez!</span>
 </p>
 
-<h3>Code Snippet</h3>
-<div style="max-height: 400px; overflow:scroll;" id="snippet_container">
-{render_component controller=snippets action=detail id=atk14_is_a_way_classy_mvc_framework}
+<h2>Code Snippet</h2>
+<div>
+	{render_component controller=snippets action=detail id=atk14_is_a_way_classy_mvc_framework}
 </div>
 
-<h3>A very important notice</h3>
+<p class="alert alert-warning">New ATK14 skelet app is about to be released. Check it out on <a href="https://github.com/yarri/Atk14Skelet">GitHub</a> or see it <a href="http://atk14skelet.atk14.net/">up and running</a></p>
 
-<p>
-	New ATK14 skeleton is about to be released. Check it out on <a href="https://github.com/yarri/Atk14Skelet">GitHub</a> or see it <a href="http://atk14skelet.atk14.net/">up and running</a>
-</p>
 
-<h3>Here are some real life examples</h3>
 
-<p>
-	At any page you can inspect sources of all involved files
-</p>
+<h2>Demos</h2>
+<p class="lead">At any page you can inspect sources of all involved files.</p>
 
 <ul>
 	<li>
@@ -102,3 +89,4 @@
 	</li>
 
 </ul>
+
