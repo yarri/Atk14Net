@@ -9,14 +9,53 @@
 
 				// Source code modals.
 				$( ".documentation a[data-remote='true']" ).on( "ajax:success", function(jqEvent, html) {
-					bootbox.dialog({
+					window.bootbox.dialog({
 						message: html,
 						title: $(html).data( "title" ),
 						className: "modal-docs",
 						onEscape: function() {
-							bootbox.hideAll();
+							window.bootbox.hideAll();
 						}
 					});
+				});
+			}
+		},
+
+		chunked_file_uploads: {
+			create_new: function() {
+				/*
+				$( "#id_file" ).sliceUpload({
+					chunkSize: 1024*1024,
+					fileLoaded: function( responseText ){
+						if (responseText.length>0) {
+							eval(responseText);
+							return false;
+						}
+						return true;
+					}
+				});
+				*/
+
+				$( "#id_file" ).fileupload({
+					maxChunkSize: 1024 * 1024,
+					dataType: "json",
+					done: function( e, data ) {
+						$.each( data.result.files, function(index, file) {
+							$( "<p/>" ).text( file.name ).appendTo( document.body );
+						});
+					}
+				})
+				.on( "fileuploadchunksend", function( ev ) {
+					console.log( "SEND: ", ev );
+				})
+				.on( "fileuploadchunkdone", function( ev ) {
+					console.log( "DONE: ", ev );
+				})
+				.on( "fileuploadchunkfail", function( ev ) {
+					console.log( "FAIL: ", ev );
+				})
+				.on( "fileuploadchunkalways", function( ev ) {
+					console.log( "ALWAYS: ", ev );
 				});
 			}
 		},
@@ -24,8 +63,8 @@
 		remote_links: {
 			index: function() {
 				$( "#json_link" ).on( "ajax:success", function(ev, json) {
-					var $this = $( this );
-					var $ul = $this.next( "ul" );
+					var $this = $( this ),
+						$ul = $this.next( "ul" );
 					if (!$ul.length) {
 						$ul = $( "<ul></ul>" ).insertAfter($this);
 					}

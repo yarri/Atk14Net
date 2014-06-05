@@ -69,7 +69,9 @@ module.exports = function( grunt ) {
 			app: {
 				src: [
 					"public/assets/vendor/jquery/dist/jquery.js",
+					"public/assets/vendor/jquery-ui/ui/jquery.ui.widget.js",
 					"public/assets/vendor/jquery-validate/dist/jquery.validate.js",
+					"public/assets/vendor/jquery-file-upload/js/jquery.fileupload.js",
 					"<%= concat.bootstrap.dest %>",
 					"public/assets/vendor/bootbox/bootbox.js",
 					"public/assets/lib/atk14.js",
