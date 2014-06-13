@@ -38,6 +38,7 @@
 
 				$( "#id_file" ).fileupload({
 					maxChunkSize: 1024 * 1024,
+					multipart: false,
 					dataType: "json",
 					done: function( e, data ) {
 						$.each( data.result.files, function(index, file) {
