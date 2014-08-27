@@ -130,6 +130,8 @@ class Motd {
 			ATK14? Oh come on!
 			ATK14? It's good for nothing!
 			ATK14? Pretty Awesome Huh?
+			ATK14? Needs to be rewritten somehow!
+			ATK14? Don't ask me why!
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}
