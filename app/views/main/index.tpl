@@ -14,7 +14,7 @@
 	{render_component controller=snippets action=detail id=atk14_is_a_way_classy_mvc_framework}
 </div>
 
-<p class="alert alert-warning">New ATK14 skelet app is about to be released. Check it out on <a href="https://github.com/yarri/Atk14Skelet">GitHub</a> or see it <a href="http://atk14skelet.atk14.net/">up and running</a></p>
+<p class="alert alert-warning">New ATK14 skelet app is about to be released. Check it out on <a href="https://github.com/atk14/Atk14Skelet">GitHub</a> or see it <a href="http://skelet.atk14.net/">up and running</a></p>
 
 
 

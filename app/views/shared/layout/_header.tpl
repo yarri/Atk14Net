@@ -21,8 +21,9 @@
 					<li>{a action="main/about"}What is ATK14?{/a}</li>
 					<li><a href="http://api.atk14.net/">API Reference</a></li>
 					<li><a href="http://book.atk14.net/">The Book</a></li>
-					<li><a href="https://github.com/yarri/Atk14">Source on Github <span class="glyphicon glyphicon-new-window"></span></a></li>
-					<li><a href="https://github.com/yarri/Atk14/tree/master/installation">Installation Instructions <span class="glyphicon glyphicon-new-window"></span></a></li>
+					<li><a href="https://github.com/atk14/Atk14">Source on Github <span class="glyphicon glyphicon-new-window"></span></a></li>
+					<li><a href="https://github.com/atk14/Atk14#installation">Installation Instructions <span class="glyphicon glyphicon-new-window"></span></a></li>
+					<li><a href="http://www.atk14sites.net/">Who uses ATK14? <span class="glyphicon glyphicon-new-window"></span></a></li>
 				</ul>
 			</div>
 		</div>
