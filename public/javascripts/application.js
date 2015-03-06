@@ -36,27 +36,22 @@
 				});
 				*/
 
+				var $progress = $( ".progress-bar" ),
+					$list = $( ".table tbody" );
+
 				$( "#id_file" ).fileupload({
 					maxChunkSize: 1024 * 1024,
 					multipart: false,
 					dataType: "json",
 					done: function( e, data ) {
-						$.each( data.result.files, function(index, file) {
-							$( "<p/>" ).text( file.name ).appendTo( document.body );
-						});
+						$( "<tr><td>"+ data.result.filename + "</td><td>"+ data.result.filesize + "</td><td>" + data.result.checksum + "</td></tr>" ).appendTo( $list );
+						$progress.attr( "aria-valuenow", 0 ).css( "width", 0 );
+					},
+					progressall: function( e, data ) {
+						var progress = parseInt( data.loaded / data.total * 100, 10 );
+
+						$progress.attr( "aria-valuenow", progress ).css( "width", progress + "%" );
 					}
-				})
-				.on( "fileuploadchunksend", function( ev ) {
-					console.log( "SEND: ", ev );
-				})
-				.on( "fileuploadchunkdone", function( ev ) {
-					console.log( "DONE: ", ev );
-				})
-				.on( "fileuploadchunkfail", function( ev ) {
-					console.log( "FAIL: ", ev );
-				})
-				.on( "fileuploadchunkalways", function( ev ) {
-					console.log( "ALWAYS: ", ev );
 				});
 			}
 		},
