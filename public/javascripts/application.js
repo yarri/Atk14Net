@@ -44,6 +44,7 @@
 					multipart: false,
 					dataType: "json",
 					done: function( e, data ) {
+						$list.parents("table.hide").hide().removeClass("hide").fadeIn("slow");
 						$( "<tr><td>"+ data.result.filename + "</td><td>"+ data.result.filesize + "</td><td>" + data.result.checksum + "</td></tr>" ).appendTo( $list );
 						$progress.attr( "aria-valuenow", 0 ).css( "width", 0 );
 					},
