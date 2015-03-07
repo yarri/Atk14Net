@@ -1,13 +1,12 @@
+<div id="mascot">
+	<img src="{$public}images/atk14.png" alt="ATK14 Birdie" title="this is the official ATK14 mascot">
+	<blockquote><span title="this is what the official ATK14 mascot is saying today">{$mod}<sup>*</sup></span></blockquote>
 
+	<p>
+		<sup>*</sup> <span title="this is true">The official ATK14 mascot rulez!</span>
+	</p>
+</div>
 
-
-
-<img src="{$public}images/atk14.png" alt="ATK14 Birdie" title="this is the official ATK14 mascot" id="birdie">
-<blockquote><span title="this is what the official ATK14 mascot is saying">{$mod}<sup>*</sup></span></blockquote>
-
-<p>
-	<sup>*</sup> <span title="this is true">The official ATK14 mascot rulez!</span>
-</p>
 
 <h2>Code Snippet</h2>
 <div>

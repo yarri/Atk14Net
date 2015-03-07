@@ -18,11 +18,11 @@ CREATE TABLE books(
 
 <li>
 <h4>Model</h4>
-<pre>{code}{literal}<?php
+{code}{literal}<?php
 // file: app/models/book.php
 class Book extends ApplicationModel{
 }
-{/literal}{/code}</pre>
+{/literal}{/code}
 </li>
 
 <li>
