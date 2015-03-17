@@ -84,7 +84,7 @@ class Motd {
 			ATK14? Forty years of darkness. Earthquakes, volcanoes...
 			ATK14? Listen! Do you smell something?
 			ATK14? He slimed me!
-			ATK14? Isn't this a mistace?
+			ATK14? Isn't this a mistake?
 			ATK14? Are you sure that there is no a better choice?
 			ATK14? You fool. No man can kill me. Die now!
 			ATK14? I do not believe this darkness will endure!
