@@ -10,12 +10,8 @@
 
 <h2>Code Snippet</h2>
 <div>
-	{render_component controller=snippets action=detail id=atk14_is_a_way_classy_mvc_framework}
+	{render_component controller=snippets action=detail id=atk14_is_a_classy_mvc_framework}
 </div>
-
-<p class="alert alert-warning">New ATK14 skelet app is about to be released. Check it out on <a href="https://github.com/atk14/Atk14Skelet">GitHub</a> or see it <a href="http://skelet.atk14.net/">up and running</a></p>
-
-
 
 <h2>Demos</h2>
 <p class="lead">At any page you can inspect sources of all involved files.</p>

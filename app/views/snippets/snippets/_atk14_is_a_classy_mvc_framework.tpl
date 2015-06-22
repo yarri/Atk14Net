@@ -1,4 +1,4 @@
-<h4>ATK14 is a way classy MVC framework</h4>
+<h4>ATK14 is a classy MVC framework</h4>
 
 <ul>
 <li>
