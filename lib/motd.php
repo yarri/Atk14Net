@@ -135,6 +135,12 @@ class Motd {
 			ATK14? Don't mistake lack of talent for genius...
 			ATK14? If I weren't me I'd wish I was a ATK14 developer!
 			ATK14? You are going to love this!
+			ATK14? Run away! Run away!
+			ATK14? It has an emotional pull which lasts!
+			ATK14? Damn, baby, what'd you do to yo website?
+			ATK14? What exactly is going on here?
+			ATK14? My God, it's full of stars!
+			ATK14? No one said it would feel this good!
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}
