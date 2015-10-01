@@ -21,9 +21,6 @@ module.exports = function( grunt ) {
 				jshintrc: ".jshintrc",
 				reporter: require( "jshint-stylish" )
 			},
-			atk14: {
-				src: "public/assets/lib/atk14.js"
-			},
 			grunt: {
 				src: "Gruntfile.js"
 			},
@@ -35,9 +32,6 @@ module.exports = function( grunt ) {
 		jscs: {
 			options: {
 				config: ".jscsrc"
-			},
-			atk14: {
-				src: "<%= jshint.atk14.src %>"
 			},
 			grunt: {
 				src: "<%= jshint.grunt.src %>"
