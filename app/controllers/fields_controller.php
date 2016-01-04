@@ -37,6 +37,7 @@ class FieldsController extends ApplicationController{
 	function _before_filter(){
 		$this->page_description = "";
 		$a = new String($this->action);
-		$this->page_title = sprintf("%s field example",$a->camelize());
+		$this->page_title = sprintf("%s example",$a->camelize()); // "EmailField usage"
+		$this->page_description = sprintf("%s usage example",$a->camelize()); // "Example of the EmailField usage"
 	}
 }
