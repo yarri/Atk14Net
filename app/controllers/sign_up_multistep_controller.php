@@ -1,6 +1,7 @@
 <?php
 class SignUpMultistepController extends ApplicationController{
 	function sign_up(){
+		$this->page_title = "Multistep sign up procedure";
 		$this->_walk(array(
 			"get_data",
 			"legal_agreements",

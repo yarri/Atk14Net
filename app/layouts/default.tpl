@@ -6,7 +6,7 @@
 
 		<title>{trim}
 			{if $controller=="main" && $action=="index" && $namespace==""}
-				{"ATK14_APPLICATION_NAME"|dump_constant}
+				ATK14 Framework
 			{else}
 				{$page_title} | {"ATK14_APPLICATION_NAME"|dump_constant}
 			{/if}

@@ -1,6 +1,7 @@
 <?php
 class RemoteLinksController extends ApplicationController{
 	function index(){
+		$this->page_title = "Remote links";
 	}
 
 	function change_inner_html(){
