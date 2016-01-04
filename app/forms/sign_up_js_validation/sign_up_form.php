@@ -13,13 +13,11 @@ class SignUpForm extends ApplicationForm{
 		)));
 		$f->update_message("invalid","Only letters a..z, 0..9 and dot allowed, up to 6 characters");
 
-		$this->add_field("password",new CharField(array(
+		$this->add_field("password",new PasswordField(array(
 			"title" => _("Desired password"),
-			"widget" => new PasswordInput(),
 		)));
-		$this->add_field("password_confirmation",new CharField(array(
+		$this->add_field("password_confirmation",new PasswordField(array(
 			"title" => _("Confirm password"),
-			"widget" => new PasswordInput(),
 		)));
 		$this->add_field("name",new CharField(array(
 			"title" => _("Your Name"),

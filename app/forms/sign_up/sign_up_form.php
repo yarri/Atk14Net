@@ -5,13 +5,11 @@ class SignUpForm extends ApplicationForm{
 			"title" => "Desired username",
 			"min_length" => 2,
 		)));
-		$this->add_field("password",new CharField(array(
+		$this->add_field("password",new PasswordField(array(
 			"title" => "Desired password",
-			"widget" => new PasswordInput(),
 		)));
-		$this->add_field("password_confirmation",new CharField(array(
+		$this->add_field("password_confirmation",new PasswordField(array(
 			"title" => "Confirm password",
-			"widget" => new PasswordInput(),
 		)));
 		$this->add_field("name",new CharField(array(
 			"title" => "Your Name",

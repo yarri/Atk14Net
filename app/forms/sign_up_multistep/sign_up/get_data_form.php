@@ -5,13 +5,11 @@ class GetDataForm extends ApplicationForm{
 			"title" => _("Desired username"),
 			"min_length" => 2,
 		)));
-		$this->add_field("password",new CharField(array(
+		$this->add_field("password",new PasswordField(array(
 			"title" => _("Desired password"),
-			"widget" => new PasswordInput(),
 		)));
-		$this->add_field("password_confirmation",new CharField(array(
+		$this->add_field("password_confirmation",new PasswordField(array(
 			"title" => _("Confirm password"),
-			"widget" => new PasswordInput(),
 		)));
 		$this->add_field("name",new CharField(array(
 			"title" => _("Your Name"),

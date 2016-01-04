@@ -5,9 +5,8 @@ class LoginForm extends ApplicationForm{
 			"title" => _("Login")
 		)));
 
-		$this->add_field("password",new CharField(array(
+		$this->add_field("password",new PasswordField(array(
 			"title" => _("Password"),
-			"widget" => new PasswordInput(),
 		)));
 	}
 }
