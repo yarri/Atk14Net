@@ -1,5 +1,4 @@
 <?php
-require_once(ATK14_DOCUMENT_ROOT."/lib/geshi/geshi.php");
 function smarty_modifier_highlight_syntax($content){
 	$language = null;
 	if(preg_match('/^\s*<\?php/s',$content)){

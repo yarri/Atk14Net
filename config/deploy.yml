@@ -15,9 +15,11 @@ production:
   deploy_repository: "devel@kajka:apps/www.atk14.net/repos/production.git"  # this is the URL of deployment git repository with a proper post-receive hook
   deploy_branch: "master"                                                   # the name of the branch in deployment repository
   before_deploy:
+  - "@local composer update"
   - "@local grunt dist"
   rsync: 
   - "public/dist/"
+  - "vendor/"
 
 # You can have another stage to deploy application on it (eg. preview).
 # In this recipe you can mention only items which differ from the first recipe.
@@ -27,3 +29,5 @@ production:
 #   user: deploy
 #   directory: /home/deploy/previews/atk14skelet/
 #   deploy_repository: deploy@server.example.com:repos/atk14skelet.git
+
+# vim: set et:

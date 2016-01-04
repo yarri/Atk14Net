@@ -6,3 +6,5 @@ config/secret_token.tpl
 public/assets/vendor
 node_modules
 public/dist
+vendor/*
+composer.lock

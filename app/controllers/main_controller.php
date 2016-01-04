@@ -1,6 +1,4 @@
 <?php
-require(dirname(__FILE__)."/../../lib/markdown/Michelf/Markdown.php"); // TODO: this needs to be loaded by class_autoload()
-
 class MainController extends ApplicationController{
 	function index(){
 		// every day a new message
