@@ -1,7 +1,8 @@
 <?php
 class SignUpController extends ApplicationController{
 	function 	sign_up(){
-		$this->page_title = "Classic sign up procedure";
+		$this->page_title = "Sign up";
+		$this->page_description = "Example of a classic Sign up procedure";
 
 		if($this->request->post() && ($d = $this->form->validate($this->params))){
 			$user = User::CreateNewRecord($d);

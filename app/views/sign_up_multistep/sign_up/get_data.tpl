@@ -1,3 +1,8 @@
+<h1>{$page_title}</h1>
+
+<p class="lead">Here is a Sign up procedure divided in a couple of steps.</p>
+
+
 {render partial="shared/form_error"}
 
 {form}

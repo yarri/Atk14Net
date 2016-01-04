@@ -1,7 +1,9 @@
 <?php
 class SignUpMultistepController extends ApplicationController{
 	function sign_up(){
-		$this->page_title = "Multistep sign up procedure";
+		$this->page_title = "Multi step Sign up procedure";
+		$this->page_description = "Example of a multi step Sign up procedure.";
+
 		$this->_walk(array(
 			"get_data",
 			"legal_agreements",
@@ -16,7 +18,7 @@ class SignUpMultistepController extends ApplicationController{
 	}
 
 	function sign_up__legal_agreements(){
-		return $this->request->post();
+		return $this->request->post() && $this->form->validate($this->params);
 	}
 
 	function sign_up__create_record(){
