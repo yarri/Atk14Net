@@ -14,6 +14,9 @@ define("ATK14_DOCUMENT_ROOT",dirname(__FILE__)."/../");
 define("ATK14_HTTP_HOST",PRODUCTION ? "www.atk14.net" : "atk14.localhost");
 define("ATK14_APPLICATION_NAME","ATK14");
 
+define("DEFAULT_EMAIL","info@snapps.eu");
+define("ATK14_ADMIN_EMAIL","tomek@snapps.eu");
+
 // We do not want to send e-mails from The Demo Application
 define("SENDMAIL_DO_NOT_SEND_MAILS",true);
 
