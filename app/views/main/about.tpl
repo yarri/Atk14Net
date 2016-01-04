@@ -1,1 +1,1 @@
-{$text nofilter}
+{!$text|markdown}
