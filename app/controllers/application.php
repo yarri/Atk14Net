@@ -1,6 +1,11 @@
 <?php
 class ApplicationController extends Atk14Controller{
 
+	/**
+	 * @var Navigation
+	 */
+	var $breadcrumbs;
+
 	function forbidden(){
 		$this->response->forbidden();
 		$this->render_template = false;
@@ -20,6 +25,9 @@ class ApplicationController extends Atk14Controller{
 
 	function _application_before_filter(){
 		$this->user = User::GetInstanceById($this->session->g("user_id"));
+
+		$this->breadcrumbs = new Navigation();
+		$this->breadcrumbs[] = array("Home",$this->_link_to(array("namespace" => "", "action" => "main/index")));
 	}
 
 	function _application_after_filter(){
@@ -59,11 +67,13 @@ class ApplicationController extends Atk14Controller{
 			}
 		}
 		$this->tpl_data["doc_source_files"] = $this->doc_source_files;
+
+		if(!isset($this->tpl_data["breadcrumbs"]) && isset($this->breadcrumbs)){
+			$this->tpl_data["breadcrumbs"] = $this->breadcrumbs;
+		}
 	}
 
 	function _after_render(){
 		parent::_after_render();
-
-		//$this->response->write($this->dbmole->getStatistics());
 	}
 }

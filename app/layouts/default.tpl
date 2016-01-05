@@ -27,8 +27,8 @@
 
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
-			<script src="../dist/vendor/js/html5shiv.js"></script>
-			<script src="../dist/vendor/js/respond.min.js"></script>
+			{javascript_script_tag file="{$public}/dist/scripts/html5shiv.min.js"}
+			{javascript_script_tag file="{$public}/dist/scripts/respond.min.js"}
 		<![endif]-->
 
 		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" type="text/css" media="all">
@@ -37,8 +37,12 @@
 	<body class="body_{$controller}_{$action}" data-controller="{$controller}" data-action="{$action}">
 		{render partial="shared/layout/header"}
 
+
 		<div class="container">
 			<div class="main" role="main">
+				{if $breadcrumbs && sizeof($breadcrumbs)>=2} {* It makes no sense to display breadcrumbs with just 1 or no element *}
+					{render partial="shared/breadcrumbs"}
+				{/if}
 				{render partial="shared/layout/flash_message"}
 				{placeholder}
 			</div>

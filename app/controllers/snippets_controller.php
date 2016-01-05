@@ -1,13 +1,21 @@
 <?php
 class SnippetsController extends ApplicationController{
+	function index(){
+		$this->page_title = "List of snippets";
+	}
+
 	function detail(){
 		$id = $this->params->getString("id");
 		if(!isset($this->snippets[$id])){
 			return $this->_execute_action("error404");
 		}
 
-		$this->tpl_data["snippet"] = $this->snippets[$id];
-		$this->page_title = $this->snippets[$id]["title"];
+		$snippet = $this->snippets[$id];
+
+		$this->tpl_data["snippet"] = $snippet;
+		$this->page_title = $snippet["title"];
+
+		$this->breadcrumbs[] = array("Snippets",$this->_link_to("index"));
 	}
 
 	/**
@@ -24,7 +32,7 @@ class SnippetsController extends ApplicationController{
 			// 
 			$content = Files::GetFileContent($filename);
 			$title = "";
-			if(preg_match('/<h3>(.+?)<\/h3>/',$content,$matches)){ $title = $matches[1]; }
+			if(preg_match('/<h\d>(.+?)<\/h\d>/',$content,$matches)){ $title = $matches[1]; }
 
 			$snippets[] = array(
 				"id" => $id,
@@ -44,6 +52,6 @@ class SnippetsController extends ApplicationController{
 	}
 
 	function _before_filter(){
-		$this->snippets = $this->_read_snippets();
+		$this->snippets = $this->tpl_data["snippets"] = $this->_read_snippets();
 	}
 }

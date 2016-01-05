@@ -47,7 +47,7 @@ class User extends ApplicationModel{
 	static function CreateNewRecord($values,$options = array()){
 		if(!isset($values["id"])){ $values["id"] = User::GetNextId(); }
 		$values["password"] = User::HashPassword($values["password"],$values["id"]);
-		return ApplicationModel::CreateNewRecord($values,$options);
+		return parent::CreateNewRecord($values,$options);
 	}
 }
 {/literal}{/code}
@@ -80,7 +80,7 @@ class TcUser extends TcBase{
 </li>
 
 <li>
-<h4>Run tests</h4>
+<h4>Run test case for the given model</h4>
 {code}{literal}
 $ cd test/models/
 $ ../../scripts/run_unit_tests tc_user.php
@@ -92,6 +92,16 @@ Time: 0.133278
 OK (1 test)
 {/literal}{/code}
 </li>
+
+<li>
+<h4>Run all test cases in the project</h4>
+
+{code}{literal}
+$ cd /path/to/your/project/
+$ ./scripts/run_all_tests
+{/literal}{/code}
+</li>
+
 </ul>
 
 
