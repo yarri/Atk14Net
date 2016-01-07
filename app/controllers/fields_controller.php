@@ -4,6 +4,10 @@ class FieldsController extends ApplicationController{
 	function email_field(){ $this->_validate_form(); }
 	function date_field(){ $this->_validate_form(); }
 	function boolean_field(){ $this->_validate_form(); }
+	function choice_field(){
+		$this->page_description = "Here you can see two Choice fields with different widgets - Select and RadioSelect.";
+		$this->_validate_form();
+	}
 	function multiple_choice_field(){ $this->_validate_form(); }
 	function regex_field(){ $this->_validate_form(); }
 	function file_field(){
