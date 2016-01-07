@@ -12,7 +12,7 @@
 			{/if}
 		{/trim}</title>
 
-		<meta name="description" content="{$page_description|h}">
+		<meta name="description" content="{$page_description}">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 		<link rel="alternate" title="ATK14`s Messages of the day" href="{link_to controller=rss action=motds}" type="application/rss+xml">
@@ -20,9 +20,9 @@
 		{if $DEVELOPMENT}
 			{render partial="shared/layout/dev_info"}
 
-			{stylesheet_link_tag file="../dist/css/app.css" media="screen"}
+			{stylesheet_link_tag file="{$public}/dist/css/app.css" media="screen"}
 		{else}
-			{stylesheet_link_tag file="../dist/css/app.min.css" media="screen"}
+			{stylesheet_link_tag file="{$public}/dist/css/app.min.css" media="screen"}
 		{/if}
 
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -51,10 +51,10 @@
 		</div>
 
 		{if $DEVELOPMENT}
-			{javascript_script_tag file="../dist/js/app.js"}
+			{javascript_script_tag file="{$public}/dist/js/app.js"}
 			<script src="//localhost:35729/livereload.js"></script>
 		{else}
-			{javascript_script_tag file="../dist/js/app.min.js"}
+			{javascript_script_tag file="{$public}/dist/js/app.min.js"}
 		{/if}
 
 		{* Google analytics code *}
