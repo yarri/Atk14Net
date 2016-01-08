@@ -8,7 +8,10 @@ class FieldsController extends ApplicationController{
 		$this->page_description = "Here you can see two Choice fields with different widgets - Select and RadioSelect.";
 		$this->_validate_form();
 	}
-	function multiple_choice_field(){ $this->_validate_form(); }
+	function multiple_choice_field(){
+		$this->page_description = "Here you can see two MultipleChoice fields with different widgets - SelectMultiple and CheckboxSelectMultiple.";
+		$this->_validate_form();
+	}
 	function regex_field(){ $this->_validate_form(); }
 	function file_field(){
 		$this->page_description = "Here is a file upload example.";
