@@ -1,5 +1,10 @@
 <?php
 class FieldsController extends ApplicationController{
+	function index(){
+		$this->page_title = "List of Form's fields";
+		$this->breadcrumbs[] = "Fields";
+	}
+
 	function char_field(){ $this->_validate_form(); }
 	function email_field(){ $this->_validate_form(); }
 	function date_field(){ $this->_validate_form(); }
@@ -39,6 +44,8 @@ class FieldsController extends ApplicationController{
 		}
 
 		$this->doc_source_files[] = "app/views/fields/validate_form.tpl";
+		$this->breadcrumbs[] = array("Fields",$this->_link_to(array("action" => "fields/index")));
+		$this->breadcrumbs[] = String::ToObject($this->action)->camelize();
 	}
 
 	function _before_filter(){
