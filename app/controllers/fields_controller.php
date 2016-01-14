@@ -6,6 +6,7 @@ class FieldsController extends ApplicationController{
 	}
 
 	function char_field(){ $this->_validate_form(); }
+	function text_field(){ $this->_validate_form(); }
 	function email_field(){ $this->_validate_form(); }
 	function date_field(){ $this->_validate_form(); }
 	function boolean_field(){ $this->_validate_form(); }

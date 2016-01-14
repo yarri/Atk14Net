@@ -1,5 +1,6 @@
 				<ul>
 					<li>{a controller=fields action=char_field}Character field{/a}</li>
+					<li>{a controller=fields action=text_field}Text field{/a}</li>
 					<li>{a controller=fields action=email_field}E-mail field{/a}</li>
 					<li>{a controller=fields action=date_field}Date field{/a}</li>
 					<li>{a controller=fields action=boolean_field}Boolean field{/a}</li>
