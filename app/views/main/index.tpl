@@ -60,12 +60,6 @@
 			<li>Field examples
 				{render partial="fields/list"}
 			</li>
-			<li>Custom Fields
-				<ul>
-					<li>{a controller=fields action=odd_number_field}Odd number field{/a}</li>
-					<li>{a controller=fields action=url_field}URL field{/a}</li>
-				</ul>
-			</li>
 			<li>Asynchronous File Uploads
 				<ul>
 					<li>{a controller=chunked_file_uploads action=create_new}Chunked field upload{/a}</li>

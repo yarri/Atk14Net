@@ -2,9 +2,13 @@
 
 <p class="lead">{$page_description}</p>
 
-{render partial="shared/form_error"}
+{!$long_description}
+
 {form}
+	{render partial="shared/form_error"}
+
 	{render partial="shared/form_field" fields=$form->get_field_keys()}
+
 	<div class="form-group">
 		<button type="submit" class="btn btn-default">Validate the Form</button>
 	</div>
