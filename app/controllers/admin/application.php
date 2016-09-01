@@ -6,8 +6,6 @@ class ApplicationController extends Atk14Controller{
 	}
 
 	function _initialize(){
-		$this->dbmole = &PgMole::GetInstance();
-
 		$this->_prepend_before_filter("application_before_filter");
 		$this->_append_after_filter("application_after_filter");
 
