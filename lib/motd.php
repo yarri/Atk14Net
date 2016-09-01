@@ -141,6 +141,9 @@ class Motd {
 			ATK14? What exactly is going on here?
 			ATK14? My God, it's full of stars!
 			ATK14? No one said it would feel this good!
+			ATK14? Stay out of my dreams!
+			ATK14? When someone asks you if you're into ATK14, you say \"YES!\"
+			ATK14? Oh please, not like this...
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}
