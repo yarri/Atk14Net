@@ -98,7 +98,7 @@ class SourcesController extends ApplicationController{
 	}
 
 	function _find_field_file($field_class){
-		$field = new String($field_class);
+		$field = new String4($field_class);
 		$filename = "app/fields/".$field->underscore().".php";
 		if(file_exists(ATK14_DOCUMENT_ROOT."/$filename")){
 			return $filename;
@@ -106,7 +106,7 @@ class SourcesController extends ApplicationController{
 	}
 
 	function _find_model_file($model_class){
-		$model = new String($model_class);
+		$model = new String4($model_class);
 		$filename = "app/models/".$model->underscore().".php";
 		if(file_exists(ATK14_DOCUMENT_ROOT."/$filename")){
 			return $filename;

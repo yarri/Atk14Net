@@ -46,12 +46,12 @@ class FieldsController extends ApplicationController{
 
 		$this->doc_source_files[] = "app/views/fields/validate_form.tpl";
 		$this->breadcrumbs[] = array("Fields",$this->_link_to(array("action" => "fields/index")));
-		$this->breadcrumbs[] = String::ToObject($this->action)->camelize();
+		$this->breadcrumbs[] = String4::ToObject($this->action)->camelize();
 	}
 
 	function _before_filter(){
 		$this->page_description = "";
-		$a = new String($this->action);
+		$a = new String4($this->action);
 		$this->page_title = sprintf("%s example",$a->camelize()); // "EmailField usage"
 		$this->page_description = sprintf("%s usage example",$a->camelize()); // "Example of the EmailField usage"
 	}
