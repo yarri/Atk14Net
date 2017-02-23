@@ -144,6 +144,7 @@ class Motd {
 			ATK14? Stay out of my dreams!
 			ATK14? When someone asks you if you're into ATK14, you say \"YES!\"
 			ATK14? Oh please, not like this...
+			ATK14? We are so lucky to live in such times where we can use the ATK14 framework!
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}
