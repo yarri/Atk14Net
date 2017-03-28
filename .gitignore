@@ -4,6 +4,7 @@ tmp/*
 log/*
 config/secret_token.tpl
 public/assets/vendor
+bower_components
 node_modules
 public/dist
 vendor/*

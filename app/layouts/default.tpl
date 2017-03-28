@@ -1,3 +1,27 @@
+{*
+ * The page Layout template
+ *
+ * Placeholders
+ * ------------
+ * head						 	located whithin the <head> tag
+ * main							the main (or default) one
+ * js_script_tags				place for javascript script tags
+ * js							place for javascript code
+ * domready						place for domready javascript code
+ *
+ * Variables
+ * ------------
+ * $lang
+ * $controller
+ * $action
+ * $namespace
+ * $logged_user
+ * $page_description
+ *
+ * Constants
+ * ------------
+ * $DEVELOPMENT
+ *}
 <!DOCTYPE html>
 <html lang="{$lang}">
 
@@ -19,19 +43,16 @@
 
 		{if $DEVELOPMENT}
 			{render partial="shared/layout/dev_info"}
-
-			{stylesheet_link_tag file="{$public}/dist/css/app.css" media="screen"}
-		{else}
-			{stylesheet_link_tag file="{$public}/dist/css/app.min.css" media="screen"}
 		{/if}
 
-		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>
-			{javascript_script_tag file="{$public}/dist/scripts/html5shiv.min.js"}
-			{javascript_script_tag file="{$public}/dist/scripts/respond.min.js"}
-		<![endif]-->
+		{stylesheet_link_tag file="$public/dist/styles/vendor.min.css" hide_when_file_not_found=true}
+		{stylesheet_link_tag file="$public/dist/styles/application.min.css"}
 
-		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" type="text/css" media="all">
+		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			{javascript_script_tag file="$public/dist/scripts/html5shiv.min.js"}
+			{javascript_script_tag file="$public/dist/scripts/respond.min.js"}
+		<![endif]-->
 	</head>
 
 	<body class="body_{$controller}_{$action}" data-controller="{$controller}" data-action="{$action}">
@@ -50,12 +71,8 @@
 			{render partial="shared/documentation"}
 		</div>
 
-		{if $DEVELOPMENT}
-			{javascript_script_tag file="{$public}/dist/js/app.js"}
-			<script src="//localhost:35729/livereload.js"></script>
-		{else}
-			{javascript_script_tag file="{$public}/dist/js/app.min.js"}
-		{/if}
+		{javascript_script_tag file="$public/dist/scripts/vendor.min.js"}
+		{javascript_script_tag file="$public/dist/scripts/application.min.js"}
 
 		{* Google analytics code *}
 		{if $PRODUCTION}
