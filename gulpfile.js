@@ -7,7 +7,11 @@ var vendorStyles = [];
 
 var vendorScripts = [
 	"bower_components/jquery/dist/jquery.js",
+	"bower_components/jquery-ui/ui/widget.js",
+	"bower_components/jquery-validate/dist/jquery.validate.js",
+	"bower_components/jquery-file-upload/js/jquery.fileupload.js",
 	"bower_components/bootstrap/dist/js/bootstrap.js",
+	"bower_components/bootbox/bootbox.js",
 	"bower_components/atk14js/src/atk14.js"
 ];
 
