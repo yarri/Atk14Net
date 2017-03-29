@@ -58,7 +58,6 @@
 	<body class="body_{$controller}_{$action}" data-controller="{$controller}" data-action="{$action}">
 		{render partial="shared/layout/header"}
 
-
 		<div class="container">
 			<div class="main" role="main">
 				{if $breadcrumbs && sizeof($breadcrumbs)>=2} {* It makes no sense to display breadcrumbs with just 1 or no element *}

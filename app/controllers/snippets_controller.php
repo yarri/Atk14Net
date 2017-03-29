@@ -2,6 +2,7 @@
 class SnippetsController extends ApplicationController{
 	function index(){
 		$this->page_title = "List of snippets";
+		$this->breadcrumbs[] = "Snippets";
 	}
 
 	function detail(){
@@ -10,12 +11,14 @@ class SnippetsController extends ApplicationController{
 			return $this->_execute_action("error404");
 		}
 
+
 		$snippet = $this->snippets[$id];
 
 		$this->tpl_data["snippet"] = $snippet;
 		$this->page_title = $snippet["title"];
 
 		$this->breadcrumbs[] = array("Snippets",$this->_link_to("index"));
+		$this->breadcrumbs[] = $snippet["title"];
 	}
 
 	/**

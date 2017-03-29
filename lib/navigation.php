@@ -100,8 +100,8 @@ class Navigation implements ArrayAccess, Iterator, Countable {
 			$url = Atk14Url::BuildLink($url);
 		}
 
-		if(isset($url)){ $options["url"] = (string)$url; }
-		if(isset($item) && !is_array($item)){ $options["text"] = (string)$item; }
+		if(is_string($url)){ $options["url"] = $url; }
+		if(is_string($item)){ $options["text"] = $item; }
 
 		return new NavigationItem($options);
 	}

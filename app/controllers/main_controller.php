@@ -6,7 +6,7 @@ class MainController extends ApplicationController{
 	}
 
 	function about(){
-		$this->page_title = "About";
+		$this->page_title = $this->breadcrumbs[] = "About";
 		$this->tpl_data["text"] = Files::GetFileContent(dirname(__FILE__)."/../../atk14/README.md");
 	}
 }

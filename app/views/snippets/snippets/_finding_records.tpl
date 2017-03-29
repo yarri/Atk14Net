@@ -1,4 +1,4 @@
-<h4>ATK14 gives you more ways how to find records in a table</h4>
+<h1>ATK14 gives you more ways how to find records in a table</h1>
 
 {code}
 <?php

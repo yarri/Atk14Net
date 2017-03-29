@@ -1,4 +1,4 @@
-<h4>Database console</h4>
+<h1>Database console</h1>
 
 <p>Database console is ready to accept your commands.</p>
 

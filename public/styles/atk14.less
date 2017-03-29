@@ -1,0 +1,132 @@
+body {
+	font-family: @font-family-serif;
+}
+
+header {
+	.navbar {
+		background-color: @theme-color;
+		margin: 0px;
+		border: none;
+		border-radius: 0px;
+		a {
+			color: darken(@theme-color-darker; 10%) !important;
+			&:hover {
+				text-decoration: underline;
+				background-color: @theme-color-darker;
+			}
+		}
+		.navbar-toggle {
+			border: none;
+			border-color: none;
+			.icon-bar {
+				background-color: white;
+    		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+			}
+			&:hover, &:focus {
+				background-color: @theme-color;
+			}
+		}
+		.title {
+			color: white;
+			font-family: @font-family-sans-serif;
+    	text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+			font-weight: bold;
+		}
+	}
+
+	.bs-docs-header {
+		#gradient.vertical(darken(@theme-color-darker, 12%); #222; 10%; 100%);
+    padding-top: 60px;
+    padding-bottom: 60px;
+    color: #999;
+    font-size: 24px;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+
+		/*background-color: #222;*/
+		h1 {
+    	font-size: 60px;
+			font-family: @font-family-sans-serif;
+			font-weight: bold;
+    	line-height: 1;
+			margin-top: 0px;
+			color: #FFF;
+		}
+		p {
+			color: @theme-color-darker;
+		}
+	}
+}
+
+/*
+ * In-browser \validated values.
+ * see http://www.atk14.net/en/sign_up_js_validation/sign_up/
+ */
+p.error {
+	.alert();
+	.alert-danger();
+
+	&.checked {
+		.alert-success();
+	}
+}
+
+#mascot img{
+ float: left;
+}
+
+#mascot blockquote{
+	font-size: 4em;
+	float: left;
+	width: 600px;
+}
+
+#mascot p{
+	clear: both;
+}
+
+.pagination ul {
+	.pagination();
+}
+
+
+.documentation {
+	.well();
+	margin-top: @line-height-computed*2;
+
+	ul {
+		.list-unstyled();
+	}
+}
+.modal-docs {
+	.modal-dialog {
+		width: auto;
+		max-width: 90%;
+	}
+}
+
+/* Tables */
+
+.table {
+  > tbody {
+  	> tr {
+		> th {
+			text-align: right;
+		}
+	}
+  }
+}
+.table-noborder {
+	> thead,
+	> tbody,
+	> tfoot {
+		> tr {
+			> th,
+			> td {
+				border: none;
+			}
+		}
+	}
+}
+.table-auto {
+	width: auto;
+}

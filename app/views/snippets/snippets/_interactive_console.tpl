@@ -1,4 +1,4 @@
-<h4>Interactive console</h4>
+<h1>Interactive console</h1>
 
 <p>ATK14 contains an interactive console. You may find it very useful.</p>
 
