@@ -107,6 +107,7 @@ class Motd {
 			ATK14? Don't argue with him!
 			ATK14? I used to think it's a big fake!
 			ATK14? No matter what it is. I want it!
+			ATK14? No matter what it is. Take it away from me!
 			ATK14? Good luck with that!
 			ATK14? $ ./scripts/destroy_it_all --force --no-confirmation --no-asking --forever --now
 			ATK14? Nothing happens! Seriously!
@@ -145,6 +146,13 @@ class Motd {
 			ATK14? When someone asks you if you're into ATK14, you say \"YES!\"
 			ATK14? Oh please, not like this...
 			ATK14? We are so lucky to live in such times where we can use the ATK14 framework!
+			ATK14? Wow! What a mighty framework!
+			ATK14? Is such a thing even possible?
+			ATK14? I want to know why?
+			ATK14? Why not?
+			ATK14? This is impossible!
+			ATK14? Don't ask me, man. I just work here.
+			ATK14? Not bad, for a human.
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}
