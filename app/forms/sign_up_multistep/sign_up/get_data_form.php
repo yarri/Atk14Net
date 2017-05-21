@@ -1,7 +1,7 @@
 <?php
 class GetDataForm extends ApplicationForm{
 	function set_up(){
-		$this->add_field("login",new CharField(array(
+		$this->add_field("login",new LoginField(array(
 			"title" => _("Desired username"),
 			"min_length" => 2,
 		)));

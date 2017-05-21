@@ -1,9 +1,8 @@
 <?php
 class CreateNewForm extends ApplicationForm{
 	function set_up(){
-		$this->add_field("login",new CharField(array(
+		$this->add_field("login",new LoginField(array(
 			"title" => "Desired username",
-			"min_length" => 2,
 		)));
 		$this->add_field("password",new PasswordField(array(
 			"title" => "Desired password",
