@@ -1,4 +1,10 @@
-<h1>{$page_title}</h1>
+<h1>
+	{$page_title}
+	<div class="pull-right">
+	{a action=edit id=$article _class="btn btn-default"}Edit article{/a}
+	{a action=destroy id=$article _class="btn btn-default"}Delete article{/a}
+	</div>
+</h1>
 
 <p class="lead">
 	{$article->getTeaser()}

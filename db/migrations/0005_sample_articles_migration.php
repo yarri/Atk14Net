@@ -21,7 +21,7 @@ ATK14 Development Team"),
 			"body" => trim("
 ATK14 Skelet is carefully selected & minimalistic set of functionality you may require at the start of your next web project.
 
-You can find more informations on the following addresses
+You can find more information at following addresses
 
   * [AKT14 Skelet on Github](https://github.com/atk14/Atk14Skelet)
   * [Atk14 Site](http://www.atk14.net/)
