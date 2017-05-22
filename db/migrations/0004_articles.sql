@@ -4,6 +4,7 @@ CREATE TABLE articles(
 	title VARCHAR(255),
 	teaser TEXT,
 	body TEXT,
-	published_at TIMESTAMP NOT NULL,
+	author VARCHAR(255),
+	published_at TIMESTAMP NOT NULL DEFAULT NOW(),
 	created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );

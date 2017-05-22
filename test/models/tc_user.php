@@ -1,5 +1,6 @@
 <?php
 class TcUser extends TcBase{
+
 	function test_get_instance_by_login(){
 		$this->assertNull(User::FindByLogin("unit_testing_user"));
 

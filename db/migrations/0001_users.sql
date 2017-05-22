@@ -5,6 +5,5 @@ CREATE TABLE users(
 	password VARCHAR(255),
 	name VARCHAR(255),
 	email VARCHAR(255),
-	is_admin CHAR(1) NOT NULL DEFAULT 'N' CHECK(is_admin IN ('Y','N'))
 	created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );

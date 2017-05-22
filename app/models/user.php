@@ -41,5 +41,5 @@ class User extends ApplicationModel{
 		}
 	}
 
-	function isAdmin(){ return $this->getIsAdmin()=="Y"; }
+	function toString(){ return $this->getName(); }
 }
