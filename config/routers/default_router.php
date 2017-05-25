@@ -1,20 +1,10 @@
 <?php
-class DefaultRouter extends Atk14Router{
+/**
+ * Generic routes
+ */
+class DefaultRouter extends Atk14Router {
 
-	var $namespace = "";
-	
 	function setUp(){
-
-		$this->addRoute("/rss/motds/","rss/motds");
-
-		$this->addRoute("/about/","main/about");
-
-		$this->addRoute("/snippet/<id>/",array(
-			"path" => "snippets/detail",
-			"params" => array(
-				"id" => '/[a-z0-9_]+/'
-			),
-		));
 
 		$this->addRoute("/",array(
 			"lang" => $this->default_lang,

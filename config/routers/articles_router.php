@@ -8,11 +8,11 @@
  *
  * Produces routes like:
  * - /article/
- * - /articles/very-nice-article-123/
+ * - /articles/very-nice-article-123.html
  * 
  * czech variants:
  * - /clanky/
- * - /clanek/very-nice-article-123/
+ * - /clanek/very-nice-article-123.html
  */
 class ArticlesRouter extends Atk14Router {
 	
@@ -24,7 +24,7 @@ class ArticlesRouter extends Atk14Router {
 			return;
 		}
 
-		if(preg_match('/^\/(article|clanek)\/([0-9a-z-]+)\/?$/',$uri,$matches)){ // "http://www.atk14.net/article/atk14-skelet-is-out-2/"
+		if(preg_match('/^\/(article|clanek)\/([0-9a-z-]+)\.html$/',$uri,$matches)){ // "http://www.atk14.net/article/atk14-skelet-is-out-2/"
 			if(!$article = Article::GetInstanceBySlug($matches[2])){
 				$this->_not_found();
 				return;
@@ -48,7 +48,7 @@ class ArticlesRouter extends Atk14Router {
 		if($this->action=="detail" && ($article = Article::GetInstanceById($this->params->getInt("id")))){
 			$this->params->del("id");
 			$prefix = $this->lang=="en" ? "article" : "clanek";
-			return "/$prefix/".$article->getSlug()."/";
+			return "/$prefix/".$article->getSlug().".html";
 		}
 	}
 }
