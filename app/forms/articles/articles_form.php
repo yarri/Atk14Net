@@ -10,7 +10,7 @@ class ArticlesForm extends ApplicationForm {
 		]));
 
 		$this->add_field("body", new TextField([
-			"help_text" => "Markdown format is required",
+			"help_text" => "Markdown format is expected",
 		]));
 
 		$this->add_field("author", new CharField([
@@ -20,5 +20,7 @@ class ArticlesForm extends ApplicationForm {
 		$this->add_field("published_at", new DateTimeField([
 			"initial" => date("Y-m-d H:i"),
 		]));
+
+		$this->enable_csrf_protection();
 	}
 }
