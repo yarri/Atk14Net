@@ -39,6 +39,7 @@ class BooksController extends ApplicationController{
 	 */
 	function detail(){
 		$this->page_title = sprintf("Detail of the book %s",$this->book->getTitle());
+		$this->breadcrumbs[] = $this->book->getTitle();
 
 		// Book object is passed to the template in _before_filter() by calling _find_book()
 
@@ -87,6 +88,9 @@ class BooksController extends ApplicationController{
 	 */
 	function edit(){
 		$this->page_title = sprintf("Edit book #%s",$this->book->getId());
+		$this->breadcrumbs[] = [$this->book->getTitle(),["action" => "detail", "id" => $this->book->getId()]];
+		$this->breadcrumbs[] = "Editing book";
+
 		$this->_add_return_uri($this->form);
 
 		$this->form->set_initial($this->book->getValues());
@@ -137,6 +141,12 @@ class BooksController extends ApplicationController{
 		// we need a book in certanin actions
 		if(in_array($this->action,array("detail","edit","destroy")) && !$this->_find_book()){
 			return $this->_execute_action("error404");
+		}
+
+		if($this->action=="index"){
+			$this->breadcrumbs[] = "Books";
+		}else{
+			$this->breadcrumbs[] = ["Books","books/index"];
 		}
 	}
 }

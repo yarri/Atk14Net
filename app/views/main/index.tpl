@@ -23,8 +23,8 @@
 			A typical examples of CRUD (create, read, update and delete) controllers
 		</p>
 		<ul>
-			<li>{a controller=articles}Articles{/a}</li>
 			<li>{a controller=books}Books{/a}</li>
+			<li>{a controller=articles}Articles{/a}</li>
 		</ul>
 	</li>
 
