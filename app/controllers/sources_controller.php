@@ -10,6 +10,7 @@ class SourcesController extends ApplicationController{
 		$filename = dirname(__FILE__)."/../../$file";
 
 		$sanitized_file = $file;
+		$sanitized_file = str_replace("\0","",$sanitized_file);
 		$sanitized_file = preg_replace('/(\.\.|\/\/|\s|\.\/|\/\.)/','',$sanitized_file);
 		$sanitized_file = preg_replace('/^(\/|\.)/','',$sanitized_file);
 
