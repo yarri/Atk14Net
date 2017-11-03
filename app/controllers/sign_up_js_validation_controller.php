@@ -15,7 +15,7 @@ class SignUpJsValidationController extends ApplicationController{
 	}
 
 	function check_login_availability(){
-		$this->response->write(User::GetInstanceByLogin($this->params->getString("login")) ? "false" : "true");
+		$this->response->write(User::FindByLogin($this->params->getString("login")) ? "false" : "true");
 		$this->render_template = false;
 	}
 }

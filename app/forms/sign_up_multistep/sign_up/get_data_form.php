@@ -1,7 +1,7 @@
 <?php
 class GetDataForm extends ApplicationForm{
 	function set_up(){
-		$this->add_field("login",new CharField(array(
+		$this->add_field("login",new LoginField(array(
 			"title" => _("Desired username"),
 			"min_length" => 2,
 		)));
@@ -24,7 +24,7 @@ class GetDataForm extends ApplicationForm{
 	function clean(){
 		$d = &$this->cleaned_data;
 
-		if(isset($d["login"]) && User::GetInstanceByLogin($d["login"])){
+		if(isset($d["login"]) && User::FindByLogin($d["login"])){
 			$this->set_error("login",_("The given username has already been taken"));
 		}
 

@@ -18,10 +18,14 @@
 
 <ul>
 	<li>
-		<h4>{a controller=books}Typical CRUD controller{/a}</h4>
+		<h4>CRUD operations</h4>
 		<p>
-			A typical example of displaying (with sorting) / creating / editing / destroying records in a record set
+			A typical examples of CRUD (create, read, update and delete) controllers
 		</p>
+		<ul>
+			<li>{a controller=books}Books{/a}</li>
+			<li>{a controller=articles}Articles{/a}</li>
+		</ul>
 	</li>
 
 	<li>
@@ -69,4 +73,3 @@
 	</li>
 
 </ul>
-

@@ -3,9 +3,7 @@ CREATE TABLE users(
 	id INT PRIMARY KEY DEFAULT NEXTVAL('seq_users'),
 	login VARCHAR(255) NOT NULL UNIQUE,
 	password VARCHAR(255),
-	name VARCHAR(255) NOT NULL,
-	email VARCHAR(255) NOT NULL,
-	is_admin CHAR(1) NOT NULL DEFAULT 'N' CHECK(is_admin IN ('Y','N')),
+	name VARCHAR(255),
+	email VARCHAR(255),
 	created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
-

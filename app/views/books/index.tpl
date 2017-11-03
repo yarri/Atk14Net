@@ -1,6 +1,6 @@
 <h1 class="page-header">
 	{$page_title}
-	{a action=create_new _class="btn btn-primary"}Create new entry{/a}
+	{a action=create_new _class="btn btn-primary pull-right"}Create new book entry{/a}
 </h1>
 
 {form _class="form-inline"}
@@ -15,7 +15,7 @@
 
 {if $finder}
 	{if $finder->isEmpty()}
-		<p class="alert alert-info">Your search did not match any books.</p>
+		<p>Your search did not match any books.</p>
 	{else}
 		<table class="table">
 			<thead>

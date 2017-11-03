@@ -1,7 +1,8 @@
 <?php
 class TcUser extends TcBase{
+
 	function test_get_instance_by_login(){
-		$this->assertNull(User::GetInstanceByLogin("unit_testing_user"));
+		$this->assertNull(User::FindByLogin("unit_testing_user"));
 
 		$new_user = User::CreateNewRecord(array(
 			"login" => "unit_testing_user",
@@ -10,7 +11,7 @@ class TcUser extends TcBase{
 			"email" => "unit@testing.com",
 		));
 
-		$this->assertTrue(is_object($user = User::GetInstanceByLogin("unit_testing_user")));
+		$this->assertTrue(is_object($user = User::FindByLogin("unit_testing_user")));
 		$this->assertEquals($new_user->getId(),$user->getId());
 	}
 }

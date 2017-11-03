@@ -24,6 +24,9 @@
  *   validation.
  * - $class: String with optional html classes taken from {render} helper.
  *   Example: {render partial="shared/form_field" class="my-class another-class"}
+ * - $addon: String with optional html "input-group-addon" taken from {render} helper.
+ *   More info: http://getbootstrap.com/components/#input-groups
+ *   Example: {render partial="shared/form_field" addon="<span class='icon-example'></span>"}
  *}
 
 {if $field}
@@ -37,29 +40,51 @@
 
 	{assign var=is_checkbox value=$field->widget->input_type=="checkbox"}
 
+	{capture assign=errors}
+		{if $field->errors()}
+			<ul class="help-block">
+				{foreach from=$field->errors() item=err_item}
+					<li>{!$err_item}</li>
+				{/foreach}
+			</ul>
+		{/if}
+	{/capture}
+
+	{capture assign=help_text}
+		{if $field->help_text}
+			<div class="help-block">{!$field->help_text}</div>
+		{/if}
+	{/capture}
+
 	{if $is_checkbox}
-		<div class="checkbox">
+		{* TODO: this needs to be refactored *}
+		<div class="checkbox form-group{if $field->required} form-group-required{/if}{if $field->errors() || $class} {trim}{if $field->errors()} has-error{/if}{if $class} {$class}{/if}{/trim}{/if}">
 			<label for="{$field->id_for_label()}">
 				{!$field->as_widget()} {$field->label}
 			</label>
+
+			{!$help_text}
+
+			{!$errors}
 		</div>
 	{else}
 		<div class="form-group{if $field->required} form-group-required{/if}{if $field->errors() || $class} {trim}{if $field->errors()} has-error{/if}{if $class} {$class}{/if}{/trim}{/if}">
 
 			<label for="{$field->id_for_label()}" class="control-label">{$field->label}</label>
-			{!$field->as_widget()}
-
-			{if $field->help_text}
-				<div class="help-block">{!$field->help_text}</div>
+			{if $addon}
+				<div class="input-group">
+					<div class="input-group-addon">
+						{!$addon}
+					</div>
+					{!$field->as_widget()}
+				</div>
+			{else}
+				{!$field->as_widget()}
 			{/if}
 
-			{if $field->errors()}
-				<ul class="help-block">
-					{foreach from=$field->errors() item=err_item}
-						<li>{!$err_item}</li>
-					{/foreach}
-				</ul>
-			{/if}
+			{!$help_text}
+
+			{!$errors}
 
 			{if $field->hints && !$field->hint_in_placeholder}
 				<div class="help-hint hidden" data-title="{t}Examples:{/t}">
