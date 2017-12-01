@@ -14,7 +14,6 @@ class ApiController extends ApplicationRestApiController{
 			"login" => $user->getLogin(),
 			"name" => $user->getName(),
 			"email" => $user->getEmail(),
-			"is_admin" => $user->isAdmin()
 		) : array();
 	}
 
