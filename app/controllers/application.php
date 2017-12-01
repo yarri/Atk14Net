@@ -2,7 +2,7 @@
 class ApplicationController extends Atk14Controller{
 
 	/**
-	 * @var Navigation
+	 * @var Menu14
 	 */
 	var $breadcrumbs;
 
@@ -26,7 +26,7 @@ class ApplicationController extends Atk14Controller{
 	function _application_before_filter(){
 		$this->user = User::GetInstanceById($this->session->g("user_id"));
 
-		$this->breadcrumbs = new Navigation();
+		$this->breadcrumbs = new Menu14();
 		$this->breadcrumbs[] = array("Home",$this->_link_to(array("namespace" => "", "action" => "main/index")));
 	}
 
