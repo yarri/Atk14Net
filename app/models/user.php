@@ -2,6 +2,21 @@
 class User extends ApplicationModel{
 
 	/**
+	 * Returns user when a correct combination of login and password is given.
+	 * 
+	 * $user = User::Login("rambo","secret"); // returns user when login and password are correct
+	 */
+	static function Login($login,$password,&$bad_password = false){
+		$bad_password = false;
+	  $user = User::FindByLogin($login);
+		if(!$user){ return; }
+	  if($user->isPasswordCorrect($password)){
+			return $user;
+		}
+		$bad_password = true;
+	}
+
+	/**
 	 * During a new user creation it provides transparent password hashing when it's needed
 	 *
 	 *		$user = User::CreateNewRecord(array(
@@ -27,19 +42,10 @@ class User extends ApplicationModel{
 		}
 		return parent::setValues($values,$options);
 	}
-	
-	/**
-	 * Returns user when a correct combination of login and password is given.
-	 *
-	 *		$user = User::Login("rambo","secret123");
-	 */
-	static function Login($login,$password){
-		$user = User::FindByLogin($login);
-		if(!$user){ return; }
-		if(MyBlowfish::CheckPassword($password,$user->getPassword())){
-			return $user;
-		}
-	}
 
+	function isPasswordCorrect($password){
+		return MyBlowfish::CheckPassword($password,$this->getPassword());
+	}
+	
 	function toString(){ return $this->getName(); }
 }

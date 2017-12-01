@@ -1,5 +1,6 @@
 <?php
 class LoginsController extends ApiController{
+
 	var $api_root_element = "user"; // by default it was "login"
 
 	/**
