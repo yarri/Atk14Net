@@ -11,6 +11,7 @@ class UsersController extends ApiController {
 
 			if(User::FindByLogin($d["login"])){
 				$this->_report_fail("The login has been already taken",409); // HTTP 409 Conflict
+				return;
 			}
 
 			unset($d["format"]);
