@@ -9,10 +9,10 @@
 
 production:
   url: "http://www.atk14.net/"
-  server: "kajka"                                                           # we are deploying on this server
+  server: "cloudkicker.plovarna.cz"                                         # we are deploying on this server
   user: "devel"                                                             # we are deploying as this user
-  directory: "/home/devel/apps/www.atk14.net/production/"                   # in this directory is this application installed on the server
-  deploy_repository: "devel@kajka:apps/www.atk14.net/repos/production.git"  # this is the URL of deployment git repository with a proper post-receive hook
+  directory: "/home/{{user}}/apps/www.atk14.net/production/"                # in this directory is this application installed on the server
+  deploy_repository: "{{user}}@{{server}}:apps/www.atk14.net/repos/production.git"  # this is the URL of deployment git repository with a proper post-receive hook
   before_deploy:
   - "@local composer update"
   - "@local bower update"
