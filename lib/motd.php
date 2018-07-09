@@ -164,6 +164,7 @@ class Motd {
 			ATK14? Absolutely stunning!
 			ATK14? I'm so ready!
 			ATK14? It is touching on something very deep... too deep to explain with words!
+			ATK14? It's kind of weird but perfectly ok!
 		"));
 		return trim($mods[floor($time/(60*60*24))%sizeof($mods)]);
 	}
