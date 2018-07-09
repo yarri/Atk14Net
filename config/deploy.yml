@@ -14,7 +14,7 @@ production:
   directory: "/home/{{user}}/apps/www.atk14.net/production/"                # in this directory is this application installed on the server
   deploy_repository: "{{user}}@{{server}}:apps/www.atk14.net/repos/production.git"  # this is the URL of deployment git repository with a proper post-receive hook
   before_deploy:
-  - "@local composer update"
+  - "@local composer update --dev"
   - "@local bower update"
   - "@local gulp"
   rsync: 
