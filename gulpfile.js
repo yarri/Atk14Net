@@ -12,7 +12,7 @@ var vendorScripts = [
 	"bower_components/jquery-file-upload/js/jquery.fileupload.js",
 	"bower_components/bootstrap/dist/js/bootstrap.js",
 	"bower_components/bootbox/bootbox.js",
-	"bower_components/atk14js/src/atk14.js"
+	"node_modules/atk14js/src/atk14.js"
 ];
 
 var applicationScripts = [
@@ -88,6 +88,8 @@ gulp.task( "copy", function() {
 		.pipe( gulp.dest( "public/dist/fonts" ) );
 	gulp.src( "public/images/*" )
 		.pipe( gulp.dest( "public/dist/images" ) );
+	gulp.src( "node_modules/atk14js/src/atk14.js" )
+		.pipe( gulp.dest( "public/dist/scripts" ) );
 } );
 
 // Clean
