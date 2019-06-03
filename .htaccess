@@ -1,8 +1,11 @@
 RewriteEngine On
 
-<IfModule mod_headers.c>
-	Header set Access-Control-Allow-Origin "*"
-</IfModule>
+# adding an extra header to http://www.atk14.net/public/dist/scripts/atk14.js
+<FilesMatch "atk14\.js$">
+	<IfModule mod_headers.c>
+		Header set Access-Control-Allow-Origin "*"
+	</IfModule>
+</FilesMatch>
 
 # silent redirecting /crossdomain.xml -> /public/crossdomain.xml; control file for flash player, acrobat reader and other adobe`s products
 RewriteCond %{REQUEST_URI} ^\/crossdomain.xml(|\?.*)$
