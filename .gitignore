@@ -9,3 +9,4 @@ node_modules
 public/dist
 vendor/*
 composer.lock
+package-lock.json
