@@ -37,6 +37,9 @@ class RemoteTestsController extends ApplicationController{
 	 * Checks for existence of stale locks from robots
 	 */
 	function stale_locks(){
+		if(!file_exists(LOCK_DIR)){
+			return;
+		}
 		$this->_check_for_files(LOCK_DIR,array(
 			"max_mtime" => time() - 20 * 60, // older than 20 minutes
 			"invert_pattern" => '/(README|\.gitkeep)/'
