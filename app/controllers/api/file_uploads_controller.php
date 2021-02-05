@@ -9,9 +9,9 @@ class FileUploadsController extends ApiController {
 			$file = $d["file"];
 			$this->api_data = [
 				"filename" => $file->getFilename(),
+				"filesize" => $file->getFilesize(),
 				"mime_type" => $file->getMimeType(),
 				"md5sum" => md5_file($file->getTmpFilename()),
-				
 			];
 		}
 	}
