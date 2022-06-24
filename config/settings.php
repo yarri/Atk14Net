@@ -20,6 +20,9 @@ define("ATK14_ADMIN_EMAIL","tomek@snapps.eu");
 // We do not want to send e-mails from The Demo Application
 define("SENDMAIL_DO_NOT_SEND_MAILS",true);
 
+// Use Bootstrap 4
+define( "USING_BOOTSTRAP4", true );
+
 if(DEVELOPMENT){
 	// place for development environment settings
 

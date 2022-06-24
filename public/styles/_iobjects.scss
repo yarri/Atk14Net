@@ -1,0 +1,220 @@
+.iobject {
+	// At which viewport size non-full-width iobjects expand to full width
+	$iObjectWidthBreakpoint: md;
+	
+	// Default top/bottom spacing for full-width iobjects
+	$defaultVMargin: $grid-gutter-width * 2;
+	
+	// Spacing for non-full-width iobjects
+	$floatVMargin: $grid-gutter-width * 2; 
+	
+	margin: $defaultVMargin 0;
+	clear: both;
+	
+	// caption - title, description
+	.iobject__caption {
+		margin-top: 0.5rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 1px solid $border-color;
+		font-size: 0.875rem;
+		.iobject__title {
+			font-weight: 600;
+			.iobject__title__separator {
+				color: $gray-500;
+				font-weight: normal;
+			}
+		}
+		.iobject__description {
+			font-style: italic;
+		}
+	}
+	
+	&__heading {
+		@extend h3;
+	}
+
+	// layout props - placement, width 
+	
+	@include media-breakpoint-up( $iObjectWidthBreakpoint ) {
+		&--full_width {
+			width: 100%;
+		}
+		&--half_width {
+			width: 50%;
+		}
+		&--third_width {
+			width: 33.33%;
+		}
+		&--center {
+			margin: auto;
+		}
+		&--left {
+			float: left;
+			margin: 0 $floatVMargin $floatVMargin 0;
+		}
+		&--right {
+			float: right;
+			margin: 0 0 $floatVMargin $floatVMargin;
+		}
+	}
+	
+	
+	
+	// type-specific props
+	&--video {
+	}
+	&--audio {
+		audio {
+			width: 100%;
+		}
+	}
+	&--picture {
+		
+		picture {
+			display: block;
+			source {
+				line-height: 0;
+				height: 0;
+				overflow: hidden;
+			}
+			img {
+				display: block;
+			}
+		}
+
+		&-fullwidth {
+			margin: 0;
+			padding: 0;
+			figure {
+				margin: 0;
+				padding: 0;
+			}
+		}
+		
+		&-card {
+			margin-top: 0 !important;
+			background-color: white;
+			&:hover {
+				background-color: white;
+			}
+			figure {
+				margin: 0;
+				height: 100%;
+				.image-wrap {
+					display: block;
+					
+					// uncomment only if known fixed image aspect ratio is used
+					// in this case 4:3
+					/*
+					position: relative;
+					padding-top: percentage(3/4);
+					img {
+						position: absolute;
+						left: 0;
+						top: 0;
+					}
+					*/
+				}
+				figcaption.card-body {
+					background-color: transparent;
+					border-bottom: none;
+					margin: 0;
+					padding: 1.25rem;
+					.card-title {
+						margin-bottom: 0.5em;	
+					}
+					.card-text {
+						font-size: 1em;
+						font-style: normal;
+						//margin-bottom: 1em;
+					}
+				}
+			}
+		}
+		
+		
+	}
+	&--gallery {
+		section.photo-gallery {
+			margin: 0;
+		}
+	}
+	&--file {
+		border-top: 1px solid $border-color;
+		border-bottom: 1px solid $border-color;
+		& > a {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0 0.2em;
+			&:hover {
+				background-color: $border-color;
+				text-decoration: none;
+			}
+			&:focus {
+				outline: none;
+			}
+		}
+		.fileicon {
+			padding-right: 0.5em;
+			font-size: 1.5em;
+		}
+		.iobject--file__meta {
+			color: $body-color;
+			font-size: 0.75rem;
+		}
+		
+		& + & {
+			margin-top: 0-$defaultVMargin;
+			border-top: none;
+		}
+	}
+	
+	@include media-breakpoint-down(xs){
+		& > a {
+			padding-top: 0.75rem;
+			padding-bottom: 0.75rem;
+			display: block;
+			.fileicon {
+				display: block;
+			}
+			.iobject--file__meta {
+				display: block;
+			}
+		}
+	}
+}
+
+// Photoswipe shows caption extracted from figcaption tag,
+// so we must hide unwanted zoom icon in photoswipe view
+.pswp__caption {
+	.iobject--picture__link, .iobject__title__separator {
+		display: none;
+	}
+	.iobject__title {
+		font-weight: 600;
+	}
+}
+
+// Picture iObjects in a table
+// Removes excessive margins and borders
+table.table {
+	tr, tbody tr {
+		td, th {
+			.iobject--picture {
+				///outline: 1px dashed red;
+				margin: 0;
+				figure {
+					margin: 0;
+					///outline: 1px dotted blue;
+					figcaption {
+						border-bottom: none;
+						margin-bottom: 0;
+						padding-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+}
+

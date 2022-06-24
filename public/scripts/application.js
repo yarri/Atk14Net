@@ -82,6 +82,7 @@
 
 					// Regexp comes here as '/^[a-z]{1,5}$/i'
 					// It must be splitted to: pattern='^[a-z]{1,5}', modifiers='i'
+					// eslint-disable-next-line
 					var matches = regexp.match( /\/(.*)\/([^\/]*)/ ),
 						pattern = matches[ 1 ],
 						modifiers = matches[ 2 ],
