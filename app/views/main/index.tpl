@@ -1,5 +1,5 @@
 <div id="mascot">
-	<img src="{$public}images/atk14.png" alt="ATK14 Birdie" title="this is the official ATK14 mascot">
+	<svg class="atk14mascot" style="width: 330px; height:330px"><use xlink:href="#atk14-mascot"></use></svg>
 	<blockquote><span title="this is what the official ATK14 mascot is saying today">{$mod}<sup>*</sup></span></blockquote>
 
 	<p>

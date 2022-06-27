@@ -71,6 +71,8 @@
 			{render partial="shared/documentation"}
 		</div>
 
+		{render partial="shared/atk14mascot"}
+
 		{javascript_script_tag file="$public/dist/scripts/vendor.min.js"}
 		{javascript_script_tag file="$public/dist/scripts/application.min.js"}
 

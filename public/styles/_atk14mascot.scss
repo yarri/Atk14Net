@@ -1,0 +1,14 @@
+svg.atk14mascot {
+  width: 100px;
+  fill: black;
+  aspect-ratio: 1;
+  path.atk14mascot {
+    fill: inherit;
+  }
+  &--white {
+    fill: white;
+  }
+  &--red {
+    fill: red;
+  }
+}

@@ -5,8 +5,18 @@ ol.breadcrumb {
 }
 
 .header-main {
+	padding-top: 0;
 	h1, .h1 {
 		font-size: 1.5rem;
 		font-weight: bold;
+	}
+	.navbar-brand {
+		padding: 0;
+		display: flex;
+		align-items: center;
+		svg {
+			width: 36px;
+			height: 36px;
+		}
 	}
 }
