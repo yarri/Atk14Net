@@ -21,7 +21,7 @@
 				</li>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="https://github.com/atk14/Atk14">Source on Github <span class="glyphicon glyphicon-new-window"></span></a>
+					<a class="nav-link" href="https://github.com/atk14/Atk14">Source on Github {!"github"|icon} <span class="glyphicon glyphicon-new-window"></span></a>
 				</li>
 				</li>
 				<li class="nav-item">
