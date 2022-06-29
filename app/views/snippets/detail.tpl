@@ -1,4 +1,4 @@
-<div id="snippet">
+<div id="snippet" class="snippet">
 	{render partial=detail}
 </div>
 
