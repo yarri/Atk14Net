@@ -63,13 +63,18 @@
 }
 
 // Code
-.fileicon-html, .fileicon-htm, .fileicon-js, .fileicon-css, .fileicon-scss, .fileicon-less, .fileicon-php, .fileicon-js {
+.fileicon-html, .fileicon-htm, .fileicon-js, .fileicon-css, .fileicon-scss, .fileicon-less, .fileicon-php, .fileicon-js, .fileicon-tpl {
 	&:before {
 		font-weight: 900;
-		content: "\f1c3";
+		content: "\f1c9";
 	}
 	&.fileicon-color:before {
 		color: darkorange;
+	}
+}
+.fileicon-php {
+	&.fileicon-color:before {
+		color: #787CB5;
 	}
 }
 
