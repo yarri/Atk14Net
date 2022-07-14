@@ -58,6 +58,7 @@
 	<body class="body_{$controller}_{$action}" data-controller="{$controller}" data-action="{$action}">
 		{render partial="shared/layout/header"}
 
+		{placeholder for="before_container"}
 
 		<div class="container">
 			<div class="main" role="main">

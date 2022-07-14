@@ -12,3 +12,46 @@ svg.atk14mascot {
     fill: red;
   }
 }
+
+.mascot-large {
+  min-height: 330px;
+  margin-top: -2 * $grid-gutter-width;
+  margin-bottom: 2 * $grid-gutter-width;
+  padding: $grid-gutter-width 0;
+  background-image: url(/public/dist/images/mascot-large-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100vw 100%;
+  #mascot {
+    position: relative;
+    display: flex;
+    align-items: center;
+    blockquote {
+      position: relative;
+      outline: 2px solid black;
+      background-color: white;
+      padding: $grid-gutter-width/2;
+      font-size: 1.25em;
+      &::before {
+        position: absolute;
+        content: " ";
+        display: block;
+        width: 80px;
+        height: 48px;
+        background-image: url(/public/dist/images/bubble-talk.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        left: -78px;
+        top: 0px;
+      }
+    }
+    p.footnote {
+      justify-self: flex-end;
+      align-self: flex-end;
+      text-align: right;
+      flex-grow: 10;
+      font-size: $font-size-sm;
+    }
+  }
+
+}

@@ -1,11 +1,18 @@
-<div id="mascot">
-	<svg class="atk14mascot" style="width: 330px; height:330px"><use xlink:href="#atk14-mascot"></use></svg>
-	<blockquote><span title="this is what the official ATK14 mascot is saying today">{$mod}<sup>*</sup></span></blockquote>
+{content for="before_container"}
+<div class="mascot-large">
+	<div class="container">
+		<div id="mascot">
+			<svg class="atk14mascot" style="width: 330px; height:330px"><use xlink:href="#atk14-mascot"></use></svg>
+			<blockquote><span title="this is what the official ATK14 mascot is saying today">{$mod}<sup>*</sup></span></blockquote>
 
-	<p>
-		<sup>*</sup> <span title="this is true">The official ATK14 mascot rulez!</span>
-	</p>
+			<p class="footnote">
+				<sup>*</sup> <span title="this is true">The official ATK14 mascot rulez!</span>
+			</p>
+		</div>
+	</div>
 </div>
+{/content}
+
 
 
 <h2>Code Snippet</h2>
