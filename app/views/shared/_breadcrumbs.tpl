@@ -1,6 +1,6 @@
 <ol class="breadcrumb">
 	{foreach $breadcrumbs as $breadcrumb}
-		<li>
+		<li class="breadcrumb-item">
 			{if $breadcrumb->getUrl() && !$breadcrumb@last}
 				<a href="{$breadcrumb->getUrl()}">{$breadcrumb->getTitle()}</a>
 			{else}
@@ -8,4 +8,4 @@
 			{/if}
 		</li>
 	{/foreach}
-</ol>		
+</ol>
