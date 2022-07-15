@@ -45,13 +45,23 @@ svg.atk14mascot {
         top: 0px;
       }
     }
-    p.footnote {
-      justify-self: flex-end;
-      align-self: flex-end;
-      text-align: right;
-      flex-grow: 10;
-      font-size: $font-size-sm;
+    @include media-breakpoint-down(sm) {
+      display: block;
+      blockquote {
+        &::before {
+          top: -63px;
+          left: 10px;
+          transform: rotateZ(90deg);
+        }
+      }
+      svg {
+        max-width: 100%;
+        height: auto;
+      }
     }
   }
-
+  p.footnote {
+      text-align: right;
+      font-size: $font-size-sm;
+    }
 }

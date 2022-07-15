@@ -60,7 +60,7 @@
 
 		{placeholder for="before_container"}
 
-		<div class="container">
+		<div class="container-fluid">
 			<div class="main" role="main">
 				{if $breadcrumbs && sizeof($breadcrumbs)>=2} {* It makes no sense to display breadcrumbs with just 1 or no element *}
 					{render partial="shared/breadcrumbs"}

@@ -4,6 +4,11 @@
   background-color: $gray-100;
   padding: $grid-gutter-width;
   margin-bottom: $grid-gutter-width;
+  @include media-breakpoint-down(sm){
+    margin-left: $grid-gutter-width/-4;
+    margin-right: $grid-gutter-width/-4;
+    padding: $grid-gutter-width/4;
+  }
   
   &__content-container {
     position: relative;
