@@ -1,7 +1,7 @@
 <header class="header-main">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
-		<a class="navbar-brand" href="#"><svg class="atk14mascot atk14mascot--white"><use xlink:href="#atk14-mascot"></use></svg>{a controller=main action=index _title="for fearless guys only" _class="navbar-brand"}ATK14 Home{/a}</a>
+			{a controller=main action=index _title="for fearless guys only" _class="navbar-brand"}<svg class="atk14mascot atk14mascot--white mr-3"><use xlink:href="#atk14-mascot"></use></svg>ATK14 Home{/a}
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
