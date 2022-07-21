@@ -53,6 +53,9 @@
 			{javascript_script_tag file="$public/dist/scripts/html5shiv.min.js"}
 			{javascript_script_tag file="$public/dist/scripts/respond.min.js"}
 		<![endif]-->
+
+		{render partial="shared/layout/favicons"}
+		
 	</head>
 
 	<body class="body_{$controller}_{$action}" data-controller="{$controller}" data-action="{$action}">
