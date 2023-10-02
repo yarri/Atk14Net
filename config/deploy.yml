@@ -15,7 +15,7 @@ production:
   deploy_repository: "{{user}}@{{server}}:apps/www.atk14.net/repos/production.git"  # this is the URL of deployment git repository with a proper post-receive hook
   before_deploy:
   - "@local composer update --dev"
-  - "@local bower update"
+  - "@local NODE_OPTIONS=--use-openssl-ca bower update"
   - "@local gulp"
   rsync: 
   - "public/dist/"
