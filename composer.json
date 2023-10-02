@@ -9,6 +9,5 @@
         "atk14/menu14": "^1.2"
     },
     "require-dev": {
-        "phpdocumentor/phpdocumentor": "^2.9"
     }
 }
