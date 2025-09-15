@@ -1,5 +1,6 @@
 <?php
 class LinksController extends ApplicationController{
+
 	function index(){
 		$this->page_title = "Examples of building links";
 

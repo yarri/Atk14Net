@@ -6,7 +6,7 @@
         "easybook/geshi": "1.0.8.*",
         "michelf/php-markdown": "^1.7",
         "yarri/my-blowfish": "dev-master",
-        "atk14/menu14": "^1.2"
+        "atk14/menu14": "^1.5|^2.0"
     },
     "require-dev": {
     }

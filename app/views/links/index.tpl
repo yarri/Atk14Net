@@ -15,6 +15,10 @@
 
 <h2>POST links</h2>
 <ul>
-	<li>{a action=some_post_action _method=post}Post link{/a}</li>
-	<li>{a action=some_post_action _method=post _confirm="Are you sure to do this?"}Post link with a confirmation{/a}</li>
+	<li>{a action=some_post_action p1=1 _method=post}Post link{/a}</li>
+	<li>{a action=some_post_action p2=2 _method=delete}Delete link{/a}</li>
+	<li>{a action=some_post_action p3=3 _method=get}Get link{/a}</li>
+	<li>{a action=some_post_action p4=4 _method=get _confirm="Are you sure?"}Get link + confirm{/a}</li>
+	<li>{a action=some_post_action p5=5 _method=post _confirm="Are you sure to do this?"}Post link with a confirmation{/a}</li>
+	<li>{a action=some_post_action p6=6 _confirm="Are you sure to do this?"}Simple get + confirm{/a}</li>
 </ul>
